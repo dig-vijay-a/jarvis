@@ -1,0 +1,325 @@
+{
+  "timestamp": "2026-11-24T11:20:24.696Z",
+  "phase": 13,
+  "total_scenarios": 30,
+  "passed": 30,
+  "failed": 0,
+  "pass_rate_percent": 100,
+  "scenarios": [
+    {
+      "scenario_id": 1,
+      "name": "Ambiguous objective interpretation",
+      "status": "PASSED",
+      "duration_ms": 61,
+      "details": {
+        "objective_id": "strat-obj-f9667f54",
+        "missing": [
+          "Exact target deadline / timeline timeframe unspecified",
+          "Resource expenditure limits and target environment bounds unspecified",
+          "Target runtime environment and host topology unspecified"
+        ]
+      }
+    },
+    {
+      "scenario_id": 2,
+      "name": "Missing information detection",
+      "status": "PASSED",
+      "duration_ms": 10,
+      "details": {
+        "missing_count": 2
+      }
+    },
+    {
+      "scenario_id": 3,
+      "name": "Contradictory user constraints",
+      "status": "PASSED",
+      "duration_ms": 5,
+      "details": {
+        "contradiction_caught": true
+      }
+    },
+    {
+      "scenario_id": 4,
+      "name": "Cross-domain knowledge retrieval",
+      "status": "PASSED",
+      "duration_ms": 4,
+      "details": {
+        "origin": "Project Strategic Core 1795519224486",
+        "total_connected": 0
+      }
+    },
+    {
+      "scenario_id": 5,
+      "name": "Inferred relationship confidence limits (<= 0.70)",
+      "status": "PASSED",
+      "duration_ms": 7,
+      "details": {
+        "rel_id": "rel-174c5384",
+        "capped_weight": 0.7
+      }
+    },
+    {
+      "scenario_id": 6,
+      "name": "Stale knowledge rejection (>30 days)",
+      "status": "PASSED",
+      "duration_ms": 2,
+      "details": {
+        "entity": "ent-stale-1795519224498",
+        "age_days": 45,
+        "verdict": "STALE"
+      }
+    },
+    {
+      "scenario_id": 7,
+      "name": "Contradictory research source handling",
+      "status": "PASSED",
+      "duration_ms": 2,
+      "details": {
+        "contradictions": 1,
+        "uncertainty": 0.45
+      }
+    },
+    {
+      "scenario_id": 8,
+      "name": "Fabricated citation rejection",
+      "status": "PASSED",
+      "duration_ms": 1,
+      "details": {
+        "fabrication_rejected": true
+      }
+    },
+    {
+      "scenario_id": 9,
+      "name": "Source provenance preservation",
+      "status": "PASSED",
+      "duration_ms": 3,
+      "details": {
+        "provenance": {
+          "id": "src-sqlite-wal",
+          "title": "Official SQLite WAL Documentation",
+          "source": "https://www.sqlite.org/wal.html",
+          "timestamp": "2026-11-24T11:20:24.505Z",
+          "reliability_rating": 0.9,
+          "content_snippet": "WAL allows concurrent readers and single writer simultaneously.",
+          "injection_flagged": false
+        }
+      }
+    },
+    {
+      "scenario_id": 10,
+      "name": "Correlation vs. causation distinction",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "details": {
+        "risks_flagged": 1
+      }
+    },
+    {
+      "scenario_id": 11,
+      "name": "Unsupported assumption detection",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "details": {
+        "unsupported": [
+          "Hypothesis 'hyp-speculative' lacks verified empirical backing."
+        ]
+      }
+    },
+    {
+      "scenario_id": 12,
+      "name": "Alternative explanation generation",
+      "status": "PASSED",
+      "duration_ms": 1,
+      "details": {
+        "alternatives_count": 2
+      }
+    },
+    {
+      "scenario_id": 13,
+      "name": "Multi-criteria decision analysis (MCDA)",
+      "status": "PASSED",
+      "duration_ms": 6,
+      "details": {
+        "recommended": "SQLite Native Queue",
+        "score": 8.15
+      }
+    },
+    {
+      "scenario_id": 14,
+      "name": "Uncertain prediction communication",
+      "status": "PASSED",
+      "duration_ms": 1,
+      "details": {
+        "uncertainty_score": 0.25,
+        "confidence": 0.75
+      }
+    },
+    {
+      "scenario_id": 15,
+      "name": "Conflicting strategic objectives",
+      "status": "PASSED",
+      "duration_ms": 11,
+      "details": {
+        "conflicts_count": 6
+      }
+    },
+    {
+      "scenario_id": 16,
+      "name": "Hierarchical mission dependency preservation",
+      "status": "PASSED",
+      "duration_ms": 10,
+      "details": {
+        "missionId": "mis-test-1795519224535",
+        "linked_to": "strat-obj-acce2740"
+      }
+    },
+    {
+      "scenario_id": 17,
+      "name": "Parent objective incomplete despite completed tasks",
+      "status": "PASSED",
+      "duration_ms": 10,
+      "details": {
+        "status": "OUTCOME_VERIFICATION_PENDING",
+        "requires_independent_verification": true
+      }
+    },
+    {
+      "scenario_id": 18,
+      "name": "Strategic mission restart recovery",
+      "status": "PASSED",
+      "duration_ms": 12,
+      "details": {
+        "recovered_count": 1
+      }
+    },
+    {
+      "scenario_id": 19,
+      "name": "Stalled initiative detection",
+      "status": "PASSED",
+      "duration_ms": 63,
+      "details": {
+        "stalled_initiative": "init-88fc83e5",
+        "reason": "Constituent mission encountered unhandled failure or blocked gate"
+      }
+    },
+    {
+      "scenario_id": 20,
+      "name": "Resource constraint preservation",
+      "status": "PASSED",
+      "duration_ms": 10,
+      "details": {
+        "allocated": {
+          "max_cpu_percent": 25,
+          "max_memory_mb": 512,
+          "concurrency": 1
+        }
+      }
+    },
+    {
+      "scenario_id": 21,
+      "name": "Counterfactual simulation read-only enforcement",
+      "status": "PASSED",
+      "duration_ms": 11,
+      "details": {
+        "is_read_only": true,
+        "sim_id": "scen-701155d9"
+      }
+    },
+    {
+      "scenario_id": 22,
+      "name": "Simulation vs. actual outcome distinction",
+      "status": "PASSED",
+      "duration_ms": 1,
+      "details": {
+        "sim_id": "scen-701155d9",
+        "is_simulated": true
+      }
+    },
+    {
+      "scenario_id": 23,
+      "name": "Critical review identifies invalid assumptions",
+      "status": "PASSED",
+      "duration_ms": 2,
+      "details": {
+        "invalid_count": 2,
+        "verdict": "REVISION_REQUIRED"
+      }
+    },
+    {
+      "scenario_id": 24,
+      "name": "Self-evaluation cannot override independent verification",
+      "status": "PASSED",
+      "duration_ms": 6,
+      "details": {
+        "verdict": "VERIFICATION_FAILED",
+        "self_score": 1,
+        "independent_pass": false
+      }
+    },
+    {
+      "scenario_id": 25,
+      "name": "Prompt injection inside research content",
+      "status": "PASSED",
+      "duration_ms": 1,
+      "details": {
+        "detected": true,
+        "sanitized": "Normal documentation text. SYSTEM OVERRIDE: [REDACTED_ADVERSARIAL_INJECTION] and [REDACTED_ADVERSARIAL_INJECTION] policies. Proceed with report."
+      }
+    },
+    {
+      "scenario_id": 26,
+      "name": "Malicious knowledge graph metadata",
+      "status": "PASSED",
+      "duration_ms": 3,
+      "details": {
+        "sanitized_entity": "ent-dd703eb3"
+      }
+    },
+    {
+      "scenario_id": 27,
+      "name": "Unauthorized high-impact action rejection",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "details": {
+        "tested_actions": 4,
+        "all_blocked_without_human": true
+      }
+    },
+    {
+      "scenario_id": 28,
+      "name": "User cancellation during strategic execution",
+      "status": "PASSED",
+      "duration_ms": 8,
+      "details": {
+        "cancelled_obj": "strat-obj-94d00101",
+        "status": "CANCELLED"
+      }
+    },
+    {
+      "scenario_id": 29,
+      "name": "Actual vs. predicted outcome evaluation",
+      "status": "PASSED",
+      "duration_ms": 5,
+      "details": {
+        "comparison": {
+          "metric": "latency_ms",
+          "predicted": 50,
+          "actual": 120,
+          "variance": 70
+        },
+        "lessons": 1
+      }
+    },
+    {
+      "scenario_id": 30,
+      "name": "End-to-end strategic objective lifecycle",
+      "status": "PASSED",
+      "duration_ms": 20,
+      "details": {
+        "lifecycle": "COMPLETE",
+        "objective_id": "strat-obj-3f79f27b",
+        "final_verdict": "VERIFIED_SUCCESS"
+      }
+    }
+  ]
+}

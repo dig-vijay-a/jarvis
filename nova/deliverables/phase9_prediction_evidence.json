@@ -1,0 +1,338 @@
+{
+  "test_run_timestamp": "2026-11-24T05:16:39.233Z",
+  "total_tests": 22,
+  "passed_tests": 22,
+  "pass_rate": "100.0%",
+  "evidence_records": [
+    {
+      "id": "PAT-01",
+      "name": "Genuine Recurring Pattern Discovery (N >= 3)",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.389Z",
+      "details": {
+        "observation_count": 36,
+        "confidence": 0.947,
+        "pattern_id": "pat-6c2b08d8-ef58-47bb-8596-29a82c2b484a"
+      }
+    },
+    {
+      "id": "PAT-02",
+      "name": "Coincidence Filtering Restraint (N < 3 rejected)",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.410Z",
+      "details": {
+        "isolated_occurrence_suppressed": true,
+        "threshold_required": 3
+      }
+    },
+    {
+      "id": "PAT-03",
+      "name": "Failure Cluster Recognition",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.432Z",
+      "details": {
+        "tool": "manage_desktop_window",
+        "failure_count": 40,
+        "confidence": 0.95
+      }
+    },
+    {
+      "id": "PAT-04",
+      "name": "Environmental Correlation Pattern Discovery",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.454Z",
+      "details": {
+        "trigger": "FILE_WATCHER_CHANGE",
+        "confidence": 0.92,
+        "count": 39
+      }
+    },
+    {
+      "id": "PAT-05",
+      "name": "Temporal Rhythm Classification",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.455Z",
+      "details": {
+        "time_patterns_evaluated": 11,
+        "analyzed_successfully": true
+      }
+    },
+    {
+      "id": "GOAL-01",
+      "name": "Impending Deadline Pressure Forecasting",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.529Z",
+      "details": {
+        "risk_level": "HIGH",
+        "risk_probability": 0.717,
+        "confidence_interval": {
+          "lower_bound": 0.637,
+          "upper_bound": 0.797
+        },
+        "risk_factors": 1
+      }
+    },
+    {
+      "id": "GOAL-02",
+      "name": "Lack of Evidence Restraint & Conservative Bounds",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.606Z",
+      "details": {
+        "risk_level": "LOW",
+        "risk_probability": 0.127,
+        "is_conservative": true
+      }
+    },
+    {
+      "id": "GOAL-03",
+      "name": "Dependency Bottleneck Risk Propagation",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.670Z",
+      "details": {
+        "risk_level": "HIGH",
+        "risk_probability": 0.691,
+        "factors": [
+          "DEPENDENCY_BOTTLENECK",
+          "APPROVAL_GATEWAY_IDLE"
+        ]
+      }
+    },
+    {
+      "id": "GOAL-04",
+      "name": "Probabilistic Language & Uncertainty Bounds",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.734Z",
+      "details": {
+        "evaluations_verified": 30,
+        "probabilistic_bounds_present": true
+      }
+    },
+    {
+      "id": "RES-01",
+      "name": "Linear Regression Disk Exhaustion Forecasting",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.741Z",
+      "details": {
+        "slope_gb_per_sample": -10,
+        "hours_to_exhaustion": 0.2,
+        "is_depleting": true
+      }
+    },
+    {
+      "id": "RES-02",
+      "name": "CPU Spike vs Sustained Load Filter (EMA Smoothing)",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.741Z",
+      "details": {
+        "transient_spike_ema": 42,
+        "transient_sustained": false,
+        "sustained_load_ema": 77,
+        "sustained_pressure_confirmed": true
+      }
+    },
+    {
+      "id": "RES-03",
+      "name": "Work Queue & Memory Growth Tracking",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.743Z",
+      "details": {
+        "queue_risk": 0.1,
+        "db_growth": 0,
+        "overall_resource_risk": 0.95
+      }
+    },
+    {
+      "id": "OPP-01",
+      "name": "Workflow Automation Opportunity Detection",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.755Z",
+      "details": {
+        "total_opportunities_found": 86,
+        "types": [
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "AUTOMATION",
+          "CONSOLIDATION",
+          "CONSOLIDATION",
+          "CONSOLIDATION",
+          "PREVENTIVE_FIX",
+          "PREVENTIVE_FIX",
+          "PREVENTIVE_FIX"
+        ]
+      }
+    },
+    {
+      "id": "OPP-02",
+      "name": "Recurring Error Remediation Opportunity Detection",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.758Z",
+      "details": {
+        "found_failure_remedy": true,
+        "title": "Unresolved Failure: Tool 'execute_script'",
+        "confidence": 0.9375
+      }
+    },
+    {
+      "id": "REC-01",
+      "name": "Security Barrier: Unapproved High-Impact Execution BLOCKED",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.759Z",
+      "details": {
+        "security_rejection_caught": true,
+        "error_message": "SECURITY_REJECTION: Action is marked 'HIGH' impact / 'HIGH_RISK' risk and requires explicit user authorization before execution."
+      }
+    },
+    {
+      "id": "REC-02",
+      "name": "Feedback Learning: Acceptance Boosts Category Prior",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.764Z",
+      "details": {
+        "initial_prior": 1,
+        "boosted_prior": 1.15,
+        "ratio": "1.15"
+      }
+    },
+    {
+      "id": "REC-03",
+      "name": "Feedback Learning: Rejection Damps Category Prior",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.767Z",
+      "details": {
+        "initial_prior": 1,
+        "damped_prior": 0.8,
+        "ratio": "0.80"
+      }
+    },
+    {
+      "id": "REC-04",
+      "name": "Idempotent Recommendation Deduplication",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.775Z",
+      "details": {
+        "first_batch_created": 1,
+        "second_batch_suppressed": true
+      }
+    },
+    {
+      "id": "REC-05",
+      "name": "Expired Recommendation Invalidation (TTL Enforcement)",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.776Z",
+      "details": {
+        "final_status": "EXPIRED"
+      }
+    },
+    {
+      "id": "EVAL-01",
+      "name": "Pre-Outcome Persistence & Brier Calibration Score",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.783Z",
+      "details": {
+        "prediction_status": "CONFIRMED",
+        "brier_score": 0.3152
+      }
+    },
+    {
+      "id": "EVAL-02",
+      "name": "Prediction Drift Detection across Temporal Windows",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:38.786Z",
+      "details": {
+        "drift_detected": true,
+        "accuracy_drop": 0.605,
+        "baseline_accuracy": 0.882,
+        "recent_accuracy": 0.278
+      }
+    },
+    {
+      "id": "EVAL-03",
+      "name": "Live HTTP Dashboard Integration Endpoint Verification",
+      "passed": true,
+      "timestamp": "2026-11-24T05:16:39.233Z",
+      "details": {
+        "http_status": 200,
+        "has_predictive_payload": true,
+        "active_patterns_count": 10,
+        "recommendations_count": 6
+      }
+    }
+  ]
+}

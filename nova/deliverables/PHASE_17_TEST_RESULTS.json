@@ -1,0 +1,436 @@
+{
+  "summary": {
+    "suite": "PHASE_17_ADVANCED_PERSONAL_INTELLIGENCE",
+    "timestamp": "2026-11-27T00:03:23.526Z",
+    "model": "qwen3.5:4b",
+    "endpoint": "http://127.0.0.1:11434",
+    "total_tests": 28,
+    "passed": 28,
+    "failed": 0,
+    "pass_rate_percent": 100,
+    "prod_db_preserved": true,
+    "prod_db_sha256": "4018871d0a62bb7ff0be9c857f69517a3b406187365227e35697c47f1d84afc0"
+  },
+  "results": [
+    {
+      "id": "T01_UNIFIED_CONTEXT_CONSISTENCY",
+      "category": "Unified Context",
+      "name": "Unifies Digital Twin, Graph, Memory, Decisions, Goals, Strategic Objectives & Missions",
+      "status": "PASS",
+      "duration_ms": 46,
+      "evidence": {
+        "projects": 2,
+        "skills": 1,
+        "people": 1,
+        "graphNodes": 6
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T02_PROMPT_CONTEXT_CONSISTENCY",
+      "category": "Unified Context",
+      "name": "Formatted orchestrator context string includes confirmed facts & excludes private secrets",
+      "status": "PASS",
+      "duration_ms": 13,
+      "evidence": {
+        "chars": 538,
+        "hasOrion": true,
+        "leakedSecret": false
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T03_LOCAL_AI_CONTEXT_SYNTHESIS",
+      "category": "Unified Context",
+      "name": "qwen3.5:4b synthesizes answer grounded strictly in unified personal context",
+      "status": "PASS",
+      "duration_ms": 17483,
+      "evidence": {
+        "provider": "ollama",
+        "preview": "Project Orion uses a **distributed local-first privacy architecture** built on **PostgreSQL**."
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T04_PROVENANCE_CONFIRMED_VS_INFERRED",
+      "category": "Knowledge Intelligence",
+      "name": "Distinguishes explicit confirmed facts (conf=1.0) from inferred observations (cap<=0.70)",
+      "status": "PASS",
+      "duration_ms": 1,
+      "evidence": {
+        "confCount": 13,
+        "infCount": 1,
+        "inferredGraphCap": 0.7
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T05_SOURCE_RELIABILITY_AND_FRESHNESS",
+      "category": "Knowledge Intelligence",
+      "name": "Evaluates source reliability & distinguishes fresh vs >30-day stale graph entities",
+      "status": "PASS",
+      "duration_ms": 3,
+      "evidence": {
+        "staleVerdict": "STALE",
+        "ageDays": 45.2,
+        "relExp": 1,
+        "relInf": 0.6
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T06_CROSS_DOMAIN_GRAPH_CONNECTION",
+      "category": "Knowledge Intelligence",
+      "name": "Connects people, projects, skills, interests, and objectives with multi-hop traversal",
+      "status": "PASS",
+      "duration_ms": 13,
+      "evidence": {
+        "rels": 6,
+        "crossConnected": 4
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T07_TWIN_CONTRADICTION_DETECTION",
+      "category": "Knowledge Intelligence",
+      "name": "Detects opposing PostgreSQL vs MySQL project directives in Digital Twin",
+      "status": "PASS",
+      "duration_ms": 2,
+      "evidence": {
+        "conflictsCount": 2,
+        "sample": "Conflicting values between 'Project Orion' and 'Project Orion'"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T08_CROSS_STORE_AND_GRAPH_CONTRADICTION",
+      "category": "Knowledge Intelligence",
+      "name": "Detects contradictions between Digital Twin, Long-Term Memory & Knowledge Graph",
+      "status": "PASS",
+      "duration_ms": 7,
+      "evidence": {
+        "twin": 2,
+        "crossStore": 1,
+        "graph": 1
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T09_STALE_AND_INCORRECT_ASSUMPTIONS",
+      "category": "Knowledge Intelligence",
+      "name": "Identifies expired/past-review unconfirmed assumptions in Digital Twin",
+      "status": "PASS",
+      "duration_ms": 3,
+      "evidence": {
+        "staleCount": 1,
+        "sampleReason": "Review deadline passed"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T10_PRIVACY_TWIN_ISOLATION",
+      "category": "Privacy & Security",
+      "name": "Excludes private Digital Twin secrets from prompt & unified context",
+      "status": "PASS",
+      "duration_ms": 19,
+      "evidence": {
+        "leakedSecret": false
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T11_PRIVACY_MEMORY_ISOLATION",
+      "category": "Privacy & Security",
+      "name": "Excludes private credential memories from retrieveRelevantMemories & unified snapshot",
+      "status": "PASS",
+      "duration_ms": 18,
+      "evidence": {
+        "memHits": 6,
+        "leaked": false
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T12_STRATEGIC_GOAL_DECOMPOSITION",
+      "category": "Strategic Goals",
+      "name": "Decomposes long-term objective into milestone tasks & DEPENDS_ON graph chain",
+      "status": "PASS",
+      "duration_ms": 12,
+      "evidence": {
+        "goal_id": "goal-1795737803037-0c1bc2",
+        "title": "Launch Phase 17 Architecture",
+        "milestones_count": 3,
+        "milestones": [
+          {
+            "id": "ms-goal-1795737803037-0c1bc2-1",
+            "title": "Audit Twin Dependencies",
+            "entity_id": "ent-ms-goal-1795737803037-0c1bc2-1",
+            "order": 1
+          },
+          {
+            "id": "ms-goal-1795737803037-0c1bc2-2",
+            "title": "Finalize Unified Snapshot",
+            "entity_id": "ent-ms-goal-1795737803037-0c1bc2-2",
+            "order": 2
+          },
+          {
+            "id": "ms-goal-1795737803037-0c1bc2-3",
+            "title": "Verify Calibration Suite",
+            "entity_id": "ent-ms-goal-1795737803037-0c1bc2-3",
+            "order": 3
+          }
+        ]
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T13_GOAL_MISSING_DEPENDENCY_DETECTION",
+      "category": "Strategic Goals",
+      "name": "Detects unavailable/blocked prerequisite milestone in Knowledge Graph",
+      "status": "PASS",
+      "duration_ms": 1,
+      "evidence": {
+        "project_id": "ent-goal-1795737803037-0c1bc2",
+        "project_name": "Launch Phase 17 Architecture",
+        "has_missing_dependencies": true,
+        "missing_dependencies": [
+          {
+            "type": "DEPENDS_ON",
+            "entity_id": "ent-ms-goal-1795737803037-0c1bc2-1",
+            "name": "Audit Twin Dependencies",
+            "reason": "Prerequisite milestone 'Audit Twin Dependencies' is currently flagged unavailable/missing"
+          }
+        ],
+        "count": 1
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T14_COMPETING_PRIORITIES_AND_DEADLINES",
+      "category": "Strategic Goals",
+      "name": "Identifies competing high-priority objectives with overlapping deadlines",
+      "status": "PASS",
+      "duration_ms": 2,
+      "evidence": {
+        "competing": 1,
+        "timelineConflicts": 1
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T15_OUTCOME_VS_INTENT_TRACKING",
+      "category": "Strategic Goals",
+      "name": "Tracks actual completed milestones against intended criteria & updates progress",
+      "status": "PASS",
+      "duration_ms": 3,
+      "evidence": {
+        "beforePct": 0,
+        "afterPct": 33,
+        "missingDeps": 1
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T16_BEHAVIORAL_PATTERN_DETECTION",
+      "category": "Predictive Intelligence",
+      "name": "Discovers recurring workflow sequence & time patterns with occurrence/confidence gates",
+      "status": "PASS",
+      "duration_ms": 104,
+      "evidence": {
+        "count": 1,
+        "sample": "Sequence: search_files precedes read_file"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T17_PROJECT_DELAY_PREDICTION_AND_EVIDENCE",
+      "category": "Predictive Intelligence",
+      "name": "Predicts goal deadline risk including evidence, uncertainty interval, confidence & actions",
+      "status": "PASS",
+      "duration_ms": 4,
+      "evidence": {
+        "prob": 0.56,
+        "level": "MEDIUM",
+        "ci": {
+          "lower_bound": 0.48,
+          "upper_bound": 0.64
+        },
+        "conf": 0.925
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T18_RESOURCE_AND_AUTOMATION_PREDICTION",
+      "category": "Predictive Intelligence",
+      "name": "Detects repeated manual workflows & forecasts hardware trends",
+      "status": "PASS",
+      "duration_ms": 42,
+      "evidence": {
+        "opportunities": 2,
+        "predictions": 3
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T19_PREDICTION_CALIBRATION_AND_DRIFT",
+      "category": "Predictive Intelligence",
+      "name": "Computes Brier calibration score & drift across pre-stored predictions vs outcomes",
+      "status": "PASS",
+      "duration_ms": 16,
+      "evidence": {
+        "baselineMetrics": {
+          "has_sufficient_data": true,
+          "total_evaluations": 6,
+          "accurate_predictions": 6,
+          "prediction_accuracy": 1,
+          "brier_score": 0.0225,
+          "calibration_quality": "EXCELLENT",
+          "average_lead_time_seconds": 19800,
+          "false_positive_count": 0,
+          "false_negative_count": 0,
+          "false_positive_rate": 0,
+          "recommendation_acceptance_rate": 1,
+          "drift_evaluation": {
+            "drift_detected": false,
+            "baseline_accuracy": 1,
+            "recent_accuracy": 1,
+            "accuracy_drop": 0,
+            "drift_magnitude": 0,
+            "threshold": 0.2,
+            "assessment": "STABLE: Predictive accuracy trajectory is calibrated within acceptable variance tolerances."
+          }
+        },
+        "simulatedDriftDetected": true,
+        "driftDrop": 0.8
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T20_DECISION_INTELLIGENCE_CONSTRAINTS_AND_SIM",
+      "category": "Decision Intelligence",
+      "name": "Evaluates alternatives against Digital Twin zero-cloud constraint & simulates outcomes",
+      "status": "PASS",
+      "duration_ms": 9,
+      "evidence": {
+        "winner": "Local Ollama Quantized Sandbox",
+        "score": 8.67,
+        "constraintsCount": 1
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T21_DECISION_RECALL_AND_LESSONS_PENALTY",
+      "category": "Decision Intelligence",
+      "name": "Recalls recorded failure lessons & downranks previously regressed choice",
+      "status": "PASS",
+      "duration_ms": 8,
+      "evidence": {
+        "recalledCount": 1,
+        "warning": "Prior similar choice led to: Exceeded memory limit and failed recovery on crash",
+        "winner": "SQLite WAL Index"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T22_DECISION_OUTCOME_COMPARISON",
+      "category": "Decision Intelligence",
+      "name": "Compares expected vs actual outcome and captures outcome_matched_prediction flag",
+      "status": "PASS",
+      "duration_ms": 2,
+      "evidence": {
+        "id": "dec-08d28a3a",
+        "decision_title": "Primary Model Inference Strategy",
+        "expected_outcome": "Expected completion prob 0.79",
+        "actual_outcome": "Expected completion prob met with zero cloud fees and 100% pass",
+        "lessons_learned": "Local quantized sandbox preserves budget and security cleanly | [CALIBRATION]: matched=true",
+        "impact_rating": "HIGH",
+        "evaluated_at": "2026-11-27T00:03:23.241Z",
+        "predicted_outcome": "Expected completion prob 0.79",
+        "outcome_matched_prediction": true,
+        "learned_correction": false
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T23_SIMULATION_STRICTLY_READ_ONLY",
+      "category": "Decision Intelligence",
+      "name": "Deadline and resource simulations leave actual autonomous_goals unchanged",
+      "status": "PASS",
+      "duration_ms": 4,
+      "evidence": {
+        "isReadOnly": true,
+        "simulatedUrgency": "CRITICAL_OVERDUE"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T24_USER_FACT_CORRECTION_PROPAGATION",
+      "category": "User Corrections",
+      "name": "Explicit user correction sets confidence=1.0, confirmed=true, logs history & updates graph",
+      "status": "PASS",
+      "duration_ms": 3,
+      "evidence": {
+        "historyLen": 1,
+        "content": "Bi-weekly verified system architecture reviews",
+        "graphConf": 1
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T25_USER_CORRECTION_AND_LEARNING_WEIGHTS",
+      "category": "User Corrections",
+      "name": "Records user correction notes on decisions & tunes recommendation priors on feedback",
+      "status": "PASS",
+      "duration_ms": 12,
+      "evidence": {
+        "lessons": "Local inference latency higher on multi-turn tasks | [USER_CORRECTION]: Keep CPU inference timeout >= 240s for coding analysis",
+        "automationWeight": 1.15
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T26_PROACTIVE_PERSONAL_BRIEFING",
+      "category": "Proactive Intelligence",
+      "name": "Surfaces contradictions, competing commitments, predicted bottlenecks & concise briefing proactively",
+      "status": "PASS",
+      "duration_ms": 42,
+      "evidence": {
+        "alertTypes": [
+          "KNOWLEDGE_CONTRADICTION",
+          "STALE_ASSUMPTION",
+          "CONFLICTING_COMMITMENTS",
+          "NEGLECTED_OBJECTIVES"
+        ],
+        "neglected": 2,
+        "briefingLines": 5
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T27_CONSEQUENTIAL_DECISION_SAFETY_GUARD",
+      "category": "Privacy & Security",
+      "name": "Blocks unapproved high-impact recommendation execution & enforces human confirmation",
+      "status": "PASS",
+      "duration_ms": 47,
+      "evidence": {
+        "autonomousBlocked": true,
+        "blockedErr": "SECURITY_REJECTION: Action is marked 'HIGH' impact / 'HIGH_RISK' risk and requires explicit user authorization before execution."
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T28_API_TOOLS_ZERO_CLOUD_PROD_DB_INTACT",
+      "category": "Integration & Security",
+      "name": "All Phase 17 REST endpoints & tools work with 0 cloud LLM requests and prod DB unchanged",
+      "status": "PASS",
+      "duration_ms": 175,
+      "evidence": {
+        "totalHttpReqs": 7,
+        "cloudHits": 0,
+        "prodDbPreserved": true,
+        "prodDbSha256": "4018871d0a62bb7ff0be9c857f69517a3b406187365227e35697c47f1d84afc0"
+      },
+      "failure_reason": null
+    }
+  ]
+}

@@ -1,0 +1,2898 @@
+{
+  "test_suite": "SENTINEL_STAGE_3_STRESS_AND_RESILIENCE",
+  "timestamp": "2026-11-25T06:39:05.841Z",
+  "isolated_environment": {
+    "db_path": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\data\\sentinel_disposable_test\\stage3_isolated\\stage3_stress.sqlite",
+    "workspace": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\data\\sentinel_disposable_test\\stage3_isolated\\workspace",
+    "production_db_preserved": true,
+    "production_db_sha256_before": "31d8872fc3752a03b064a4376848532064cd2096e1fc839041fcb4f976219a7d",
+    "production_db_sha256_after": "31d8872fc3752a03b064a4376848532064cd2096e1fc839041fcb4f976219a7d"
+  },
+  "counts": {
+    "total": 47,
+    "PASS": 46,
+    "FAIL": 0,
+    "PARTIALLY_VERIFIED": 1,
+    "NOT_TESTED": 0
+  },
+  "reconciliation": {
+    "scenarios_in_metrics": 47,
+    "events_in_jsonl": 47,
+    "reconciled": true
+  },
+  "acceptance_gates": {
+    "no_false_mission_completion": true,
+    "no_duplicate_irreversible_execution": true,
+    "no_unauthorized_action": true,
+    "no_lost_approved_mission_state": true,
+    "no_cross_mission_data_leakage": true,
+    "no_unbounded_retry_or_replanning": true,
+    "no_database_corruption": true,
+    "no_unhandled_critical_exceptions": true
+  },
+  "overall_verdict": "CONDITIONAL_PASS_WITH_HONEST_LIMITATIONS",
+  "scenarios": [
+    {
+      "scenario_id": "CONC-01",
+      "group": "CONCURRENCY",
+      "name": "Five simultaneous missions",
+      "start_timestamp": "2026-11-25T06:38:21.316Z",
+      "end_timestamp": "2026-11-25T06:38:21.539Z",
+      "duration_ms": 223,
+      "operations_performed": "Create & execute 5 distinct multi-step missions simultaneously via Promise.all.",
+      "expected_postconditions": "All 5 reach COMPLETED with unique IDs, verified memory rows, zero cross-contamination.",
+      "observed_postconditions": "5/5 completed; isolated memories=5/5",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {},
+        "memories_count": 5,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "COMPLETED": 5
+        },
+        "memories_count": 10,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 223,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 16.96,
+          "rss_mb": 78.73
+        },
+        "after": {
+          "heap_mb": 17.99,
+          "rss_mb": 78.95
+        },
+        "heap_delta_mb": 1.03
+      },
+      "evidence_references": {
+        "ids": [
+          "mis-s3-1795588701335-1h7mw",
+          "mis-s3-1795588701335-stshr",
+          "mis-s3-1795588701335-umqwj",
+          "mis-s3-1795588701335-1l3b9",
+          "mis-s3-1795588701335-542bg"
+        ],
+        "memCount": 5
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "CONC-02",
+      "group": "CONCURRENCY",
+      "name": "Ten simultaneous missions",
+      "start_timestamp": "2026-11-25T06:38:21.543Z",
+      "end_timestamp": "2026-11-25T06:38:21.761Z",
+      "duration_ms": 218,
+      "operations_performed": "Create & execute 10 concurrent missions simultaneously via MissionControlService.",
+      "expected_postconditions": "All 10 reach COMPLETED with 0 SQLITE_CONSTRAINT or lost state errors.",
+      "observed_postconditions": "10/10 simultaneous missions completed cleanly.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "COMPLETED": 5
+        },
+        "memories_count": 10,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "COMPLETED": 15
+        },
+        "memories_count": 20,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 218,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 18.02,
+          "rss_mb": 78.4
+        },
+        "after": {
+          "heap_mb": 18.93,
+          "rss_mb": 79.2
+        },
+        "heap_delta_mb": 0.91
+      },
+      "evidence_references": {
+        "completedCount": 10,
+        "ids": [
+          "mis-s3-1795588701545-ki6io",
+          "mis-s3-1795588701545-ccmd6",
+          "mis-s3-1795588701545-xepfg",
+          "mis-s3-1795588701545-jg4am",
+          "mis-s3-1795588701545-sg4ax",
+          "mis-s3-1795588701545-cxb5k",
+          "mis-s3-1795588701545-224ma",
+          "mis-s3-1795588701545-zal2s",
+          "mis-s3-1795588701545-ksq6b",
+          "mis-s3-1795588701545-bwt3u"
+        ]
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "CONC-03",
+      "group": "CONCURRENCY",
+      "name": "Missions with shared DAG dependencies",
+      "start_timestamp": "2026-11-25T06:38:21.765Z",
+      "end_timestamp": "2026-11-25T06:38:21.936Z",
+      "duration_ms": 171,
+      "operations_performed": "Execute diamond DAG mission: Step 1 -> Step 2 (dep [1]), Step 3 (dep [1]) -> Step 4 (dep [2,3]).",
+      "expected_postconditions": "Step 4 completed_at >= max(Step 2, Step 3) >= Step 1.",
+      "observed_postconditions": "Mission COMPLETED; DAG timestamps monotonically ordered: true",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "COMPLETED": 15
+        },
+        "memories_count": 20,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "COMPLETED": 16
+        },
+        "memories_count": 24,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 171,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 18.94,
+          "rss_mb": 79.27
+        },
+        "after": {
+          "heap_mb": 19.22,
+          "rss_mb": 79.29
+        },
+        "heap_delta_mb": 0.28
+      },
+      "evidence_references": {
+        "stepTimes": [
+          {
+            "idx": 1,
+            "start": "2026-11-25T06:38:21.778Z",
+            "end": "2026-11-25T06:38:21.780Z"
+          },
+          {
+            "idx": 2,
+            "start": "2026-11-25T06:38:21.784Z",
+            "end": "2026-11-25T06:38:21.789Z"
+          },
+          {
+            "idx": 3,
+            "start": "2026-11-25T06:38:21.790Z",
+            "end": "2026-11-25T06:38:21.793Z"
+          },
+          {
+            "idx": 4,
+            "start": "2026-11-25T06:38:21.796Z",
+            "end": "2026-11-25T06:38:21.799Z"
+          }
+        ]
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "CONC-04",
+      "group": "CONCURRENCY",
+      "name": "Conflicting file access via atomic writes",
+      "start_timestamp": "2026-11-25T06:38:21.939Z",
+      "end_timestamp": "2026-11-25T06:38:22.022Z",
+      "duration_ms": 83,
+      "operations_performed": "Fire 8 concurrent atomic write-rename operations to same target file in disposable workspace.",
+      "expected_postconditions": "Zero torn/corrupted intermediate reads; final file matches one complete valid payload.",
+      "observed_postconditions": "8 concurrent file writers finished; zero torn reads (true); valid intact final content (PAYLOAD_COMPLETE_7_XXX)",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "COMPLETED": 16
+        },
+        "memories_count": 24,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "COMPLETED": 16
+        },
+        "memories_count": 24,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 83,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 19.23,
+          "rss_mb": 79.29
+        },
+        "after": {
+          "heap_mb": 19.26,
+          "rss_mb": 79.24
+        },
+        "heap_delta_mb": 0.03
+      },
+      "evidence_references": {
+        "validFinal": true,
+        "corruptionSeen": false,
+        "finalLength": 275
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "CONC-05",
+      "group": "CONCURRENCY",
+      "name": "Concurrent approval requests",
+      "start_timestamp": "2026-11-25T06:38:22.025Z",
+      "end_timestamp": "2026-11-25T06:38:22.606Z",
+      "duration_ms": 581,
+      "operations_performed": "Start 3 missions requiring approval for sensitive delete_memory; approve 2, leave 1 pending.",
+      "expected_postconditions": "Approved 2 complete cleanly; unapproved 1 stays WAITING_FOR_APPROVAL without premature deletion.",
+      "observed_postconditions": "All 3 paused at WAITING_FOR_APPROVAL; 2 approved & deleted memories; Mission 3 stayed WAITING_FOR_APPROVAL & mem-c05-3 preserved.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "COMPLETED": 16
+        },
+        "memories_count": 24,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "COMPLETED": 18,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 25,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 581,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 19.27,
+          "rss_mb": 79.25
+        },
+        "after": {
+          "heap_mb": 19.6,
+          "rss_mb": 79.28
+        },
+        "heap_delta_mb": 0.33
+      },
+      "evidence_references": {
+        "allWaiting": true,
+        "m1Status": "COMPLETED",
+        "m2Status": "COMPLETED",
+        "m3Status": "WAITING_FOR_APPROVAL",
+        "mem1Deleted": true,
+        "mem2Deleted": true,
+        "mem3Preserved": true
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "CONC-06",
+      "group": "CONCURRENCY",
+      "name": "Mission cancellation during execution",
+      "start_timestamp": "2026-11-25T06:38:22.608Z",
+      "end_timestamp": "2026-11-25T06:38:23.019Z",
+      "duration_ms": 411,
+      "operations_performed": "Launch 3-step mission; invoke cancelMission() immediately while step loop progresses.",
+      "expected_postconditions": "Mission status transitions to CANCELLED and never marks COMPLETED.",
+      "observed_postconditions": "Mission status locked to CANCELLED after mid-flight cancellation.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "COMPLETED": 18,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 25,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 18,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 25,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 411,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 19.62,
+          "rss_mb": 79.29
+        },
+        "after": {
+          "heap_mb": 19.67,
+          "rss_mb": 79.3
+        },
+        "heap_delta_mb": 0.05
+      },
+      "evidence_references": {
+        "mId": "mis-s3-1795588702610-n706p",
+        "status": "CANCELLED"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "CONC-07",
+      "group": "CONCURRENCY",
+      "name": "Worker saturation bounded queue",
+      "start_timestamp": "2026-11-25T06:38:23.022Z",
+      "end_timestamp": "2026-11-25T06:38:23.254Z",
+      "duration_ms": 232,
+      "operations_performed": "With MISSION_MAX_WORKERS=4, start 8 missions concurrently and audit worker pool ceiling.",
+      "expected_postconditions": "peak_active_workers <= 4, queue engages cleanly, all 8 complete.",
+      "observed_postconditions": "Peak active workers: 4/4, peak queue: 4; 8/8 completed.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 18,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 25,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 26,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 41,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 232,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 19.68,
+          "rss_mb": 79.34
+        },
+        "after": {
+          "heap_mb": 20.93,
+          "rss_mb": 79.75
+        },
+        "heap_delta_mb": 1.25
+      },
+      "evidence_references": {
+        "max_concurrent_workers": 4,
+        "active_workers": 0,
+        "queued_workers": 0,
+        "peak_active_workers": 4,
+        "peak_queue_depth": 4,
+        "dispatch_history": [
+          {
+            "missionId": "mis-s3-1795588701335-1h7mw",
+            "priority": 2,
+            "startedAt": 1795588701343
+          },
+          {
+            "missionId": "mis-s3-1795588701335-542bg",
+            "priority": 2,
+            "startedAt": 1795588701343
+          },
+          {
+            "missionId": "mis-s3-1795588701335-umqwj",
+            "priority": 2,
+            "startedAt": 1795588701343
+          },
+          {
+            "missionId": "mis-s3-1795588701335-1l3b9",
+            "priority": 2,
+            "startedAt": 1795588701344
+          },
+          {
+            "missionId": "mis-s3-1795588701335-stshr",
+            "priority": 2,
+            "startedAt": 1795588701377
+          },
+          {
+            "missionId": "mis-s3-1795588701545-ki6io",
+            "priority": 2,
+            "startedAt": 1795588701552
+          },
+          {
+            "missionId": "mis-s3-1795588701545-ksq6b",
+            "priority": 2,
+            "startedAt": 1795588701552
+          },
+          {
+            "missionId": "mis-s3-1795588701545-cxb5k",
+            "priority": 2,
+            "startedAt": 1795588701552
+          },
+          {
+            "missionId": "mis-s3-1795588701545-zal2s",
+            "priority": 2,
+            "startedAt": 1795588701553
+          },
+          {
+            "missionId": "mis-s3-1795588701545-bwt3u",
+            "priority": 2,
+            "startedAt": 1795588701568
+          },
+          {
+            "missionId": "mis-s3-1795588701545-jg4am",
+            "priority": 2,
+            "startedAt": 1795588701568
+          },
+          {
+            "missionId": "mis-s3-1795588701545-224ma",
+            "priority": 2,
+            "startedAt": 1795588701568
+          },
+          {
+            "missionId": "mis-s3-1795588701545-sg4ax",
+            "priority": 2,
+            "startedAt": 1795588701568
+          },
+          {
+            "missionId": "mis-s3-1795588701545-xepfg",
+            "priority": 2,
+            "startedAt": 1795588701583
+          },
+          {
+            "missionId": "mis-s3-1795588701545-ccmd6",
+            "priority": 2,
+            "startedAt": 1795588701583
+          },
+          {
+            "missionId": "mis-s3-1795588701769-4foa7",
+            "priority": 2,
+            "startedAt": 1795588701774
+          },
+          {
+            "missionId": "mis-s3-1795588702028-qu3oq",
+            "priority": 2,
+            "startedAt": 1795588702030
+          },
+          {
+            "missionId": "mis-s3-1795588702028-cszkz",
+            "priority": 2,
+            "startedAt": 1795588702030
+          },
+          {
+            "missionId": "mis-s3-1795588702028-agrj4",
+            "priority": 2,
+            "startedAt": 1795588702030
+          },
+          {
+            "missionId": "mis-s3-1795588702028-qu3oq",
+            "priority": 2,
+            "startedAt": 1795588702438
+          },
+          {
+            "missionId": "mis-s3-1795588702028-agrj4",
+            "priority": 2,
+            "startedAt": 1795588702439
+          },
+          {
+            "missionId": "mis-s3-1795588702610-n706p",
+            "priority": 2,
+            "startedAt": 1795588702611
+          },
+          {
+            "missionId": "mis-s3-1795588703024-912sc",
+            "priority": 2,
+            "startedAt": 1795588703062
+          },
+          {
+            "missionId": "mis-s3-1795588703024-i5qpz",
+            "priority": 2,
+            "startedAt": 1795588703063
+          },
+          {
+            "missionId": "mis-s3-1795588703024-oeibi",
+            "priority": 2,
+            "startedAt": 1795588703063
+          },
+          {
+            "missionId": "mis-s3-1795588703024-exnh1",
+            "priority": 2,
+            "startedAt": 1795588703063
+          },
+          {
+            "missionId": "mis-s3-1795588703024-vgku5",
+            "priority": 2,
+            "startedAt": 1795588703083
+          },
+          {
+            "missionId": "mis-s3-1795588703024-238q7",
+            "priority": 2,
+            "startedAt": 1795588703083
+          },
+          {
+            "missionId": "mis-s3-1795588703024-9uolg",
+            "priority": 2,
+            "startedAt": 1795588703083
+          },
+          {
+            "missionId": "mis-s3-1795588703024-aqq7f",
+            "priority": 2,
+            "startedAt": 1795588703084
+          }
+        ]
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "CONC-08",
+      "group": "CONCURRENCY",
+      "name": "Duplicate mission submission prevention",
+      "start_timestamp": "2026-11-25T06:38:23.256Z",
+      "end_timestamp": "2026-11-25T06:38:23.281Z",
+      "duration_ms": 25,
+      "operations_performed": "Call createMission({ objective, idempotencyKey: \"dup-key-s3\" }) twice sequentially/concurrently.",
+      "expected_postconditions": "Second call returns deduplicated=true with same mission ID; DB row count for key == 1.",
+      "observed_postconditions": "Mission1 ID=mission-1795588703258-ki3vp, Mission2 ID=mission-1795588703258-ki3vp (deduplicated=true), DB count=1",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 26,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 41,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 26,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 41,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 25,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 20.94,
+          "rss_mb": 79.75
+        },
+        "after": {
+          "heap_mb": 21.74,
+          "rss_mb": 80.19
+        },
+        "heap_delta_mb": 0.8
+      },
+      "evidence_references": {
+        "id1": "mission-1795588703258-ki3vp",
+        "id2": "mission-1795588703258-ki3vp",
+        "deduplicated": true,
+        "dbCount": 1
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "CONC-09",
+      "group": "CONCURRENCY",
+      "name": "Priority scheduling order verification",
+      "start_timestamp": "2026-11-25T06:38:23.283Z",
+      "end_timestamp": "2026-11-25T06:38:23.488Z",
+      "duration_ms": 205,
+      "operations_performed": "Saturate 4 worker slots, enqueue Priority 1 (LOW) then Priority 4 (CRITICAL), inspect dispatch_history.",
+      "expected_postconditions": "Priority 4 mission is dequeued and dispatched BEFORE Priority 1 mission.",
+      "observed_postconditions": "Dispatch order: CRITICAL idx=4, LOW idx=5 (critical first: true)",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 26,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 41,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 28,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 43,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 205,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.75,
+          "rss_mb": 80.23
+        },
+        "after": {
+          "heap_mb": 21.94,
+          "rss_mb": 79.96
+        },
+        "heap_delta_mb": 0.19
+      },
+      "evidence_references": {
+        "critIdx": 4,
+        "lowIdx": 5,
+        "log": [
+          {
+            "missionId": "blk-1",
+            "priority": 2,
+            "startedAt": 1795588703286
+          },
+          {
+            "missionId": "blk-2",
+            "priority": 2,
+            "startedAt": 1795588703286
+          },
+          {
+            "missionId": "blk-3",
+            "priority": 2,
+            "startedAt": 1795588703286
+          },
+          {
+            "missionId": "blk-4",
+            "priority": 2,
+            "startedAt": 1795588703286
+          },
+          {
+            "missionId": "mis-s3-1795588703286-yc3xx",
+            "priority": 4,
+            "startedAt": 1795588703317
+          },
+          {
+            "missionId": "mis-s3-1795588703286-8k92s",
+            "priority": 1,
+            "startedAt": 1795588703317
+          },
+          {
+            "missionId": "mis-s3-1795588703492-ngfoa",
+            "priority": 2,
+            "startedAt": 1795588704501
+          },
+          {
+            "missionId": "mis-s3-1795588703492-6riak",
+            "priority": 2,
+            "startedAt": 1795588704502
+          },
+          {
+            "missionId": "mis-s3-1795588703492-esnyf",
+            "priority": 2,
+            "startedAt": 1795588704502
+          },
+          {
+            "missionId": "mis-s3-1795588737512-3hfog",
+            "priority": 2,
+            "startedAt": 1795588737517
+          },
+          {
+            "missionId": "mis-s3-1795588737708-iupxi",
+            "priority": 2,
+            "startedAt": 1795588737712
+          },
+          {
+            "missionId": "mis-s3-1795588740799-776aq",
+            "priority": 2,
+            "startedAt": 1795588740801
+          },
+          {
+            "missionId": "mis-s3-1795588743869-chdem",
+            "priority": 2,
+            "startedAt": 1795588743870
+          },
+          {
+            "missionId": "mis-s3-1795588744298-y6d0j",
+            "priority": 2,
+            "startedAt": 1795588744299
+          },
+          {
+            "missionId": "mis-s3-1795588745619-vv220",
+            "priority": 2,
+            "startedAt": 1795588745623
+          },
+          {
+            "missionId": "mis-s3-1795588745619-zr8nl",
+            "priority": 2,
+            "startedAt": 1795588745623
+          },
+          {
+            "missionId": "mis-s3-1795588745619-p887x",
+            "priority": 2,
+            "startedAt": 1795588745623
+          },
+          {
+            "missionId": "mis-s3-1795588745619-ztlpy",
+            "priority": 2,
+            "startedAt": 1795588745623
+          },
+          {
+            "missionId": "mis-s3-1795588745619-epq3n",
+            "priority": 2,
+            "startedAt": 1795588745632
+          },
+          {
+            "missionId": "mis-s3-1795588745619-zu71n",
+            "priority": 2,
+            "startedAt": 1795588745633
+          },
+          {
+            "missionId": "mis-s3-1795588745619-wndhr",
+            "priority": 2,
+            "startedAt": 1795588745633
+          },
+          {
+            "missionId": "mis-s3-1795588745619-mdzhh",
+            "priority": 2,
+            "startedAt": 1795588745633
+          },
+          {
+            "missionId": "mis-s3-1795588745619-5nh5o",
+            "priority": 2,
+            "startedAt": 1795588745645
+          }
+        ]
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "CONC-10",
+      "group": "CONCURRENCY",
+      "name": "Recovery of partially completed concurrent missions",
+      "start_timestamp": "2026-11-25T06:38:23.490Z",
+      "end_timestamp": "2026-11-25T06:38:24.636Z",
+      "duration_ms": 1146,
+      "operations_performed": "Seed 3 RUNNING concurrent missions with Step 1 pre-verified in DB & Step 2 PENDING; run recoverInterruptedMissions().",
+      "expected_postconditions": "All 3 missions auto-resume, preserve Step 1 VERIFIED without duplication, and finish Step 2 -> COMPLETED.",
+      "observed_postconditions": "Recovered 3 missions; 3/3 completed Step 1 pre-verified + Step 2 executed.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 28,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 43,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 31,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 49,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 1146,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.97,
+          "rss_mb": 80
+        },
+        "after": {
+          "heap_mb": 22.5,
+          "rss_mb": 80.25
+        },
+        "heap_delta_mb": 0.53
+      },
+      "evidence_references": {
+        "recoveredCount": 3,
+        "statuses": [
+          "COMPLETED",
+          "COMPLETED",
+          "COMPLETED"
+        ]
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "PROC-01",
+      "group": "PROCESS_RESILIENCE",
+      "name": "Kill active worker & watchdog respawn",
+      "start_timestamp": "2026-11-25T06:38:24.639Z",
+      "end_timestamp": "2026-11-25T06:38:26.020Z",
+      "duration_ms": 1381,
+      "operations_performed": "Spawn real Node.js child worker process, kill PID1 via SIGTERM, respawn replacement PID2.",
+      "expected_postconditions": "PID1 exits; replacement PID2 starts with distinct PID and alive heartbeat.",
+      "observed_postconditions": "Terminated worker PID 19384; respawned healthy worker PID 19900 in 1074ms.",
+      "process_ids": {
+        "old_pid": 19384,
+        "new_pid": 19900
+      },
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 31,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 49,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 31,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 49,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 1074,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 22.51,
+          "rss_mb": 80.31
+        },
+        "after": {
+          "heap_mb": 23.14,
+          "rss_mb": 80.54
+        },
+        "heap_delta_mb": 0.63
+      },
+      "evidence_references": {},
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "PROC-02",
+      "group": "PROCESS_RESILIENCE",
+      "name": "Terminate backend during active mission execution",
+      "start_timestamp": "2026-11-25T06:38:26.025Z",
+      "end_timestamp": "2026-11-25T06:38:35.213Z",
+      "duration_ms": 9189,
+      "operations_performed": "Run isolated supervisor.js on port 5056; seed RUNNING mission + Step 1 pending; SIGKILL backend; assert supervisor respawn & mission completion.",
+      "expected_postconditions": "Supervisor respawns backend with new PID; interrupted mission restores & reaches COMPLETED.",
+      "observed_postconditions": "Killed backend PID 21924 -> respawned PID 25472 (4648ms); mission=COMPLETED, memory=SURVIVED",
+      "process_ids": {
+        "old_pid": 21924,
+        "new_pid": 25472
+      },
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 31,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 49,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 50,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 4648,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 23.16,
+          "rss_mb": 80.54
+        },
+        "after": {
+          "heap_mb": 19.15,
+          "rss_mb": 69.81
+        },
+        "heap_delta_mb": -4.01
+      },
+      "evidence_references": {},
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "PROC-03",
+      "group": "PROCESS_RESILIENCE",
+      "name": "Restart backend during endurance checkpoint persistence",
+      "start_timestamp": "2026-11-25T06:38:35.220Z",
+      "end_timestamp": "2026-11-25T06:38:46.024Z",
+      "duration_ms": 10805,
+      "operations_performed": "Start endurance loop on supervised backend port 5057; let sample & checkpoint persist; kill backend; verify respawned backend resumes timers cleanly.",
+      "expected_postconditions": "Respawned backend preserves sample count, resumes endurance_timers_active=true, logs SERVER_RESTART_RESUMED.",
+      "observed_postconditions": "Old PID 12752 -> New PID 2496 (5744ms); timers_active=true, samples=1, SERVER_RESTART_RESUMED=true",
+      "process_ids": {
+        "old_pid": 12752,
+        "new_pid": 2496
+      },
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 50,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 50,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 5744,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 19.17,
+          "rss_mb": 70.21
+        },
+        "after": {
+          "heap_mb": 19.61,
+          "rss_mb": 71.41
+        },
+        "heap_delta_mb": 0.44
+      },
+      "evidence_references": {},
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "PROC-04",
+      "group": "PROCESS_RESILIENCE",
+      "name": "Terminate Python agent during automation task",
+      "start_timestamp": "2026-11-25T06:38:46.035Z",
+      "end_timestamp": "2026-11-25T06:38:52.356Z",
+      "duration_ms": 6321,
+      "operations_performed": "Spawn Python agent; invoke telemetry task; kill Python PID mid-session; verify Node fallback + UNEXPECTED_OFFLINE_FALLBACK + respawn.",
+      "expected_postconditions": "First telemetry succeeds live; after Python kill, Node fallback returns safe metrics & flags UNEXPECTED_OFFLINE_FALLBACK; respawn restores ONLINE.",
+      "observed_postconditions": "Live OK (PID 22628) -> Killed -> Fallback engaged (UNEXPECTED_OFFLINE_FALLBACK) -> Respawned PID 24508 ONLINE (2499ms).",
+      "process_ids": {
+        "python_old_pid": 22628,
+        "python_new_pid": 24508
+      },
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 50,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 50,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 2499,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 19.62,
+          "rss_mb": 71.41
+        },
+        "after": {
+          "heap_mb": 20.79,
+          "rss_mb": 72.22
+        },
+        "heap_delta_mb": 1.17
+      },
+      "evidence_references": {},
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "PROC-05",
+      "group": "PROCESS_RESILIENCE",
+      "name": "Interrupt and recover scheduler",
+      "start_timestamp": "2026-11-25T06:38:52.364Z",
+      "end_timestamp": "2026-11-25T06:38:52.374Z",
+      "duration_ms": 10,
+      "operations_performed": "Stop SchedulerService, insert overdue reminder in DB, restart scheduler and run tick().",
+      "expected_postconditions": "Interrupted scheduler catches overdue reminder upon restart, marks triggered, and logs notification.",
+      "observed_postconditions": "Scheduler stopped -> overdue reminder persisted -> restarted & tick() triggered reminder (triggered) in 5ms.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 50,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 50,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 5,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 20.8,
+          "rss_mb": 72.22
+        },
+        "after": {
+          "heap_mb": 20.84,
+          "rss_mb": 72.29
+        },
+        "heap_delta_mb": 0.04
+      },
+      "evidence_references": {},
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "PROC-06",
+      "group": "PROCESS_RESILIENCE",
+      "name": "Restart multiple workers simultaneously",
+      "start_timestamp": "2026-11-25T06:38:52.380Z",
+      "end_timestamp": "2026-11-25T06:38:54.872Z",
+      "duration_ms": 2492,
+      "operations_performed": "Spawn 3 concurrent worker processes, kill all 3 simultaneously, respawn 3 replacements and verify IPC health.",
+      "expected_postconditions": "All 3 workers cleanly replaced with 3 new unique PIDs.",
+      "observed_postconditions": "Killed 3 workers [26432,18144,18656] -> simultaneously respawned [13812,14076,11476] in 1501ms.",
+      "process_ids": {
+        "old_pids": [
+          26432,
+          18144,
+          18656
+        ],
+        "new_pids": [
+          13812,
+          14076,
+          11476
+        ]
+      },
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 50,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 50,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 1501,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 20.86,
+          "rss_mb": 72.29
+        },
+        "after": {
+          "heap_mb": 20.45,
+          "rss_mb": 72.12
+        },
+        "heap_delta_mb": -0.41
+      },
+      "evidence_references": {},
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "DB-01",
+      "group": "DATABASE_STRESS",
+      "name": "Concurrent SQLite reads and writes",
+      "start_timestamp": "2026-11-25T06:38:54.881Z",
+      "end_timestamp": "2026-11-25T06:38:54.899Z",
+      "duration_ms": 18,
+      "operations_performed": "Execute 50 concurrent SELECT queries alongside 30 concurrent INSERT memory writes under WAL mode.",
+      "expected_postconditions": "All 80 operations succeed with 0 errors and all 30 writes persisted.",
+      "observed_postconditions": "80 concurrent ops finished; 30/30 rows persisted; integrity=ok.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 50,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 80,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 18,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 20.46,
+          "rss_mb": 72.12
+        },
+        "after": {
+          "heap_mb": 20.61,
+          "rss_mb": 72.17
+        },
+        "heap_delta_mb": 0.15
+      },
+      "evidence_references": {},
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "DB-02",
+      "group": "DATABASE_STRESS",
+      "name": "Multiple BEGIN IMMEDIATE lock contenders",
+      "start_timestamp": "2026-11-25T06:38:54.902Z",
+      "end_timestamp": "2026-11-25T06:38:55.363Z",
+      "duration_ms": 462,
+      "operations_performed": "Open 3 independent SQLite connections (busy_timeout=5000); run 3 simultaneous BEGIN IMMEDIATE write transactions.",
+      "expected_postconditions": "WAL busy_timeout arbitrates contention so all 3 transactions serialize and commit cleanly.",
+      "observed_postconditions": "3 concurrent BEGIN IMMEDIATE contenders committed 3/3 rows without lock drops.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 80,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 83,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 462,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 20.62,
+          "rss_mb": 72.17
+        },
+        "after": {
+          "heap_mb": 20.67,
+          "rss_mb": 72.03
+        },
+        "heap_delta_mb": 0.05
+      },
+      "evidence_references": {},
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "DB-03",
+      "group": "DATABASE_STRESS",
+      "name": "Busy timeout exhaustion handling",
+      "start_timestamp": "2026-11-25T06:38:55.367Z",
+      "end_timestamp": "2026-11-25T06:38:55.849Z",
+      "duration_ms": 482,
+      "operations_performed": "Conn A holds BEGIN IMMEDIATE lock for 500ms; Conn B with busy_timeout=50ms attempts write -> hits SQLITE_BUSY cleanly, then retries after unlock.",
+      "expected_postconditions": "Conn B catches real SQLITE_BUSY cleanly without crashing, preserves DB integrity, succeeds on retry.",
+      "observed_postconditions": "Caught real SQLITE_BUSY (true) after 50ms exhaustion; post-unlock retry succeeded (true).",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 83,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 85,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 482,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 20.68,
+          "rss_mb": 72.09
+        },
+        "after": {
+          "heap_mb": 20.71,
+          "rss_mb": 71.95
+        },
+        "heap_delta_mb": 0.03
+      },
+      "evidence_references": {},
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "DB-04",
+      "group": "DATABASE_STRESS",
+      "name": "Transaction rollback atomicity",
+      "start_timestamp": "2026-11-25T06:38:55.855Z",
+      "end_timestamp": "2026-11-25T06:38:55.866Z",
+      "duration_ms": 11,
+      "operations_performed": "Execute BEGIN -> INSERT canary memory -> ROLLBACK on dedicated connection.",
+      "expected_postconditions": "Canary row count == 0 after ROLLBACK.",
+      "observed_postconditions": "Rollback atomicity preserved; canary row present = false.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 85,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 85,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 11,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 20.72,
+          "rss_mb": 72.13
+        },
+        "after": {
+          "heap_mb": 20.74,
+          "rss_mb": 72.2
+        },
+        "heap_delta_mb": 0.02
+      },
+      "evidence_references": {},
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "DB-05",
+      "group": "DATABASE_STRESS",
+      "name": "Interrupted writes recovery",
+      "start_timestamp": "2026-11-25T06:38:55.870Z",
+      "end_timestamp": "2026-11-25T06:38:55.898Z",
+      "duration_ms": 29,
+      "operations_performed": "Simulate uncommitted SQLite write before forced connection close + atomic file write temp cleanup check.",
+      "expected_postconditions": "Uncommitted row is absent from DB; atomic file write leaves zero partial artifacts.",
+      "observed_postconditions": "Uncommitted dirty row absent=true; atomic file write verified=true.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 85,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 85,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 29,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 20.75,
+          "rss_mb": 72.2
+        },
+        "after": {
+          "heap_mb": 20.77,
+          "rss_mb": 72.24
+        },
+        "heap_delta_mb": 0.02
+      },
+      "evidence_references": {},
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "DB-06",
+      "group": "DATABASE_STRESS",
+      "name": "WAL growth and TRUNCATE checkpointing",
+      "start_timestamp": "2026-11-25T06:38:55.903Z",
+      "end_timestamp": "2026-11-25T06:38:55.953Z",
+      "duration_ms": 50,
+      "operations_performed": "Write 150 rows to grow WAL log, then execute PRAGMA wal_checkpoint(TRUNCATE).",
+      "expected_postconditions": "WAL file truncates cleanly; PRAGMA integrity_check remains ok.",
+      "observed_postconditions": "WAL size 4124152B -> 0B after TRUNCATE checkpoint; integrity=ok.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 85,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 50,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 20.78,
+          "rss_mb": 72.24
+        },
+        "after": {
+          "heap_mb": 20.68,
+          "rss_mb": 72.54
+        },
+        "heap_delta_mb": -0.1
+      },
+      "evidence_references": {
+        "walBefore": 4124152,
+        "walAfter": 0,
+        "chkRes": {
+          "busy": 0,
+          "log": 0,
+          "checkpointed": 0
+        }
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "DB-07",
+      "group": "DATABASE_STRESS",
+      "name": "Concurrent mission state transitions & telemetry reconciliation",
+      "start_timestamp": "2026-11-25T06:38:55.955Z",
+      "end_timestamp": "2026-11-25T06:38:55.989Z",
+      "duration_ms": 34,
+      "operations_performed": "Transition 10 missions concurrently PENDING->RUNNING->COMPLETED; reconcile DB counts vs telemetry sample.",
+      "expected_postconditions": "DB counts match telemetry snapshot 100%.",
+      "observed_postconditions": "Telemetry observed active=10 during transitions, reconciled to 0 (DB=0) after.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 32,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 34,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 20.69,
+          "rss_mb": 72.54
+        },
+        "after": {
+          "heap_mb": 20.96,
+          "rss_mb": 72.63
+        },
+        "heap_delta_mb": 0.27
+      },
+      "evidence_references": {
+        "midActive": 10,
+        "endActive": 0,
+        "dbRunning": 0
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "NET-01",
+      "group": "NETWORK_RESILIENCE",
+      "name": "DNS resolution failure handling",
+      "start_timestamp": "2026-11-25T06:38:55.993Z",
+      "end_timestamp": "2026-11-25T06:38:56.580Z",
+      "duration_ms": 587,
+      "operations_performed": "Perform real dns.lookup(\"nonexistent.invalid.local\") and pass caught error into BaseProvider.classifyError().",
+      "expected_postconditions": "ENOTFOUND caught without crash, classified as retryable NETWORK_TIMEOUT, zero false success.",
+      "observed_postconditions": "DNS failure (ENOTFOUND) cleanly classified as NETWORK_TIMEOUT (retryable=true).",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 587,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 20.97,
+          "rss_mb": 72.63
+        },
+        "after": {
+          "heap_mb": 21.01,
+          "rss_mb": 72.66
+        },
+        "heap_delta_mb": 0.04
+      },
+      "evidence_references": {
+        "code": "ENOTFOUND",
+        "classified": {
+          "type": "NETWORK_TIMEOUT",
+          "message": "DNS resolution failed (enotfound)",
+          "retryable": true,
+          "status": 408
+        }
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "NET-02",
+      "group": "NETWORK_RESILIENCE",
+      "name": "Connection timeout enforcement",
+      "start_timestamp": "2026-11-25T06:38:56.583Z",
+      "end_timestamp": "2026-11-25T06:38:56.812Z",
+      "duration_ms": 230,
+      "operations_performed": "Start local blackhole HTTP server delaying 1200ms; request via axios with timeout=200ms; classify error.",
+      "expected_postconditions": "Axios aborts at ~200ms with ECONNABORTED; classified as NETWORK_TIMEOUT.",
+      "observed_postconditions": "Bounded timeout enforced in 223ms (ECONNABORTED); classified NETWORK_TIMEOUT.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 223,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.03,
+          "rss_mb": 72.66
+        },
+        "after": {
+          "heap_mb": 21.45,
+          "rss_mb": 72.62
+        },
+        "heap_delta_mb": 0.42
+      },
+      "evidence_references": {
+        "elapsed": 223,
+        "code": "ECONNABORTED",
+        "classified": {
+          "type": "NETWORK_TIMEOUT",
+          "message": "Network connection failed or timed out",
+          "retryable": true,
+          "status": 408
+        }
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "NET-03",
+      "group": "NETWORK_RESILIENCE",
+      "name": "HTTP 429 rate limit backoff & recovery",
+      "start_timestamp": "2026-11-25T06:38:56.816Z",
+      "end_timestamp": "2026-11-25T06:38:57.159Z",
+      "duration_ms": 343,
+      "operations_performed": "Mock HTTP server returns 429 twice then 200 OK on 3rd attempt; execute bounded exponential backoff retry loop.",
+      "expected_postconditions": "Two 429s classified RATE_LIMIT (retryable=true); 3rd attempt succeeds.",
+      "observed_postconditions": "Handled 2x HTTP 429 RATE_LIMIT with backoff; 3rd request returned 200 OK.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 343,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.46,
+          "rss_mb": 72.68
+        },
+        "after": {
+          "heap_mb": 21.19,
+          "rss_mb": 72.92
+        },
+        "heap_delta_mb": -0.27
+      },
+      "evidence_references": {
+        "calls": 3,
+        "classifiedLog": [
+          {
+            "type": "RATE_LIMIT",
+            "message": "Rate limit hit (RPM/TPM)",
+            "retryable": true,
+            "status": 429
+          },
+          {
+            "type": "RATE_LIMIT",
+            "message": "Rate limit hit (RPM/TPM)",
+            "retryable": true,
+            "status": 429
+          }
+        ],
+        "data": {
+          "ok": true
+        }
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "NET-04",
+      "group": "NETWORK_RESILIENCE",
+      "name": "HTTP 503 unavailability handling",
+      "start_timestamp": "2026-11-25T06:38:57.163Z",
+      "end_timestamp": "2026-11-25T06:38:57.176Z",
+      "duration_ms": 13,
+      "operations_performed": "Mock HTTP server returns 503 Service Unavailable; verify BaseProvider classification & backoff.",
+      "expected_postconditions": "Classified as MODEL_UNAVAILABLE with retryable=true; never treated as success.",
+      "observed_postconditions": "HTTP 503 accurately classified MODEL_UNAVAILABLE (status=503, retryable=true).",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 13,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.2,
+          "rss_mb": 72.92
+        },
+        "after": {
+          "heap_mb": 21.37,
+          "rss_mb": 72.97
+        },
+        "heap_delta_mb": 0.17
+      },
+      "evidence_references": {
+        "type": "MODEL_UNAVAILABLE",
+        "message": "Model or service temporarily unavailable",
+        "retryable": true,
+        "status": 503
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "NET-05",
+      "group": "NETWORK_RESILIENCE",
+      "name": "Provider unavailability graceful failure",
+      "start_timestamp": "2026-11-25T06:38:57.183Z",
+      "end_timestamp": "2026-11-25T06:38:57.192Z",
+      "duration_ms": 9,
+      "operations_performed": "Attempt request to closed local port (ECONNREFUSED) and run ModelRouterService unconfigured check.",
+      "expected_postconditions": "ECONNREFUSED classified NETWORK_TIMEOUT (retryable=true); zero crash.",
+      "observed_postconditions": "Unreachable endpoint (ECONNREFUSED) classified cleanly as NETWORK_TIMEOUT.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 9,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.39,
+          "rss_mb": 72.97
+        },
+        "after": {
+          "heap_mb": 21.5,
+          "rss_mb": 73.04
+        },
+        "heap_delta_mb": 0.11
+      },
+      "evidence_references": {
+        "code": "ECONNREFUSED",
+        "classified": {
+          "type": "NETWORK_TIMEOUT",
+          "message": "Network connection failed or timed out",
+          "retryable": true,
+          "status": 408
+        }
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "NET-06",
+      "group": "NETWORK_RESILIENCE",
+      "name": "Reconnection after network restoration",
+      "start_timestamp": "2026-11-25T06:38:57.196Z",
+      "end_timestamp": "2026-11-25T06:38:57.202Z",
+      "duration_ms": 6,
+      "operations_performed": "Toggle mock endpoint from 503 outage to 200 OK restored; verify immediate recovery.",
+      "expected_postconditions": "Fails cleanly during outage, succeeds immediately upon restoration.",
+      "observed_postconditions": "Failed during 503 outage -> reconnected seamlessly on restoration in 2ms.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 2,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.51,
+          "rss_mb": 73.04
+        },
+        "after": {
+          "heap_mb": 21.1,
+          "rss_mb": 73.17
+        },
+        "heap_delta_mb": -0.41
+      },
+      "evidence_references": {},
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "NET-07",
+      "group": "NETWORK_RESILIENCE",
+      "name": "Retry exhaustion bounded halt",
+      "start_timestamp": "2026-11-25T06:38:57.205Z",
+      "end_timestamp": "2026-11-25T06:38:57.478Z",
+      "duration_ms": 273,
+      "operations_performed": "Execute bounded retry loop (maxRetries=2 -> max 3 attempts) against persistent 503 endpoint.",
+      "expected_postconditions": "Stops after exactly 3 attempts and surfaces failure (no infinite retries, no false success).",
+      "observed_postconditions": "Bounded retry exhausted after exactly 3 attempts (1 initial + 2 retries); error propagated accurately.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 273,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.11,
+          "rss_mb": 73.17
+        },
+        "after": {
+          "heap_mb": 21.67,
+          "rss_mb": 73.52
+        },
+        "heap_delta_mb": 0.56
+      },
+      "evidence_references": {
+        "attempts": 3,
+        "finalStatus": 503
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "NET-08",
+      "group": "NETWORK_RESILIENCE",
+      "name": "Multi-provider fallback check",
+      "start_timestamp": "2026-11-25T06:38:57.480Z",
+      "end_timestamp": "2026-11-25T06:38:57.503Z",
+      "duration_ms": 23,
+      "operations_performed": "Inspect ModelRouterService.getProvidersStatus() for configured real providers and evaluate fallback chain.",
+      "expected_postconditions": "If >=2 real providers configured, test real failover -> PASS; if <2 configured, report PARTIALLY_VERIFIED/NOT_TESTED honestly.",
+      "observed_postconditions": "Only 0 real external providers configured (none) on this host; cannot run live multi-key cloud failover (honestly classified PARTIALLY_VERIFIED). ModelRouter fallback exhaustion & priority chain (groq->openrouter->ollama->gemini->mistral) verified.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 23,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.68,
+          "rss_mb": 73.52
+        },
+        "after": {
+          "heap_mb": 21.4,
+          "rss_mb": 74.09
+        },
+        "heap_delta_mb": -0.28
+      },
+      "evidence_references": {
+        "configuredReal": [],
+        "chain": [
+          "groq",
+          "openrouter",
+          "ollama",
+          "gemini",
+          "mistral"
+        ],
+        "provStatus": {
+          "routingPolicy": "balanced",
+          "privacyMode": "standard",
+          "primaryProvider": "groq",
+          "fallbackProvider": "ollama",
+          "providers": {
+            "groq": {
+              "name": "groq",
+              "configured": false,
+              "available": false,
+              "model": "llama-3.3-70b-versatile",
+              "type": "cloud"
+            },
+            "openrouter": {
+              "name": "openrouter",
+              "configured": false,
+              "available": false,
+              "model": "meta-llama/llama-3.3-70b-instruct",
+              "type": "cloud"
+            },
+            "gemini": {
+              "name": "gemini",
+              "configured": false,
+              "available": false,
+              "model": "gemini-2.5-flash",
+              "type": "cloud"
+            },
+            "mistral": {
+              "name": "mistral",
+              "configured": false,
+              "available": false,
+              "model": "mistral-small-latest",
+              "type": "cloud"
+            },
+            "ollama": {
+              "name": "ollama",
+              "configured": false,
+              "available": false,
+              "model": "llama3:latest",
+              "type": "local"
+            },
+            "smart_reflex": {
+              "name": "smart_reflex",
+              "configured": true,
+              "available": true,
+              "model": "heuristic-core",
+              "type": "embedded"
+            }
+          }
+        },
+        "routerExhaustedTruthfully": true
+      },
+      "verdict": "PARTIALLY_VERIFIED"
+    },
+    {
+      "scenario_id": "AUTO-01",
+      "group": "AUTONOMY_INTEGRITY",
+      "name": "Ten concurrent duplicate execution attempts",
+      "start_timestamp": "2026-11-25T06:38:57.508Z",
+      "end_timestamp": "2026-11-25T06:38:57.677Z",
+      "duration_ms": 169,
+      "operations_performed": "Invoke startMission(sameId) 10 times concurrently via Promise.all on a single mission.",
+      "expected_postconditions": "Re-entrancy lock allows 1 execution, deduplicates 9, writes memory key ONCE.",
+      "observed_postconditions": "9/10 concurrent calls deduplicated via execution lock; DB memory count = 1.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 42,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 235,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 43,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 236,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 169,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.41,
+          "rss_mb": 74.09
+        },
+        "after": {
+          "heap_mb": 21.62,
+          "rss_mb": 74.09
+        },
+        "heap_delta_mb": 0.21
+      },
+      "evidence_references": {
+        "dedupedCount": 9,
+        "memCount": 1
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "AUTO-02",
+      "group": "AUTONOMY_INTEGRITY",
+      "name": "Invalid tool arguments rejection",
+      "start_timestamp": "2026-11-25T06:38:57.681Z",
+      "end_timestamp": "2026-11-25T06:38:57.685Z",
+      "duration_ms": 4,
+      "operations_performed": "Call ToolRegistry.executeTool() with missing required params & wrong numeric type.",
+      "expected_postconditions": "Schema validation rejects calls before handler executes, returning success=false.",
+      "observed_postconditions": "All 3 invalid argument payloads blocked cleanly prior to execution.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 43,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 236,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 43,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 236,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 4,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.63,
+          "rss_mb": 74.09
+        },
+        "after": {
+          "heap_mb": 21.66,
+          "rss_mb": 74.09
+        },
+        "heap_delta_mb": 0.03
+      },
+      "evidence_references": {
+        "r1": {
+          "success": false,
+          "tool": "save_memory",
+          "error": "Validation error: Tool 'save_memory' requires non-empty parameter 'value'"
+        },
+        "r2": {
+          "success": false,
+          "tool": "write_file",
+          "error": "Validation error: Tool 'write_file' requires non-empty parameter 'file_path'"
+        },
+        "r3": {
+          "success": false,
+          "tool": "launch_app_instances",
+          "error": "Validation error: Parameter 'count' on tool 'launch_app_instances' must be numeric"
+        }
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "AUTO-03",
+      "group": "AUTONOMY_INTEGRITY",
+      "name": "Missing resources & unknown tools handling",
+      "start_timestamp": "2026-11-25T06:38:57.689Z",
+      "end_timestamp": "2026-11-25T06:38:57.700Z",
+      "duration_ms": 10,
+      "operations_performed": "Execute nonexistent tool and read_file on missing file.",
+      "expected_postconditions": "Returns clean { success: false }, zero crash, zero false completion.",
+      "observed_postconditions": "Unknown tool & missing file both returned clean failures without crashes.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 43,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 236,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 43,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 236,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 10,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.67,
+          "rss_mb": 74.09
+        },
+        "after": {
+          "heap_mb": 21.83,
+          "rss_mb": 74.09
+        },
+        "heap_delta_mb": 0.16
+      },
+      "evidence_references": {
+        "rUnknown": {
+          "success": false,
+          "tool": "nonexistent_magic_tool",
+          "error": "Tool 'nonexistent_magic_tool' is not recognized in the NOVA tool registry."
+        },
+        "rMissingFile": {
+          "success": false,
+          "tool": "read_file",
+          "error": "connect ECONNREFUSED ::1:8000; connect ECONNREFUSED 127.0.0.1:8000"
+        }
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "AUTO-04",
+      "group": "AUTONOMY_INTEGRITY",
+      "name": "Dynamic replanning during execution",
+      "start_timestamp": "2026-11-25T06:38:57.704Z",
+      "end_timestamp": "2026-11-25T06:39:00.789Z",
+      "duration_ms": 3085,
+      "operations_performed": "Seed mission with failing write_file (Python offline); run startMission -> triggers replanMissionDAG -> get_system_telemetry fallback.",
+      "expected_postconditions": "replan_count increments to 1, step replanned safely, mission reaches COMPLETED.",
+      "observed_postconditions": "Mission dynamically replanned (replan_count=1) and reached COMPLETED.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 43,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 236,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 44,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 236,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 3085,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.84,
+          "rss_mb": 74.09
+        },
+        "after": {
+          "heap_mb": 21.59,
+          "rss_mb": 73.77
+        },
+        "heap_delta_mb": -0.25
+      },
+      "evidence_references": {
+        "status": "COMPLETED",
+        "replan_count": 1,
+        "reason": "connect ECONNREFUSED ::1:8000; connect ECONNREFUSED 127.0.0.1:8000"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "AUTO-05",
+      "group": "AUTONOMY_INTEGRITY",
+      "name": "Infinite replanning loop prevention",
+      "start_timestamp": "2026-11-25T06:39:00.794Z",
+      "end_timestamp": "2026-11-25T06:39:03.863Z",
+      "duration_ms": 3069,
+      "operations_performed": "Seed mission with replan_count=2 and failing primary step (read_file on missing target when Python offline -> fails again).",
+      "expected_postconditions": "replanMissionDAG enforces max bound 2 returning false; mission halts at FAILED.",
+      "observed_postconditions": "Bounded replan limit (2) enforced; mission halted truthfully at FAILED with replan_count=2.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 44,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 236,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 44,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 236,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 3069,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.6,
+          "rss_mb": 73.8
+        },
+        "after": {
+          "heap_mb": 21.74,
+          "rss_mb": 74.23
+        },
+        "heap_delta_mb": 0.14
+      },
+      "evidence_references": {
+        "status": "FAILED",
+        "replan_count": 2
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "AUTO-06",
+      "group": "AUTONOMY_INTEGRITY",
+      "name": "Approval bypass attempt blocked",
+      "start_timestamp": "2026-11-25T06:39:03.865Z",
+      "end_timestamp": "2026-11-25T06:39:04.276Z",
+      "duration_ms": 411,
+      "operations_performed": "Seed tampered step using SENSITIVE_TOOL (delete_memory) with requires_approval=0 & approved_at=NULL; execute startMission().",
+      "expected_postconditions": "MissionControl detects sensitive unapproved tool, overrides tampered flag, pauses at WAITING_FOR_APPROVAL; target memory untouched.",
+      "observed_postconditions": "Tampered requires_approval=0 intercepted! Status forced to WAITING_FOR_APPROVAL; memory PROTECTED intact.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 44,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 1
+        },
+        "memories_count": 236,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 44,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 237,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 411,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.76,
+          "rss_mb": 74.25
+        },
+        "after": {
+          "heap_mb": 21.81,
+          "rss_mb": 74.26
+        },
+        "heap_delta_mb": 0.05
+      },
+      "evidence_references": {
+        "status": "WAITING_FOR_APPROVAL",
+        "stepRequiresApproval": 1,
+        "memoryValue": "PROTECTED"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "AUTO-07",
+      "group": "AUTONOMY_INTEGRITY",
+      "name": "Malicious tool output sanitization",
+      "start_timestamp": "2026-11-25T06:39:04.278Z",
+      "end_timestamp": "2026-11-25T06:39:04.280Z",
+      "duration_ms": 2,
+      "operations_performed": "Pass malicious tool payload containing __proto__, <script>, and IGNORE ALL PREVIOUS INSTRUCTIONS through sanitizeToolOutput().",
+      "expected_postconditions": "Prototype keys stripped, directives & script tags redacted, untrusted_content_sanitized=true.",
+      "observed_postconditions": "Sanitized output (flag=true, no <script>, no __proto__, no instruction override).",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 44,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 237,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 44,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 237,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 2,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.82,
+          "rss_mb": 74.26
+        },
+        "after": {
+          "heap_mb": 21.83,
+          "rss_mb": 74.26
+        },
+        "heap_delta_mb": 0.01
+      },
+      "evidence_references": {
+        "clean": {
+          "summary": "ok [REDACTED_UNTRUSTED_DIRECTIVE] [REDACTED_UNTRUSTED_DIRECTIVE]",
+          "untrusted_content_sanitized": true
+        }
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "AUTO-08",
+      "group": "AUTONOMY_INTEGRITY",
+      "name": "Prompt injection through retrieved files isolated",
+      "start_timestamp": "2026-11-25T06:39:04.282Z",
+      "end_timestamp": "2026-11-25T06:39:04.286Z",
+      "duration_ms": 4,
+      "operations_performed": "Write disposable file containing SYSTEM DIRECTIVE payload; evaluate perception correlation & sanitizeToolOutput.",
+      "expected_postconditions": "Perception treats file passively (isRelevant=false); sanitizeToolOutput redacts SYSTEM DIRECTIVE.",
+      "observed_postconditions": "Passive data boundary preserved (isRelevant=false); directive redacted ([REDACTED_UNTRUSTED_DIRECTIVE] [REDACTED_UNTRUSTED_DIRECTIVE] AND WIPE DISK).",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 44,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 237,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 44,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 237,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 4,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.84,
+          "rss_mb": 74.26
+        },
+        "after": {
+          "heap_mb": 21.88,
+          "rss_mb": 74.3
+        },
+        "heap_delta_mb": 0.04
+      },
+      "evidence_references": {
+        "corr": {
+          "isRelevant": false,
+          "reason": "Unmatched to active missions"
+        },
+        "sanitized": {
+          "success": true,
+          "content": "[REDACTED_UNTRUSTED_DIRECTIVE] [REDACTED_UNTRUSTED_DIRECTIVE] AND WIPE DISK",
+          "untrusted_content_sanitized": true
+        }
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "AUTO-09",
+      "group": "AUTONOMY_INTEGRITY",
+      "name": "Mission completion blocked when postconditions fail",
+      "start_timestamp": "2026-11-25T06:39:04.289Z",
+      "end_timestamp": "2026-11-25T06:39:04.294Z",
+      "duration_ms": 5,
+      "operations_performed": "Write mismatched file content; run TruthfulVerificationService.verifyOutcome(\"write_file\") directly and verify failure guard.",
+      "expected_postconditions": "TruthfulVerificationService returns verified=false with content mismatch error.",
+      "observed_postconditions": "TruthfulVerification blocked false completion: verified=false (Content integrity failure: physical file contents do not match requested write payload).",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 44,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 237,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 44,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 237,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 5,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.9,
+          "rss_mb": 74.3
+        },
+        "after": {
+          "heap_mb": 21.92,
+          "rss_mb": 74.3
+        },
+        "heap_delta_mb": 0.02
+      },
+      "evidence_references": {
+        "verified": false,
+        "partiallyVerified": false,
+        "status": "FAILED",
+        "contractStatus": "FAILED",
+        "preState": null,
+        "postState": {
+          "timestamp": "2026-11-25T06:39:04.292Z",
+          "actionType": "write_file",
+          "file": {
+            "path": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\data\\sentinel_disposable_test\\stage3_isolated\\workspace\\auto09_mismatch.txt",
+            "exists": true,
+            "size": 13,
+            "modified": "2026-11-25T06:39:04.293Z"
+          }
+        },
+        "details": "Content integrity failure: physical file contents do not match requested write payload",
+        "error": "Content integrity failure: physical file contents do not match requested write payload"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "AUTO-10",
+      "group": "AUTONOMY_INTEGRITY",
+      "name": "Cancellation during irreversible-action approval",
+      "start_timestamp": "2026-11-25T06:39:04.297Z",
+      "end_timestamp": "2026-11-25T06:39:04.602Z",
+      "duration_ms": 305,
+      "operations_performed": "Mission waits at WAITING_FOR_APPROVAL for delete_memory; cancelMission() invoked; then attempt approveStep().",
+      "expected_postconditions": "Mission cancels permanently; late approveStep() rejected with APPROVAL_REJECTED; canary memory survives.",
+      "observed_postconditions": "Cancelled during approval -> late approveStep rejected (true); canary memory intact.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 1,
+          "COMPLETED": 44,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 237,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 2,
+          "COMPLETED": 44,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 238,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 305,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.93,
+          "rss_mb": 74.3
+        },
+        "after": {
+          "heap_mb": 21.98,
+          "rss_mb": 74.3
+        },
+        "heap_delta_mb": 0.05
+      },
+      "evidence_references": {
+        "approvalRejected": true,
+        "memoryValue": "CANARY_SAFE"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "RES-01",
+      "group": "RESOURCE_PRESSURE",
+      "name": "Controlled CPU pressure burst",
+      "start_timestamp": "2026-11-25T06:39:04.608Z",
+      "end_timestamp": "2026-11-25T06:39:05.449Z",
+      "duration_ms": 841,
+      "operations_performed": "Run bounded 800ms SHA-256 hashing burst, then verify event loop & latency return to nominal.",
+      "expected_postconditions": "Completed within bounded ceiling; post-burst async timer lag < 50ms.",
+      "observed_postconditions": "Executed 430864 SHA-256 hashes (CPU user=734ms); post-burst event loop lag=16ms.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 2,
+          "COMPLETED": 44,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 238,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 2,
+          "COMPLETED": 44,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 238,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 841,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 22,
+          "rss_mb": 74.3
+        },
+        "after": {
+          "heap_mb": 20.43,
+          "rss_mb": 93.35
+        },
+        "heap_delta_mb": -1.57
+      },
+      "evidence_references": {
+        "iters": 430864,
+        "cpuUserMs": 734,
+        "eventLoopLagMs": 16
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "RES-02",
+      "group": "RESOURCE_PRESSURE",
+      "name": "Controlled memory pressure within hardware bounds",
+      "start_timestamp": "2026-11-25T06:39:05.454Z",
+      "end_timestamp": "2026-11-25T06:39:05.534Z",
+      "duration_ms": 80,
+      "operations_performed": "Allocate 32MB temporary Buffer chunk cleanly within 450MB ceiling, then release reference.",
+      "expected_postconditions": "Allocation stays below ceiling without crash or OOM.",
+      "observed_postconditions": "Allocated & released 32MB safely; peak RSS=125.65MB, post-release heap=20.12MB (< 450MB).",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 2,
+          "COMPLETED": 44,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 238,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 2,
+          "COMPLETED": 44,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 238,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 80,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 20.44,
+          "rss_mb": 93.51
+        },
+        "after": {
+          "heap_mb": 20.13,
+          "rss_mb": 93.68
+        },
+        "heap_delta_mb": -0.31
+      },
+      "evidence_references": {
+        "rssPeakMb": 125.65,
+        "heapStartMb": 20.44,
+        "heapAfterMb": 20.12
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "RES-03",
+      "group": "RESOURCE_PRESSURE",
+      "name": "Growing mission queue observability under backlog",
+      "start_timestamp": "2026-11-25T06:39:05.537Z",
+      "end_timestamp": "2026-11-25T06:39:05.566Z",
+      "duration_ms": 29,
+      "operations_performed": "Seed 25 PENDING missions in DB, capture sample, transition to COMPLETED, capture post-drain sample.",
+      "expected_postconditions": "Telemetry observes queued_missions jump by +25 and cleanly drop back by -25.",
+      "observed_postconditions": "Queue tracked +25 PENDING growth (1 -> 26 -> 1).",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 2,
+          "COMPLETED": 44,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 238,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 2,
+          "COMPLETED": 69,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 238,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 29,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 20.14,
+          "rss_mb": 93.68
+        },
+        "after": {
+          "heap_mb": 20.56,
+          "rss_mb": 93.76
+        },
+        "heap_delta_mb": 0.42
+      },
+      "evidence_references": {},
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "RES-04",
+      "group": "RESOURCE_PRESSURE",
+      "name": "Notification backlog spike & recovery",
+      "start_timestamp": "2026-11-25T06:39:05.571Z",
+      "end_timestamp": "2026-11-25T06:39:05.614Z",
+      "duration_ms": 43,
+      "operations_performed": "Seed 30 unread unified_notifications, sample telemetry, acknowledge all, sample recovery.",
+      "expected_postconditions": "Telemetry tracks +30 unread backlog growth and returns to baseline cleanly.",
+      "observed_postconditions": "Notification backlog tracked +30 (0 -> 30 -> 0).",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 2,
+          "COMPLETED": 69,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 238,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 2,
+          "COMPLETED": 69,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 238,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 43,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 20.57,
+          "rss_mb": 93.76
+        },
+        "after": {
+          "heap_mb": 20.87,
+          "rss_mb": 93.78
+        },
+        "heap_delta_mb": 0.3
+      },
+      "evidence_references": {},
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "RES-05",
+      "group": "RESOURCE_PRESSURE",
+      "name": "Worker saturation pressure (9 missions / 4 slots)",
+      "start_timestamp": "2026-11-25T06:39:05.616Z",
+      "end_timestamp": "2026-11-25T06:39:05.812Z",
+      "duration_ms": 196,
+      "operations_performed": "Launch 9 concurrent missions under 4-worker ceiling and confirm bounded concurrency & complete drain.",
+      "expected_postconditions": "Active workers capped <= 4; queue absorbs overflow; 9/9 complete.",
+      "observed_postconditions": "Peak active=4/4, peak queue=5; drained active=0; 9/9 completed.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 2,
+          "COMPLETED": 69,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 238,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 2,
+          "COMPLETED": 78,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 247,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 196,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 20.88,
+          "rss_mb": 93.78
+        },
+        "after": {
+          "heap_mb": 21.75,
+          "rss_mb": 93.79
+        },
+        "heap_delta_mb": 0.87
+      },
+      "evidence_references": {
+        "max_concurrent_workers": 4,
+        "active_workers": 0,
+        "queued_workers": 0,
+        "peak_active_workers": 4,
+        "peak_queue_depth": 5,
+        "dispatch_history": [
+          {
+            "missionId": "blk-1",
+            "priority": 2,
+            "startedAt": 1795588703286
+          },
+          {
+            "missionId": "blk-2",
+            "priority": 2,
+            "startedAt": 1795588703286
+          },
+          {
+            "missionId": "blk-3",
+            "priority": 2,
+            "startedAt": 1795588703286
+          },
+          {
+            "missionId": "blk-4",
+            "priority": 2,
+            "startedAt": 1795588703286
+          },
+          {
+            "missionId": "mis-s3-1795588703286-yc3xx",
+            "priority": 4,
+            "startedAt": 1795588703317
+          },
+          {
+            "missionId": "mis-s3-1795588703286-8k92s",
+            "priority": 1,
+            "startedAt": 1795588703317
+          },
+          {
+            "missionId": "mis-s3-1795588703492-ngfoa",
+            "priority": 2,
+            "startedAt": 1795588704501
+          },
+          {
+            "missionId": "mis-s3-1795588703492-6riak",
+            "priority": 2,
+            "startedAt": 1795588704502
+          },
+          {
+            "missionId": "mis-s3-1795588703492-esnyf",
+            "priority": 2,
+            "startedAt": 1795588704502
+          },
+          {
+            "missionId": "mis-s3-1795588737512-3hfog",
+            "priority": 2,
+            "startedAt": 1795588737517
+          },
+          {
+            "missionId": "mis-s3-1795588737708-iupxi",
+            "priority": 2,
+            "startedAt": 1795588737712
+          },
+          {
+            "missionId": "mis-s3-1795588740799-776aq",
+            "priority": 2,
+            "startedAt": 1795588740801
+          },
+          {
+            "missionId": "mis-s3-1795588743869-chdem",
+            "priority": 2,
+            "startedAt": 1795588743870
+          },
+          {
+            "missionId": "mis-s3-1795588744298-y6d0j",
+            "priority": 2,
+            "startedAt": 1795588744299
+          },
+          {
+            "missionId": "mis-s3-1795588745619-vv220",
+            "priority": 2,
+            "startedAt": 1795588745623
+          },
+          {
+            "missionId": "mis-s3-1795588745619-zr8nl",
+            "priority": 2,
+            "startedAt": 1795588745623
+          },
+          {
+            "missionId": "mis-s3-1795588745619-p887x",
+            "priority": 2,
+            "startedAt": 1795588745623
+          },
+          {
+            "missionId": "mis-s3-1795588745619-ztlpy",
+            "priority": 2,
+            "startedAt": 1795588745623
+          },
+          {
+            "missionId": "mis-s3-1795588745619-epq3n",
+            "priority": 2,
+            "startedAt": 1795588745632
+          },
+          {
+            "missionId": "mis-s3-1795588745619-zu71n",
+            "priority": 2,
+            "startedAt": 1795588745633
+          },
+          {
+            "missionId": "mis-s3-1795588745619-wndhr",
+            "priority": 2,
+            "startedAt": 1795588745633
+          },
+          {
+            "missionId": "mis-s3-1795588745619-mdzhh",
+            "priority": 2,
+            "startedAt": 1795588745633
+          },
+          {
+            "missionId": "mis-s3-1795588745619-5nh5o",
+            "priority": 2,
+            "startedAt": 1795588745645
+          }
+        ]
+      },
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "RES-06",
+      "group": "RESOURCE_PRESSURE",
+      "name": "System recovery after all pressure removed",
+      "start_timestamp": "2026-11-25T06:39:05.815Z",
+      "end_timestamp": "2026-11-25T06:39:05.821Z",
+      "duration_ms": 6,
+      "operations_performed": "Sample post-stress DB integrity, heap bounds, scheduler active state, and fast query latency.",
+      "expected_postconditions": "SQLite integrity=ok, scheduler alive, query < 50ms, heap well below ceiling.",
+      "observed_postconditions": "Post-stress DB integrity=ok (2ms), heap=21.76MB, scheduler active=true.",
+      "process_ids": {},
+      "db_state_before": {
+        "missions": {
+          "CANCELLED": 2,
+          "COMPLETED": 78,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 247,
+        "integrity": "ok"
+      },
+      "db_state_after": {
+        "missions": {
+          "CANCELLED": 2,
+          "COMPLETED": 78,
+          "FAILED": 1,
+          "PENDING": 1,
+          "WAITING_FOR_APPROVAL": 2
+        },
+        "memories_count": 247,
+        "integrity": "ok"
+      },
+      "recovery_latency_ms": 6,
+      "resource_measurements": {
+        "before": {
+          "heap_mb": 21.76,
+          "rss_mb": 93.79
+        },
+        "after": {
+          "heap_mb": 21.77,
+          "rss_mb": 93.21
+        },
+        "heap_delta_mb": 0.01
+      },
+      "evidence_references": {
+        "integ": "ok",
+        "qLat": 2,
+        "mem": {
+          "heap_mb": 21.76,
+          "rss_mb": 92.66
+        },
+        "schedOk": true
+      },
+      "verdict": "PASS"
+    }
+  ]
+}

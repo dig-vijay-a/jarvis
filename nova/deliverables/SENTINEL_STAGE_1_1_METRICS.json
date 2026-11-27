@@ -1,0 +1,142 @@
+{
+  "test_suite": "SENTINEL_STAGE_1_1_REMEDIATION",
+  "status": "COMPLETED",
+  "start_time": "2026-11-24T15:08:08.071Z",
+  "end_time": "2026-11-24T15:08:17.985Z",
+  "actual_duration_seconds": 9.9,
+  "counting_reconciliation": {
+    "telemetry_samples_collected": 16,
+    "telemetry_records_in_file": 16,
+    "telemetry_file_matches_sample_count": true,
+    "event_stream_total_records": 53,
+    "event_stream_by_category": {
+      "SYSTEM": 2,
+      "WORKLOAD": 15,
+      "MEMORY": 5,
+      "MISSION": 5,
+      "GRAPH": 5,
+      "FAILURE": 14,
+      "RECOVERY": 7
+    },
+    "unique_failure_scenarios_defined": 7,
+    "failure_injection_attempts": 7,
+    "successful_recoveries": 7,
+    "failed_recoveries": 0,
+    "duplicate_injection_attempts": 0,
+    "workload_operations_attempted": 30,
+    "workload_operations_passed": 30,
+    "workload_operations_failed": 0,
+    "workload_exceptions_count": 0,
+    "schema_mismatch_errors": 0,
+    "unhandled_exceptions_count": 0
+  },
+  "resource_analysis": {
+    "initial_heap_mb": 5.67,
+    "final_heap_mb": 8.06,
+    "net_heap_growth_mb": 2.39,
+    "initial_rss_mb": 49.72,
+    "final_rss_mb": 55.68,
+    "net_rss_growth_mb": 5.96,
+    "peak_cpu_percent": 100,
+    "average_cpu_percent": 31.2,
+    "initial_db_size_bytes": 12570624,
+    "final_db_size_bytes": 12570624,
+    "db_growth_bytes": 0,
+    "db_integrity": "ok",
+    "memory_leak_detected": false
+  },
+  "failure_scenarios": [
+    {
+      "id": "SIMULATED_WS_DISCONNECT",
+      "name": "Simulated Client WebSocket Disconnection & State Preservation",
+      "classification": "SIMULATED_NETWORK",
+      "target": "WebSocket Client Session",
+      "executed": true,
+      "result": {
+        "passed": true,
+        "classification": "SIMULATED_NETWORK",
+        "recovery_time_ms": 1012,
+        "evidence": "Client session re-established, backend state preserved, zero dropped missions."
+      }
+    },
+    {
+      "id": "SIMULATED_PYTHON_UNREACHABLE",
+      "name": "Simulated Python Agent Endpoint Unreachable & Autonomous Node Fallback",
+      "classification": "SIMULATED_NETWORK",
+      "target": "Agent Health Probe",
+      "executed": true,
+      "result": {
+        "passed": true,
+        "classification": "SIMULATED_NETWORK",
+        "recovery_time_ms": 1007,
+        "evidence": "Node.js native tool executors engaged seamlessly without crash."
+      }
+    },
+    {
+      "id": "SIMULATED_HTTP_503",
+      "name": "Simulated HTTP 503 Provider Outage & Exponential Backoff Retry",
+      "classification": "SIMULATED_RESPONSE",
+      "target": "AI Provider Client",
+      "executed": true,
+      "result": {
+        "passed": true,
+        "classification": "SIMULATED_RESPONSE",
+        "recovery_time_ms": 1507,
+        "evidence": "Exponential backoff observed; mission not completed prematurely."
+      }
+    },
+    {
+      "id": "REAL_SQLITE_LOCK_CONTENTION",
+      "name": "Real SQLite Write-Lock Contention & busy_timeout Absorption",
+      "classification": "REAL_DATABASE_TRANSACTION",
+      "target": "SQLite WAL Database",
+      "executed": true,
+      "result": {
+        "passed": true,
+        "classification": "REAL_DATABASE_TRANSACTION",
+        "recovery_time_ms": 407,
+        "evidence": "Physical SQLite lock absorbed via WAL page concurrency and busy_timeout handler."
+      }
+    },
+    {
+      "id": "REAL_INTERRUPTED_MISSION",
+      "name": "Real Mid-Execution Mission Interruption & Truthful State Invariant",
+      "classification": "REAL_MISSION_LIFECYCLE",
+      "target": "Mission DAG Execution Engine",
+      "executed": true,
+      "result": {
+        "passed": true,
+        "classification": "REAL_MISSION_LIFECYCLE",
+        "recovery_time_ms": 6,
+        "evidence": "Mission mission-interrupt-test-1795532895570 status is strictly FAILED_RECOVERABLE; never falsely promoted to COMPLETED."
+      }
+    },
+    {
+      "id": "REAL_WORKER_PROCESS_RECOVERY",
+      "name": "Real Disposable Background Worker Termination & Watchdog Respawn",
+      "classification": "REAL_PROCESS_TERMINATION",
+      "target": "Operating System Process / Child Worker",
+      "executed": true,
+      "result": {
+        "passed": true,
+        "classification": "REAL_PROCESS_TERMINATION",
+        "recovery_time_ms": 786,
+        "evidence": "Real worker PID 51536 terminated cleanly (exitConfirmed: true). Watchdog respawned replacement worker PID 67076."
+      }
+    },
+    {
+      "id": "REAL_DUPLICATE_IDEMPOTENCY",
+      "name": "Real Duplicate Request Idempotency Barrier & Replay Suppression",
+      "classification": "REAL_IDEMPOTENCY_CONTROL",
+      "target": "Execution Deduplication Layer",
+      "executed": true,
+      "result": {
+        "passed": true,
+        "classification": "REAL_IDEMPOTENCY_CONTROL",
+        "recovery_time_ms": 2,
+        "evidence": "Duplicate request with key idemp-stage1-1-1795532896859-f01932b9 suppressed by idempotency barrier without side effects."
+      }
+    }
+  ],
+  "operational_verdict": "PASS"
+}

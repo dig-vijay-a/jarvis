@@ -1,0 +1,483 @@
+{
+  "timestamp": "2026-11-24T11:47:20.678Z",
+  "total_scenarios": 45,
+  "passed": 45,
+  "failed": 0,
+  "pass_rate_percent": 100,
+  "scenarios": [
+    {
+      "id": 1,
+      "group": "SECURITY",
+      "name": "Authentication bypass rejection",
+      "status": "PASSED",
+      "duration_ms": 11,
+      "detail": {
+        "auth_bypass_blocked": true
+      }
+    },
+    {
+      "id": 2,
+      "group": "SECURITY",
+      "name": "Session token revocation immediate invalidation",
+      "status": "PASSED",
+      "duration_ms": 10,
+      "detail": {
+        "device_id": "dev-mobile-2a600803",
+        "revoked_and_rejected": true
+      }
+    },
+    {
+      "id": 3,
+      "group": "SECURITY",
+      "name": "Device impersonation prevention",
+      "status": "PASSED",
+      "duration_ms": 1,
+      "detail": {
+        "impersonation_blocked": true
+      }
+    },
+    {
+      "id": 4,
+      "group": "SECURITY",
+      "name": "Pairing token single-use enforcement (replay attack)",
+      "status": "PASSED",
+      "duration_ms": 5,
+      "detail": {
+        "token_replay_blocked": true
+      }
+    },
+    {
+      "id": 5,
+      "group": "SECURITY",
+      "name": "Sensitive action approval gate bypass rejection",
+      "status": "PASSED",
+      "duration_ms": 1,
+      "detail": {
+        "approval_gate_enforced": true
+      }
+    },
+    {
+      "id": 6,
+      "group": "SECURITY",
+      "name": "Privilege escalation rejection",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "escalation_blocked": true
+      }
+    },
+    {
+      "id": 7,
+      "group": "SECURITY",
+      "name": "Direct prompt injection pattern redaction",
+      "status": "PASSED",
+      "duration_ms": 1,
+      "detail": {
+        "injection_redacted": true
+      }
+    },
+    {
+      "id": 8,
+      "group": "SECURITY",
+      "name": "Malicious research content citation rejection",
+      "status": "PASSED",
+      "duration_ms": 1,
+      "detail": {
+        "fabricated_citation_rejected": true
+      }
+    },
+    {
+      "id": 9,
+      "group": "SECURITY",
+      "name": "Path traversal filename sanitization",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "path_traversals_identified": 3
+      }
+    },
+    {
+      "id": 10,
+      "group": "SECURITY",
+      "name": "Shell command argument injection prevention",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "shell_injection_detected": true
+      }
+    },
+    {
+      "id": 11,
+      "group": "SECURITY",
+      "name": "Parameterized SQLite injection protection",
+      "status": "PASSED",
+      "duration_ms": 1,
+      "detail": {
+        "sql_injection_safe": true
+      }
+    },
+    {
+      "id": 12,
+      "group": "SECURITY",
+      "name": "Credential leakage prevention in telemetry logs",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "credentials_masked": true
+      }
+    },
+    {
+      "id": 13,
+      "group": "SECURITY",
+      "name": "Zero private Chain-of-Thought exposure in public summaries",
+      "status": "PASSED",
+      "duration_ms": 10,
+      "detail": {
+        "cot_secluded": true
+      }
+    },
+    {
+      "id": 14,
+      "group": "SECURITY",
+      "name": "Cross-device sync payload generation and versioning",
+      "status": "PASSED",
+      "duration_ms": 33,
+      "detail": {
+        "sync_version": 20
+      }
+    },
+    {
+      "id": 15,
+      "group": "SECURITY",
+      "name": "Prohibited code patterns rejected in skill design",
+      "status": "PASSED",
+      "duration_ms": 2,
+      "detail": {
+        "eval_rejected": true
+      }
+    },
+    {
+      "id": 16,
+      "group": "SECURITY",
+      "name": "Evolution Sandbox VM filesystem isolation",
+      "status": "PASSED",
+      "duration_ms": 118,
+      "detail": {
+        "sandbox_isolated": true
+      }
+    },
+    {
+      "id": 17,
+      "group": "SECURITY",
+      "name": "Production deployment bypass prevention",
+      "status": "PASSED",
+      "duration_ms": 1,
+      "detail": {
+        "unapproved_deploy_blocked": true
+      }
+    },
+    {
+      "id": 18,
+      "group": "SECURITY",
+      "name": "Malicious tool output schema validation",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "malformed_tool_output_handled": true
+      }
+    },
+    {
+      "id": 19,
+      "group": "SECURITY",
+      "name": "Private memory confidentiality boundary",
+      "status": "PASSED",
+      "duration_ms": 32,
+      "detail": {
+        "memory_key": "private_medical_1795520840411",
+        "stored_id": "mem-1795520784287-623"
+      }
+    },
+    {
+      "id": 20,
+      "group": "SECURITY",
+      "name": "Python agent restricted to localhost (127.0.0.1)",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "localhost_binding_verified": "127.0.0.1"
+      }
+    },
+    {
+      "id": 21,
+      "group": "CROSS_DEVICE",
+      "name": "Desktop starts strategic mission",
+      "status": "PASSED",
+      "duration_ms": 2,
+      "detail": {
+        "mission_id": "mis-xdev-1795520840445",
+        "status": "RUNNING"
+      }
+    },
+    {
+      "id": 22,
+      "group": "CROSS_DEVICE",
+      "name": "Companion mobile device receives notification",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "notification_id": "notif-1795520840446",
+        "priority": "HIGH"
+      }
+    },
+    {
+      "id": 23,
+      "group": "CROSS_DEVICE",
+      "name": "User approval submitted via trusted companion device",
+      "status": "PASSED",
+      "duration_ms": 4,
+      "detail": {
+        "approver_device": "dev-mobile-c67a8426",
+        "approved": true
+      }
+    },
+    {
+      "id": 24,
+      "group": "CROSS_DEVICE",
+      "name": "Desktop orchestrator continues mission execution post-approval",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "prior": "WAITING_FOR_APPROVAL",
+        "new_status": "RUNNING"
+      }
+    },
+    {
+      "id": 25,
+      "group": "CROSS_DEVICE",
+      "name": "Companion device disconnect during active execution",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "desktop_decoupled": true,
+        "mission_unaffected_by_mobile_disconnect": true
+      }
+    },
+    {
+      "id": 26,
+      "group": "CROSS_DEVICE",
+      "name": "Desktop completes mission while companion is offline",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "status": "COMPLETED",
+        "completed_at": "2026-11-24T11:47:20.450Z"
+      }
+    },
+    {
+      "id": 27,
+      "group": "CROSS_DEVICE",
+      "name": "Mobile reconnects and synchronizes completed mission state",
+      "status": "PASSED",
+      "duration_ms": 23,
+      "detail": {
+        "payload_ready": true
+      }
+    },
+    {
+      "id": 28,
+      "group": "CROSS_DEVICE",
+      "name": "Interrupted voice handoff does not execute twice",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "executionCount": 1,
+        "deduplicated": true
+      }
+    },
+    {
+      "id": 29,
+      "group": "MEMORY",
+      "name": "Exact duplicate memory insertion prevention",
+      "status": "PASSED",
+      "duration_ms": 41,
+      "detail": {
+        "handled_duplicate": true
+      }
+    },
+    {
+      "id": 30,
+      "group": "MEMORY",
+      "name": "Contradictory facts detection in Knowledge Graph",
+      "status": "PASSED",
+      "duration_ms": 1,
+      "detail": {
+        "conflicts_count": 0
+      }
+    },
+    {
+      "id": 31,
+      "group": "MEMORY",
+      "name": "Stale knowledge rejection (> 30 days TTL)",
+      "status": "PASSED",
+      "duration_ms": 1,
+      "detail": {
+        "entity_id": "ent-old-1795520840517",
+        "name": "Deprecated 40-day old server parameter",
+        "timestamp": "2026-10-15T11:47:20.517Z",
+        "age_days": 40,
+        "max_allowed_days": 30,
+        "is_stale": true,
+        "freshness_verdict": "STALE"
+      }
+    },
+    {
+      "id": 32,
+      "group": "MEMORY",
+      "name": "User corrections provenance preservation",
+      "status": "PASSED",
+      "duration_ms": 2,
+      "detail": {
+        "corrected_id": "ent-da5e5530",
+        "name": "VSCode Insiders (User Corrected)"
+      }
+    },
+    {
+      "id": 33,
+      "group": "MEMORY",
+      "name": "Private memory tag segregation",
+      "status": "PASSED",
+      "duration_ms": 21,
+      "detail": {
+        "privacy_enforced": true
+      }
+    },
+    {
+      "id": 34,
+      "group": "MEMORY",
+      "name": "Inferred facts confidence ceiling (<= 0.70)",
+      "status": "PASSED",
+      "duration_ms": 4,
+      "detail": {
+        "capped_weight": 0.7
+      }
+    },
+    {
+      "id": 35,
+      "group": "MEMORY",
+      "name": "Cross-project knowledge namespace segregation",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "namespaces_segregated": true
+      }
+    },
+    {
+      "id": 36,
+      "group": "MEMORY",
+      "name": "Source provenance preservation in knowledge storage",
+      "status": "PASSED",
+      "duration_ms": 1,
+      "detail": {
+        "source_type": "user_explicit"
+      }
+    },
+    {
+      "id": 37,
+      "group": "MEMORY",
+      "name": "Concurrent memory writes without SQLite corruption",
+      "status": "PASSED",
+      "duration_ms": 64,
+      "detail": {
+        "concurrent_writes": 3
+      }
+    },
+    {
+      "id": 38,
+      "group": "PROVIDER",
+      "name": "LLM Provider request timeout handling and abort",
+      "status": "PASSED",
+      "duration_ms": 65,
+      "detail": {
+        "timeout_handled": true,
+        "threshold_ms": 50
+      }
+    },
+    {
+      "id": 39,
+      "group": "PROVIDER",
+      "name": "Provider HTTP 429 rate limit backoff progression",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "backoffs": [
+          500,
+          1000,
+          2000
+        ]
+      }
+    },
+    {
+      "id": 40,
+      "group": "PROVIDER",
+      "name": "Provider service outage fallback to secondary provider",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "fallback_selected": "ollama_local_qwen"
+      }
+    },
+    {
+      "id": 41,
+      "group": "PROVIDER",
+      "name": "Invalid or truncated LLM response JSON recovery",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "error": "PARSING_FAILED",
+        "recovered": true
+      }
+    },
+    {
+      "id": 42,
+      "group": "PROVIDER",
+      "name": "Malformed tool call argument validation",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "malformed_detected": true
+      }
+    },
+    {
+      "id": 43,
+      "group": "PROVIDER",
+      "name": "Context overflow token trimming preserving system prompt",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "preserved_system": true,
+        "trimmed_turns": 1
+      }
+    },
+    {
+      "id": 44,
+      "group": "PROVIDER",
+      "name": "Provider switching preserving mission identity and checkpoints",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "provider_switched_to": "ollama_local",
+        "state_preserved": true
+      }
+    },
+    {
+      "id": 45,
+      "group": "PROVIDER",
+      "name": "Truthful task status preserved across provider failure",
+      "status": "PASSED",
+      "duration_ms": 0,
+      "detail": {
+        "status": "OUTCOME_VERIFICATION_PENDING"
+      }
+    }
+  ]
+}

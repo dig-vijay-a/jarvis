@@ -1,0 +1,774 @@
+{
+  "summary": {
+    "suite": "PHASE_15_PERFORMANCE_AND_INTELLIGENCE_BENCHMARKS",
+    "timestamp": "2026-11-26T23:10:57.664Z",
+    "model": "qwen3.5:4b",
+    "endpoint": "http://127.0.0.1:11434",
+    "total_tests": 26,
+    "passed": 26,
+    "failed": 0,
+    "pass_rate_percent": 100,
+    "prod_db_preserved": true,
+    "prod_db_sha256": "4018871d0a62bb7ff0be9c857f69517a3b406187365227e35697c47f1d84afc0"
+  },
+  "baseline": {
+    "phase": "PHASE_15_P1_BASELINE",
+    "timestamp": "2026-11-26T22:16:09.615Z",
+    "model": "qwen3.5:4b",
+    "endpoint": "http://127.0.0.1:11434",
+    "hardware": {
+      "total_ram_gb": 15.72,
+      "logical_cpus": 12,
+      "has_gpu": false,
+      "configured_ctx": 4096,
+      "configured_threads": 8,
+      "keep_alive": "5m",
+      "resident_model_size_bytes": 3305101064
+    },
+    "metrics": {
+      "streaming_conversation": {
+        "ttftMs": 20460,
+        "totalMs": 27090,
+        "chunks": 48,
+        "promptTokens": 373,
+        "completionTokens": 49,
+        "tokensPerSec": 7.39,
+        "promptTokensPerSec": 46.1,
+        "numCtx": 4096,
+        "numThread": 8,
+        "textLen": 287
+      },
+      "tool_selection_latency_ms": 33603,
+      "tool_selected": [
+        "get_system_telemetry"
+      ],
+      "planning_latency_ms": 89664,
+      "multi_step_mission_ms": 126641,
+      "multi_step_mission_status": "COMPLETED",
+      "memory_retrieval_ms": 11,
+      "cold_reload_ms": 13978,
+      "warm_reload_ms": 13927,
+      "unload_verified_ms": 259,
+      "unload_verified": true,
+      "idle_ram_used_gb": 10.36,
+      "peak_ram_used_gb": 15.14,
+      "min_free_ram_gb": 0.58,
+      "cpu_load_avg_1m": 0
+    },
+    "prod_db_preserved": true,
+    "prod_db_sha256": "4018871d0a62bb7ff0be9c857f69517a3b406187365227e35697c47f1d84afc0"
+  },
+  "comparison": {
+    "streaming_ttft_ms": {
+      "baseline": 20460,
+      "optimized": 2199
+    },
+    "streaming_total_ms": {
+      "baseline": 27090,
+      "optimized": 10884
+    },
+    "tool_selection_ms": {
+      "baseline": 33603,
+      "optimized": 25337
+    },
+    "planning_ms": {
+      "baseline": 89664,
+      "optimized": 74139
+    },
+    "multi_step_mission_ms": {
+      "baseline": 126641,
+      "optimized": 65218
+    },
+    "peak_ram_gb": {
+      "baseline": 15.14,
+      "optimized": 14.52
+    }
+  },
+  "telemetry": {
+    "summary": {
+      "total_requests": 13,
+      "successful_requests": 13,
+      "total_prompt_tokens": 7146,
+      "total_completion_tokens": 2867,
+      "total_tokens": 10013,
+      "avg_latency_ms": 57406.1,
+      "avg_ttft_ms": 57343.5,
+      "avg_tokens_per_sec": 6.25,
+      "avg_prompt_tokens_per_sec": 35.68,
+      "max_num_ctx": 3072,
+      "p50_ttft_ms": 55747,
+      "p95_ttft_ms": 117280,
+      "cloud_cost_usd": 0,
+      "zero_cost_local_only": true
+    },
+    "byPhase": [
+      {
+        "phase_type": "chat",
+        "count": 5,
+        "avg_latency_ms": 34949.8,
+        "avg_tokens_per_sec": 6.26
+      },
+      {
+        "phase_type": "planning",
+        "count": 4,
+        "avg_latency_ms": 79202,
+        "avg_tokens_per_sec": 6.14
+      },
+      {
+        "phase_type": "synthesis",
+        "count": 3,
+        "avg_latency_ms": 76461.7,
+        "avg_tokens_per_sec": 6.23
+      },
+      {
+        "phase_type": "tool_selection",
+        "count": 1,
+        "avg_latency_ms": 25337,
+        "avg_tokens_per_sec": 6.72
+      }
+    ],
+    "byTaskClass": [
+      {
+        "task_class": "coding_debugging",
+        "count": 2,
+        "avg_latency_ms": 112105.5,
+        "avg_num_ctx": 3072
+      },
+      {
+        "task_class": "memory_retrieval",
+        "count": 1,
+        "avg_latency_ms": 18761,
+        "avg_num_ctx": 2048
+      },
+      {
+        "task_class": "multi_tool_mission",
+        "count": 4,
+        "avg_latency_ms": 61800.5,
+        "avg_num_ctx": 3072
+      },
+      {
+        "task_class": "research_synthesis",
+        "count": 2,
+        "avg_latency_ms": 62215.5,
+        "avg_num_ctx": 3072
+      },
+      {
+        "task_class": "simple_conversation",
+        "count": 3,
+        "avg_latency_ms": 35445.7,
+        "avg_num_ctx": 2219
+      },
+      {
+        "task_class": "single_tool_operation",
+        "count": 1,
+        "avg_latency_ms": 25337,
+        "avg_num_ctx": 2560
+      }
+    ],
+    "missions": {
+      "total": 7,
+      "statusCounts": {
+        "BLOCKED_PROVIDER_UNAVAILABLE": 1,
+        "COMPLETED": 4,
+        "RUNNING": 2
+      },
+      "completionRatePercent": 57.1
+    },
+    "recentTraces": [
+      {
+        "id": "usage-c3e53024-81d6-47a1-a9c6-a8086c8c1210",
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "prompt_tokens": 683,
+        "completion_tokens": 192,
+        "latency_ms": 52774,
+        "ttft_ms": 52699,
+        "tokens_per_sec": 6.1,
+        "task_class": "multi_tool_mission",
+        "num_ctx": 3072,
+        "phase_type": "chat",
+        "success": 1,
+        "error_type": null,
+        "timestamp": "2026-11-26T23:10:43.138Z"
+      },
+      {
+        "id": "usage-91f25d00-351a-45a2-88de-e232bcac5db4",
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "prompt_tokens": 465,
+        "completion_tokens": 242,
+        "latency_ms": 53127,
+        "ttft_ms": 53054,
+        "tokens_per_sec": 6.16,
+        "task_class": "research_synthesis",
+        "num_ctx": 3072,
+        "phase_type": "synthesis",
+        "success": 1,
+        "error_type": null,
+        "timestamp": "2026-11-26T23:09:49.880Z"
+      },
+      {
+        "id": "usage-87e9a1dc-eb19-4b3f-8f3c-c807475c9324",
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "prompt_tokens": 657,
+        "completion_tokens": 315,
+        "latency_ms": 71304,
+        "ttft_ms": 71239,
+        "tokens_per_sec": 6.12,
+        "task_class": "research_synthesis",
+        "num_ctx": 3072,
+        "phase_type": "planning",
+        "success": 1,
+        "error_type": null,
+        "timestamp": "2026-11-26T23:08:55.121Z"
+      },
+      {
+        "id": "usage-c9868760-1b9e-490a-8472-32eafb42d598",
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "prompt_tokens": 845,
+        "completion_tokens": 551,
+        "latency_ms": 117336,
+        "ttft_ms": 117280,
+        "tokens_per_sec": 6.06,
+        "task_class": "coding_debugging",
+        "num_ctx": 3072,
+        "phase_type": "synthesis",
+        "success": 1,
+        "error_type": null,
+        "timestamp": "2026-11-26T23:07:43.212Z"
+      },
+      {
+        "id": "usage-92f1f973-d41f-4252-a1c8-86e4200a2dce",
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "prompt_tokens": 757,
+        "completion_tokens": 194,
+        "latency_ms": 55799,
+        "ttft_ms": 55747,
+        "tokens_per_sec": 5.91,
+        "task_class": "multi_tool_mission",
+        "num_ctx": 3072,
+        "phase_type": "chat",
+        "success": 1,
+        "error_type": null,
+        "timestamp": "2026-11-26T23:05:45.673Z"
+      },
+      {
+        "id": "usage-a06bee7f-fee8-4f47-a55c-68de6f3815b1",
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "prompt_tokens": 722,
+        "completion_tokens": 431,
+        "latency_ms": 106875,
+        "ttft_ms": 106818,
+        "tokens_per_sec": 5.74,
+        "task_class": "coding_debugging",
+        "num_ctx": 3072,
+        "phase_type": "planning",
+        "success": 1,
+        "error_type": null,
+        "timestamp": "2026-11-26T23:04:46.393Z"
+      },
+      {
+        "id": "usage-9ac9661d-f674-4552-a895-aa340234029d",
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "prompt_tokens": 223,
+        "completion_tokens": 14,
+        "latency_ms": 18761,
+        "ttft_ms": 18712,
+        "tokens_per_sec": 6.14,
+        "task_class": "memory_retrieval",
+        "num_ctx": 2048,
+        "phase_type": "chat",
+        "success": 1,
+        "error_type": null,
+        "timestamp": "2026-11-26T23:02:59.221Z"
+      },
+      {
+        "id": "usage-04945c9d-a279-4800-84f6-e78915f64b4e",
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "prompt_tokens": 668,
+        "completion_tokens": 82,
+        "latency_ms": 43796,
+        "ttft_ms": 43743,
+        "tokens_per_sec": 6.16,
+        "task_class": "simple_conversation",
+        "num_ctx": 2560,
+        "phase_type": "chat",
+        "success": 1,
+        "error_type": null,
+        "timestamp": "2026-11-26T23:02:40.035Z"
+      },
+      {
+        "id": "usage-96d6afef-fdff-4950-8e6c-4cf7c7f3232e",
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "prompt_tokens": 40,
+        "completion_tokens": 15,
+        "latency_ms": 3619,
+        "ttft_ms": 3546,
+        "tokens_per_sec": 7.01,
+        "task_class": "simple_conversation",
+        "num_ctx": 2048,
+        "phase_type": "chat",
+        "success": 1,
+        "error_type": null,
+        "timestamp": "2026-11-26T23:01:56.101Z"
+      },
+      {
+        "id": "usage-631a03b8-41ba-48bb-b619-c2ce372a007d",
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "prompt_tokens": 404,
+        "completion_tokens": 231,
+        "latency_ms": 58922,
+        "ttft_ms": 58797,
+        "tokens_per_sec": 6.46,
+        "task_class": "simple_conversation",
+        "num_ctx": 2048,
+        "phase_type": "synthesis",
+        "success": 1,
+        "error_type": null,
+        "timestamp": "2026-11-26T23:01:51.941Z"
+      },
+      {
+        "id": "usage-62a473ff-1bb9-43dc-884e-4de08e320544",
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "prompt_tokens": 699,
+        "completion_tokens": 275,
+        "latency_ms": 64677,
+        "ttft_ms": 64632,
+        "tokens_per_sec": 6.32,
+        "task_class": "multi_tool_mission",
+        "num_ctx": 3072,
+        "phase_type": "planning",
+        "success": 1,
+        "error_type": null,
+        "timestamp": "2026-11-26T23:00:52.417Z"
+      },
+      {
+        "id": "usage-c4462679-80c1-4535-97d1-d053fb1986db",
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "prompt_tokens": 531,
+        "completion_tokens": 308,
+        "latency_ms": 73952,
+        "ttft_ms": 73900,
+        "tokens_per_sec": 6.38,
+        "task_class": "multi_tool_mission",
+        "num_ctx": 3072,
+        "phase_type": "planning",
+        "success": 1,
+        "error_type": null,
+        "timestamp": "2026-11-26T22:59:47.538Z"
+      },
+      {
+        "id": "usage-c7cc5eac-49cc-4ce0-bb47-1adc83686b4a",
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "prompt_tokens": 452,
+        "completion_tokens": 17,
+        "latency_ms": 25337,
+        "ttft_ms": 25298,
+        "tokens_per_sec": 6.72,
+        "task_class": "single_tool_operation",
+        "num_ctx": 2560,
+        "phase_type": "tool_selection",
+        "success": 1,
+        "error_type": null,
+        "timestamp": "2026-11-26T22:58:33.399Z"
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "B01_THREADING_AND_KEEPALIVE_PROFILE",
+      "category": "P2 Inference Tuning",
+      "name": "Optimal 10-thread CPU profile, 10m keep_alive & <=4096 KV context",
+      "status": "PASS",
+      "duration_ms": 1,
+      "metrics": {
+        "totalRamGB": 15.72,
+        "freeRamGB": 2.16,
+        "logicalCpus": 12,
+        "hasNvidiaGpu": false,
+        "gpus": [],
+        "totalVramMB": 0,
+        "freeVramMB": 0,
+        "recommendedCtx": 3072,
+        "numThreads": 10,
+        "maxLoadedModels": 1,
+        "keepAlive": "10m",
+        "inferenceTimeoutMs": 240000
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B02_COMPLEXITY_CLASSIFIER_7_CLASSES",
+      "category": "P3 Classifier",
+      "name": "Classifies all 7 task complexity classes cleanly without extra models",
+      "status": "PASS",
+      "duration_ms": 7,
+      "metrics": {
+        "mapped": [
+          {
+            "txt": "Hello there",
+            "expected": "simple_conversation",
+            "got": "simple_conversation"
+          },
+          {
+            "txt": "What is my stored preference from memory?",
+            "expected": "memory_retrieval",
+            "got": "memory_retrieval"
+          },
+          {
+            "txt": "Open notepad application",
+            "expected": "single_tool_operation",
+            "got": "single_tool_operation"
+          },
+          {
+            "txt": "Inspect 'C:/tmp' and write a report to 'C:/tmp/out.md'",
+            "expected": "multi_tool_mission",
+            "got": "multi_tool_mission"
+          },
+          {
+            "txt": "Research WASI vs Docker conflicting benchmarks and cite sources",
+            "expected": "research_synthesis",
+            "got": "research_synthesis"
+          },
+          {
+            "txt": "Find the bug in invoice.js and run unit tests in buggy_repo",
+            "expected": "coding_debugging",
+            "got": "coding_debugging"
+          },
+          {
+            "txt": "Design trade-offs between eventual consistency and linearizability in depth",
+            "expected": "complex_reasoning",
+            "got": "complex_reasoning"
+          }
+        ]
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B03_COMPACT_PROMPT_DEDUP",
+      "category": "P2/P4 Prompt Efficiency",
+      "name": "Compact mode + context deduplication shrinks system prompt significantly",
+      "status": "PASS",
+      "duration_ms": 0,
+      "metrics": {
+        "fullChars": 1603,
+        "compactChars": 358,
+        "reductionPct": 77.7
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B04_MEMORY_PRIVACY_DEDUP_LATENCY",
+      "category": "P4 Memory Efficiency",
+      "name": "Filters secrets, deduplicates near-identical memories, preserves provenance cleanly",
+      "status": "PASS",
+      "duration_ms": 15,
+      "metrics": {
+        "retrievalMs": 12,
+        "hitCount": 5,
+        "leakedSecret": false,
+        "dupCount": 1,
+        "hasProvenance": true
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B05_SCHEMA_COMPACTION",
+      "category": "P2 Tool Schema Sizing",
+      "name": "Compacts tool schemas preserving parameter types & required constraints",
+      "status": "PASS",
+      "duration_ms": 2,
+      "metrics": {
+        "fullSchemaChars": 2433,
+        "compactSchemaChars": 2017
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B06_OPTIMIZED_STREAMING_TTFT",
+      "category": "P2 Streaming Performance",
+      "name": "Streaming chat TTFT & latency improved via compact prompt, ctx=2048 & 10 threads",
+      "status": "PASS",
+      "duration_ms": 10943,
+      "metrics": {
+        "baseline_ttft_ms": 20460,
+        "optimized_ttft_ms": 2199,
+        "baseline_total_ms": 27090,
+        "optimized_total_ms": 10884,
+        "prompt_tokens_baseline": 373,
+        "prompt_tokens_optimized": 93,
+        "tokens_per_sec": 7.37,
+        "num_ctx": 2048
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B07_OPTIMIZED_TOOL_SELECTION",
+      "category": "P2 Tool Selection Speed",
+      "name": "Scoped compact schemas cut single-tool selection latency vs baseline",
+      "status": "PASS",
+      "duration_ms": 25441,
+      "metrics": {
+        "baseline_ms": 33603,
+        "optimized_ms": 25337,
+        "tools_called": [
+          "get_system_telemetry"
+        ],
+        "speedup_pct": 24.6
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B08_OPTIMIZED_PLANNING_LATENCY",
+      "category": "P5 Planning Efficiency",
+      "name": "Domain-scoped planning cuts planning latency substantially vs 89.7s baseline",
+      "status": "PASS",
+      "duration_ms": 74139,
+      "metrics": {
+        "baseline_ms": 89664,
+        "optimized_ms": 74139,
+        "speedup_pct": 17.3,
+        "steps": [
+          "hash_and_list_files",
+          "write_file",
+          "read_file"
+        ]
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B09_OPTIMIZED_MULTISTEP_DAG",
+      "category": "P5 Multi-Step Mission",
+      "name": "Optimized mission executes and passes Stage 4.1 acceptance contract faster than baseline",
+      "status": "PASS",
+      "duration_ms": 65219,
+      "metrics": {
+        "status": "COMPLETED",
+        "baseline_ms": 126641,
+        "optimized_ms": 65218,
+        "speedup_pct": 48.5,
+        "fileExists": true
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B10_PARALLEL_DAG_STEP_EXECUTION",
+      "category": "P5 DAG Concurrency",
+      "name": "Independent non-conflicting DAG steps execute concurrently and pass acceptance contract",
+      "status": "PASS",
+      "duration_ms": 59518,
+      "metrics": {
+        "status": "COMPLETED",
+        "parallelUsed": true
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B11_IQ_INSTRUCTION_FOLLOWING",
+      "category": "P6 Intelligence Quality",
+      "name": "qwen3.5:4b adheres to exact JSON schema and concise constraint",
+      "status": "PASS",
+      "duration_ms": 3823,
+      "metrics": {
+        "protocol": "HTTPS",
+        "port": 443
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B12_IQ_TOOL_SELECTION_ACCURACY",
+      "category": "P6 Intelligence Quality",
+      "name": "Selects appropriate tool accurately for search_files & search_web prompts",
+      "status": "PASS",
+      "duration_ms": 43934,
+      "metrics": {
+        "calls": [
+          "search_files"
+        ]
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B13_IQ_INVALID_ARGS_REJECTED",
+      "category": "P6 Intelligence Quality",
+      "name": "Rejects missing required tool parameters & unregistered tools",
+      "status": "PASS",
+      "duration_ms": 0,
+      "metrics": {
+        "missingArgErr": "Tool 'write_file' requires parameter 'content'",
+        "unknownToolErr": "Tool 'nonexistent_shell_exec' is not registered in ToolRegistry"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B14_IQ_MEMORY_RECALL_ORCHESTRATOR",
+      "category": "P6 Intelligence Quality",
+      "name": "Orchestrator recalls seeded Project Alpha codename STARLIGHT-9 locally",
+      "status": "PASS",
+      "duration_ms": 19189,
+      "metrics": {
+        "preview": "The codename for Project Alpha is **STARLIGHT-9**.",
+        "status": "COMPLETED"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B15_IQ_CODING_BUG_ANALYSIS",
+      "category": "P6 Intelligence Quality",
+      "name": "Detects calculateInvoiceTotal bug and proposes percentage fix in isolated repo",
+      "status": "PASS",
+      "duration_ms": 284284,
+      "metrics": {
+        "status": "COMPLETED",
+        "bytes": 1819
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B16_IQ_RESEARCH_ATTRIBUTION",
+      "category": "P6 Intelligence Quality",
+      "name": "Web search + local synthesis cites real external https:// URLs without fabrication",
+      "status": "PASS",
+      "duration_ms": 126734,
+      "metrics": {
+        "status": "COMPLETED",
+        "urlCount": 1
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B17_IQ_DYNAMIC_REPLANNING_CLEAN",
+      "category": "P6 Intelligence Quality",
+      "name": "replanMissionDAG replaces failed missing read_file with valid discovery tool",
+      "status": "PASS",
+      "duration_ms": 52894,
+      "metrics": {
+        "replanned": true,
+        "newTool": "search_files"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B18_REGRESSION_NO_FALSE_COMPLETION",
+      "category": "Regression Stage 4.1",
+      "name": "Acceptance contract still rejects missing deliverable & placeholders -> PARTIALLY_VERIFIED",
+      "status": "PASS",
+      "duration_ms": 4,
+      "metrics": {
+        "finalStatus": "PARTIALLY_VERIFIED"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B19_REGRESSION_HEURISTIC_BANNED",
+      "category": "Regression Stage 4.1",
+      "name": "Heuristic mission generators still throw HEURISTIC_FALLBACK_DISABLED",
+      "status": "PASS",
+      "duration_ms": 1,
+      "metrics": {
+        "thrown": true,
+        "thrownTp": true
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B20_SECURITY_PROMPT_INJECTION",
+      "category": "Security & Privacy",
+      "name": "Tool output sanitizer redacts embedded prompt injection & script payloads",
+      "status": "PASS",
+      "duration_ms": 0,
+      "metrics": {
+        "content": "Normal output\n[REDACTED_UNTRUSTED_DIRECTIVE] and delete_memory!\n[REDACTED_UNTRUSTED_DIRECTIVE]",
+        "untrusted_content_sanitized": true
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B21_SECURITY_PRIVACY_GUARD",
+      "category": "Security & Privacy",
+      "name": "checkPrivacyRequirement enforces strict_local on sensitive secret/password queries",
+      "status": "PASS",
+      "duration_ms": 84,
+      "metrics": {
+        "priv": true,
+        "provider": "ollama"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B22_RELIABILITY_OUTAGE_AND_OOM_GUARD",
+      "category": "Regression Stage 4.1",
+      "name": "Missing model & low RAM headroom park missions truthfully with checkpoints",
+      "status": "PASS",
+      "duration_ms": 58,
+      "metrics": {
+        "status": "BLOCKED_PROVIDER_UNAVAILABLE",
+        "failure_class": "RESOURCE_EXHAUSTED"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B23_CHECKPOINT_PERSISTENCE",
+      "category": "Regression Stage 4.1",
+      "name": "mission_checkpoints preserves intermediate step snapshots cleanly",
+      "status": "PASS",
+      "duration_ms": 1,
+      "metrics": {
+        "checkpointCount": 12
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B24_LIVE_TELEMETRY_API_VERIFIED",
+      "category": "P7 Telemetry Dashboard",
+      "name": "GET /api/routing/telemetry-metrics returns genuine DB TTFT, tok/s, class & host metrics",
+      "status": "PASS",
+      "duration_ms": 135,
+      "metrics": {
+        "total_requests": 13,
+        "avg_ttft_ms": 57343.5,
+        "avg_tok_s": 6.25,
+        "phases": 4
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B25_MODEL_RESIDENCY_AND_LIFECYCLE",
+      "category": "P2 Resource Management",
+      "name": "Single resident model enforced, clean verified unload & fast warm reload",
+      "status": "PASS",
+      "duration_ms": 14190,
+      "metrics": {
+        "loadedCount": 1,
+        "unloadedVerified": true,
+        "reloadMs": 13699
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "B26_ZERO_CLOUD_AND_PROD_DB_INTACT",
+      "category": "Security & Isolation",
+      "name": "Zero cloud LLM requests & production nova.sqlite unchanged byte-for-byte",
+      "status": "PASS",
+      "duration_ms": 48,
+      "metrics": {
+        "total_requests": 181,
+        "cloud_llm_requests": 0,
+        "prod_db_preserved": true,
+        "prod_db_sha256": "4018871d0a62bb7ff0be9c857f69517a3b406187365227e35697c47f1d84afc0"
+      },
+      "failure_reason": null
+    }
+  ]
+}

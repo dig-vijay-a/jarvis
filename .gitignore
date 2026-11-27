@@ -1,0 +1,16 @@
+node_modules/
+nova/backend/node_modules/
+nova/frontend/node_modules/
+nova/frontend/dist/
+nova/data/sentinel_disposable_test/
+nova/data/backups/
+nova/data/*.sqlite-wal
+nova/data/*.sqlite-shm
+nova/.env
+.env
+__pycache__/
+*.pyc
+nova/android-companion/.gradle/
+nova/android-companion/app/build/
+nova/android-companion/build/
+nova/android-companion/local.properties

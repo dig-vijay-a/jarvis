@@ -1,0 +1,208 @@
+{
+  "startedAt": "2026-11-24T05:14:14.309Z",
+  "phase": "JARVIS POST-RENAME REGRESSION AUDIT",
+  "summary": {
+    "totalSections": 11,
+    "totalTests": 19,
+    "passed": 19,
+    "failed": 0,
+    "zeroHallucinationVerified": true
+  },
+  "sections": {
+    "STARTUP": [
+      {
+        "testId": "APP-01",
+        "name": "Backend Server Health & System Identity",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:14.446Z",
+        "system": "JARVIS Personal AI OS",
+        "version": "2.0.0"
+      },
+      {
+        "testId": "APP-02",
+        "name": "System Subsystems & Python Agent Daemon Link",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:14.668Z",
+        "dbStatus": "HEALTHY",
+        "pythonAgentStatus": "online",
+        "pythonDetails": "JARVIS Local Automation Agent"
+      }
+    ],
+    "VOICE": [
+      {
+        "testId": "VOI-01",
+        "name": "Wake-Word Engine Configuration & Identity",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:14.697Z",
+        "phrase": "Hey Jarvis",
+        "engine": "JARVIS Local Wake-Word Engine (Zero External Audio Streaming)"
+      },
+      {
+        "testId": "VOI-02",
+        "name": "Dual Wake-Word Activation (Primary Jarvis & Legacy Nova)",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:14.768Z",
+        "jarvisCommand": "open calculator",
+        "legacyCommand": "what is the weather",
+        "note": "Verified backward compatibility without broken voice triggers"
+      }
+    ],
+    "CHAT": [
+      {
+        "testId": "CHT-01",
+        "name": "Assistant Identity adheres to JARVIS persona",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:14.859Z",
+        "responseSnippet": "I'm JARVIS, your personal AI operating system. I can launch and manage applications, search and synthesize research, organize files, manage open windo"
+      },
+      {
+        "testId": "CHT-02",
+        "name": "Multi-Turn Anaphora & Context Resolution",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:15.329Z",
+        "responseSnippet": "### Situation Briefing & Strategic Overview: james webb discoveries\n\n**Executive Summary:**\nRecent developments reflect ongoing diplomatic maneuvers, ",
+        "note": "Resolved \"it\" to James Webb discoveries"
+      }
+    ],
+    "MEMORY": [
+      {
+        "testId": "MEM-01",
+        "name": "Memory Persistence & Zero Data Loss Across Sessions",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:15.396Z",
+        "totalMemories": 189,
+        "retrievedTestKey": "jarvis_pref_1795497255329",
+        "note": "Zero regression on legacy database records"
+      }
+    ],
+    "DESKTOP": [
+      {
+        "testId": "DSK-01",
+        "name": "Hardware Telemetry Acquisition (CPU & Memory)",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:15.521Z",
+        "cpuPercent": 12.9,
+        "memoryPercent": 86.2,
+        "diskFreeGb": 152.6
+      },
+      {
+        "testId": "DSK-02",
+        "name": "System Clipboard Automation (Set & Readback)",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:15.569Z",
+        "clipboardValue": "JARVIS_AUTOMATION_TEST_PAYLOAD"
+      }
+    ],
+    "WINDOWS": [
+      {
+        "testId": "WIN-01",
+        "name": "Top-Level Window Enumeration & Process Grouping",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:15.596Z",
+        "windowCount": 3,
+        "sampleWindow": "Jarvis - Antigravity IDE - jarvis_phase10_master_report.md"
+      },
+      {
+        "testId": "WIN-02",
+        "name": "Bulk Window Operation with Negative Constraint",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:15.624Z",
+        "result": {
+          "success": true,
+          "action": "minimize",
+          "target": "notepad",
+          "total_found": 0,
+          "total_affected": 0,
+          "failed": 0,
+          "windows": [],
+          "message": "No active notepad windows found to be minimized."
+        }
+      }
+    ],
+    "AGENTS": [
+      {
+        "testId": "AGN-01",
+        "name": "Specialized Multi-Agent Roster Availability",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:15.631Z",
+        "registeredAgents": [
+          "Research Agent",
+          "Coding Agent",
+          "Productivity Agent",
+          "File Management Agent",
+          "Content Creation Agent",
+          "System Assistant Agent"
+        ],
+        "totalAgents": 6
+      }
+    ],
+    "MISSIONS": [
+      {
+        "testId": "MSN-01",
+        "name": "Autonomous Mission Creation & DAG Tracking",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:15.706Z",
+        "missionId": "mission-1795497255637",
+        "status": "CREATED_AND_TRACKED"
+      }
+    ],
+    "RESEARCH": [
+      {
+        "testId": "RSH-01",
+        "name": "Web Research Discovery & Source Citation",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:15.840Z",
+        "resultCount": 1,
+        "sampleResult": "Synthesized intelligence for: deep learning transformers 2026 breakthroughs"
+      },
+      {
+        "testId": "RSH-02",
+        "name": "Physical Deliverable Generation on Local Disk",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:15.843Z",
+        "path": "c:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\deliverables\\Desktop_Organization_Plan.md",
+        "exists": true,
+        "sizeBytes": 1259,
+        "note": "Verified genuine file creation on filesystem"
+      }
+    ],
+    "SECURITY": [
+      {
+        "testId": "SEC-01",
+        "name": "Bearer Token Security Guard & Origin Check",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:15.865Z",
+        "unauthRejected": true,
+        "note": "Unauthorized agent requests strictly refused"
+      },
+      {
+        "testId": "SEC-02",
+        "name": "System Directory Write Protection Guard",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:15.899Z",
+        "traversalBlocked": true,
+        "note": "Access to C:\\Windows and sensitive system roots refused"
+      },
+      {
+        "testId": "SEC-03",
+        "name": "Host Antigravity IDE Termination Protection",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:15.924Z",
+        "hostProtected": true,
+        "note": "Host IDE process protected against destruction"
+      }
+    ],
+    "MOBILE": [
+      {
+        "testId": "MOB-01",
+        "name": "Mobile Companion Authentication & Session Token Sync",
+        "passed": true,
+        "timestamp": "2026-11-24T05:14:16.203Z",
+        "status": 200,
+        "success": true,
+        "sessionTokenIssued": true,
+        "note": "Zero-trust PIN salted verification verified"
+      }
+    ]
+  }
+}

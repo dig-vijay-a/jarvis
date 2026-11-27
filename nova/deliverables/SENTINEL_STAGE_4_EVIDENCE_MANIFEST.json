@@ -1,0 +1,220 @@
+{
+  "stage": "SENTINEL_STAGE_4",
+  "generated_at": "2026-11-25T13:04:36.495Z",
+  "git_commit": "e553ad29b6fe858bdeea8435151f39f720369a93",
+  "production_db": {
+    "path": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\data\\nova.sqlite",
+    "sha256": "31d8872fc3752a03b064a4376848532064cd2096e1fc839041fcb4f976219a7d",
+    "preserved": true
+  },
+  "baseline_snapshot": {
+    "path": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\data\\sentinel_disposable_test\\stage4_isolated\\stage4_baseline_snapshot.json",
+    "sha256": "f3b23f11875fd8bbd3b7d1fff013b5b5194a7d6510a12ef93ae2a8a6ca07d614",
+    "summary": {
+      "total": 20,
+      "PASS": 0,
+      "PARTIALLY_VERIFIED": 0,
+      "FAIL": 20,
+      "NOT_TESTED": 0
+    }
+  },
+  "deliverables": [
+    {
+      "filename": "SENTINEL_STAGE_4_MASTER_REPORT.md",
+      "path": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\deliverables\\SENTINEL_STAGE_4_MASTER_REPORT.md",
+      "size_bytes": 2786,
+      "sha256": "76d4fecad27fd73cf55d07324de1b64eb041dbc3e08425b354d19f69b70889d2"
+    },
+    {
+      "filename": "SENTINEL_STAGE_4_OBJECTIVE_RESULTS.md",
+      "path": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\deliverables\\SENTINEL_STAGE_4_OBJECTIVE_RESULTS.md",
+      "size_bytes": 22311,
+      "sha256": "55ab99a5cdc14e3eec3eec68870c781699b22220dc8f91e309648b7c3aecfff1"
+    },
+    {
+      "filename": "SENTINEL_STAGE_4_AUTONOMY_AUDIT.md",
+      "path": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\deliverables\\SENTINEL_STAGE_4_AUTONOMY_AUDIT.md",
+      "size_bytes": 3013,
+      "sha256": "3e44755df5d1a08418bb5932a5efc95a3209afddc3b5d56d5f69cc59065e9966"
+    },
+    {
+      "filename": "SENTINEL_STAGE_4_TOOL_EXECUTION_REPORT.md",
+      "path": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\deliverables\\SENTINEL_STAGE_4_TOOL_EXECUTION_REPORT.md",
+      "size_bytes": 1614,
+      "sha256": "034725d82d2ae252df200071455fb5eba9c742154fbf3d89b43ac067b7003227"
+    },
+    {
+      "filename": "SENTINEL_STAGE_4_RECOVERY_REPORT.md",
+      "path": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\deliverables\\SENTINEL_STAGE_4_RECOVERY_REPORT.md",
+      "size_bytes": 1693,
+      "sha256": "3f7fbc0fdd2de00b411e793202d43c1ab8dd120be36c5e18b4f5e4bbd5fa5ce0"
+    },
+    {
+      "filename": "SENTINEL_STAGE_4_SECURITY_REPORT.md",
+      "path": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\deliverables\\SENTINEL_STAGE_4_SECURITY_REPORT.md",
+      "size_bytes": 1571,
+      "sha256": "ebe37821dd85d37c934a75baf2650bddc46b245653998a5608f1c4bc384a6f66"
+    },
+    {
+      "filename": "SENTINEL_STAGE_4_METRICS.json",
+      "path": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\deliverables\\SENTINEL_STAGE_4_METRICS.json",
+      "size_bytes": 128890,
+      "sha256": "d16b53d2145332067db902a6acac2b70c4cb8a02c0cf583d099143dcc117d86c"
+    },
+    {
+      "filename": "SENTINEL_STAGE_4_EVENTS.jsonl",
+      "path": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\deliverables\\SENTINEL_STAGE_4_EVENTS.jsonl",
+      "size_bytes": 22642,
+      "sha256": "21147deda9f13731faa81295cfd95beb6f20907da0948aac96bb038e084dcf18"
+    },
+    {
+      "filename": "SENTINEL_STAGE_4_REMEDIATION_LOG.md",
+      "path": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\deliverables\\SENTINEL_STAGE_4_REMEDIATION_LOG.md",
+      "size_bytes": 4134,
+      "sha256": "623f303180e96811e7127fe5f264ee704e88caecf6e1508a8f88c3a0e60f1350"
+    }
+  ],
+  "preserved_prior_sentinel_deliverables_count": 28,
+  "preserved_prior_sentinel_deliverables": [
+    {
+      "filename": "SENTINEL_STAGE_1_1_EVENTS.jsonl",
+      "size_bytes": 14963,
+      "sha256": "fcfe8e613e09d70211efe966538fd6448bef8eb4f0c17cea1deb225e9bb923fb"
+    },
+    {
+      "filename": "SENTINEL_STAGE_1_1_FAILURES.md",
+      "size_bytes": 3209,
+      "sha256": "15a1a2e9253d0f2c136f9e3f6a89dce40ea9ae1974fdfe9252b51bd12ab278e2"
+    },
+    {
+      "filename": "SENTINEL_STAGE_1_1_METRICS.json",
+      "size_bytes": 4976,
+      "sha256": "fdcdf63a585b2098f03b9f65b3ee73c727e8c05e0733204e1533679df60fff53"
+    },
+    {
+      "filename": "SENTINEL_STAGE_1_1_REMEDIATION_REPORT.md",
+      "size_bytes": 6242,
+      "sha256": "803e6308c14bbb040a1a31af9fa6fe71a7d118b1eb441ae2ed7002eb103b819c"
+    },
+    {
+      "filename": "SENTINEL_STAGE_1_1_TELEMETRY.jsonl",
+      "size_bytes": 11308,
+      "sha256": "755dec296fc358b1be456b4b7c208f05c74a2d749bd1ac21b828bdd31eae7536"
+    },
+    {
+      "filename": "SENTINEL_STAGE_1_EVENTS.jsonl",
+      "size_bytes": 229485,
+      "sha256": "04bc727bacbcf138e71fc3e7f4abea3fb23a09cb2452f9a3426e7f78c666703b"
+    },
+    {
+      "filename": "SENTINEL_STAGE_1_FAILURES.md",
+      "size_bytes": 1461,
+      "sha256": "ea3ba92c32ebe04922a59516cc014a470893836819a47f8de529b486bdf0bd76"
+    },
+    {
+      "filename": "SENTINEL_STAGE_1_METRICS.json",
+      "size_bytes": 3210,
+      "sha256": "ee189bd1af9c63f2bb2329c5555eda32da00c00028a618a1f6396bf1ea1f2d81"
+    },
+    {
+      "filename": "SENTINEL_STAGE_1_REPORT.md",
+      "size_bytes": 4032,
+      "sha256": "b3dd3cbe8a6786d2918447e807afc845648f1a0d16944804b35bc411d0470d94"
+    },
+    {
+      "filename": "SENTINEL_STAGE_2_1_EVENTS.jsonl",
+      "size_bytes": 8185,
+      "sha256": "caa67746d757bc97c266790a1bfa3c71e58bf075ef1c848c047ac262340935ae"
+    },
+    {
+      "filename": "SENTINEL_STAGE_2_1_FAILURES.md",
+      "size_bytes": 3410,
+      "sha256": "3efbc689b008356cb9dc8ccdef86e7b00c2382f083b1a0e49f9f37d78d1994e0"
+    },
+    {
+      "filename": "SENTINEL_STAGE_2_1_METRICS.json",
+      "size_bytes": 6866,
+      "sha256": "94dddac35813bdd85a2b6aeaa9d3488947638c7fe645b6a7cc24d60b0019791d"
+    },
+    {
+      "filename": "SENTINEL_STAGE_2_1_REMEDIATION_REPORT.md",
+      "size_bytes": 6872,
+      "sha256": "6b2804717b9d383660485bb110449b6c59ea0af8b50b85950fc198641f442013"
+    },
+    {
+      "filename": "SENTINEL_STAGE_2_EVENTS.jsonl",
+      "size_bytes": 257382,
+      "sha256": "d22017a8cfeae7e25615ef8a05fa3a6f32694d96595a3f58a53cf2be8e40389e"
+    },
+    {
+      "filename": "SENTINEL_STAGE_2_FAILURES.md",
+      "size_bytes": 1729,
+      "sha256": "97faa8e05e2115156d8eecc0951651922427fb546198f2ee2e3062f4060e08aa"
+    },
+    {
+      "filename": "SENTINEL_STAGE_2_METRICS.json",
+      "size_bytes": 3616,
+      "sha256": "cf26cec7f5a276cd2dfc0376c6627281aae0b11cf36bd9d31677394ecb2a89dd"
+    },
+    {
+      "filename": "SENTINEL_STAGE_2_REPORT.md",
+      "size_bytes": 4523,
+      "sha256": "6656862d0377f872b43b01017f4864e1224d42903a21c628bf1d38a8a4a3ef15"
+    },
+    {
+      "filename": "SENTINEL_STAGE_2_TELEMETRY.jsonl",
+      "size_bytes": 1272271,
+      "sha256": "5e51cb0d809e2a457de5637a8193b21428a89d701e08f8e3bfc4681bfe770b31"
+    },
+    {
+      "filename": "SENTINEL_STAGE_3_AUTONOMY_INTEGRITY_REPORT.md",
+      "size_bytes": 8495,
+      "sha256": "dce92820f0c1791b8a4a00f5705ba0978083526587ff2ca177fd543d57485185"
+    },
+    {
+      "filename": "SENTINEL_STAGE_3_CONCURRENCY_REPORT.md",
+      "size_bytes": 7756,
+      "sha256": "d2b3ef0e85f76d8beb213e77c2c1dae30b1ea3cb91495c20f7fdd7879bb7a85b"
+    },
+    {
+      "filename": "SENTINEL_STAGE_3_DATABASE_STRESS_REPORT.md",
+      "size_bytes": 5536,
+      "sha256": "a13928412284d98cd168fdc39115f60a0691a802936db1d10304299af93d1e77"
+    },
+    {
+      "filename": "SENTINEL_STAGE_3_EVENTS.jsonl",
+      "size_bytes": 21138,
+      "sha256": "7b68675031f4a2bacc599c061ddc795dbc450a2dca8fb4f4df8be0a6962ea631"
+    },
+    {
+      "filename": "SENTINEL_STAGE_3_FAILURES.md",
+      "size_bytes": 2094,
+      "sha256": "0ddcd8db61818535598f504b79d0e27d6803ba53fe8e28d05edc95a5493ade48"
+    },
+    {
+      "filename": "SENTINEL_STAGE_3_MASTER_REPORT.md",
+      "size_bytes": 3132,
+      "sha256": "64ab973cdc970eaa100dd8091f1ff75f2deefe66abae3d4a737c39bb53a4f72c"
+    },
+    {
+      "filename": "SENTINEL_STAGE_3_METRICS.json",
+      "size_bytes": 90337,
+      "sha256": "0ced26b8e312cc7aaebf0f1d52d6780aa16426d716541bd9932d2cbb5da81ab5"
+    },
+    {
+      "filename": "SENTINEL_STAGE_3_NETWORK_REPORT.md",
+      "size_bytes": 6804,
+      "sha256": "22e9fc2cd502fbcb9b71e8f0a20d4f91bc7c349e52edc6c12f1fc2518171e53c"
+    },
+    {
+      "filename": "SENTINEL_STAGE_3_PROCESS_RESILIENCE_REPORT.md",
+      "size_bytes": 5701,
+      "sha256": "14fe231d56fae23dcdf29cd0a4cfb9a35f1729ac08b3320dec6498bd588acd80"
+    },
+    {
+      "filename": "SENTINEL_STAGE_3_RESOURCE_REPORT.md",
+      "size_bytes": 4778,
+      "sha256": "e4bc7e85ac01818161cf029cbe41b157018e84a56b68015c443a4dc093a74fb8"
+    }
+  ]
+}

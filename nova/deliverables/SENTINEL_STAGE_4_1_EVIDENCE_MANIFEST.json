@@ -1,0 +1,103 @@
+{
+  "manifest_version": "SENTINEL_STAGE_4_1",
+  "generated_at": "2026-11-26T22:07:40.079Z",
+  "runner_script": "nova/run_sentinel_stage4_1_validation.js",
+  "metrics_file": "nova/deliverables/SENTINEL_STAGE_4_1_METRICS.json",
+  "isolated_db": "nova/data/sentinel_disposable_test/stage4_1_isolated/stage4_1.sqlite",
+  "production_db": {
+    "path": "nova/data/nova.sqlite",
+    "sha256_before": "4018871d0a62bb7ff0be9c857f69517a3b406187365227e35697c47f1d84afc0",
+    "sha256_after": "4018871d0a62bb7ff0be9c857f69517a3b406187365227e35697c47f1d84afc0",
+    "preserved": true
+  },
+  "summary": {
+    "total": 22,
+    "passed": 22,
+    "failed": 0,
+    "pass_rate_percent": 100
+  },
+  "artifacts_and_hashes": [
+    {
+      "test_id": "T01_OBJ04_NORMAL_CORPUS_SUMMARY",
+      "objective": "OBJ-04",
+      "file": "nova/data/sentinel_disposable_test/stage4_1_workspace/reports/obj04_summary.md",
+      "sha256": "05d260ad2cd94f1b9734fc16561281f003ff8610e5733bbe83fb70e45c1e015e",
+      "bytes": 675
+    },
+    {
+      "test_id": "T02_OBJ05_NORMAL_ARCH_ANALYSIS",
+      "objective": "OBJ-05",
+      "file": "nova/data/sentinel_disposable_test/stage4_1_workspace/reports/obj05_architecture.md",
+      "sha256": "af5b855c7c5896adceb01edbdea168c600829c4f2b91d42d861ef862b9000f25",
+      "bytes": 2775
+    },
+    {
+      "test_id": "T03_OBJ06_NORMAL_BUG_REPORT",
+      "objective": "OBJ-06",
+      "file": "nova/data/sentinel_disposable_test/stage4_1_workspace/reports/obj06_bug_report.md",
+      "sha256": "d6cbdf4ebac587deeb39f6bda6e35b2d2926f52265284b6c2385e211c9f59159",
+      "bytes": 2004
+    },
+    {
+      "test_id": "T04_OBJ14_NORMAL_WASI_DOCKER",
+      "objective": "OBJ-14",
+      "file": "nova/data/sentinel_disposable_test/stage4_1_workspace/reports/obj14_comparison.md",
+      "sha256": "9fa043fdc8fe9df10792f52224c748bc91dba29aa28b54d76b8f731e9cebe5f3",
+      "bytes": 3734
+    },
+    {
+      "test_id": "T05_OBJ15_NORMAL_FIDO2_REPORT",
+      "objective": "OBJ-15",
+      "file": "nova/data/sentinel_disposable_test/stage4_1_workspace/reports/obj15_research.md",
+      "sha256": "5323e5f19da38292a6535111e8c0052e29e34a091b378e68d34aba362c877879",
+      "cited_urls_sample": [
+        "https://en.wikipedia.org/wiki/FIDO_Alliance",
+        "https://en.wikipedia.org/wiki/Authenticator",
+        "https://en.wikipedia.org/wiki/Passwordless_authentication"
+      ]
+    },
+    {
+      "test_id": "T06_OBJ17_NORMAL_QUIC_MULTISTEP",
+      "objective": "OBJ-17",
+      "file": "nova/data/sentinel_disposable_test/stage4_1_workspace/reports/obj17_brief.md",
+      "sha256": "1ad475a534cbb3f0edb1773c0fd91a85328d4a377609b7d2356b9523905eaa8c",
+      "memory_persisted": true
+    },
+    {
+      "test_id": "T13_RECOVERY_AFTER_RESTORATION",
+      "objective": "OBJ-04/05/06",
+      "recovered_missions": [
+        {
+          "id": "mission-1795730062709-u79ez",
+          "status": "COMPLETED",
+          "sha256": "81e57c63bd597c7058881dd7b6b15296ebb1d1e36c7deb20ce27e1f6af4fbf03"
+        },
+        {
+          "id": "mission-1795730062812-mcjim",
+          "status": "COMPLETED",
+          "sha256": "2a93b74eb71c2d0866aa2177236d079a09b5baa7345fe79a8a2f3a344c8e7f29"
+        },
+        {
+          "id": "mission-1795730062832-6yuzl",
+          "status": "COMPLETED",
+          "sha256": "39b40602338290a63cd7777465c555452cb7007118c93d06981b32375c505af2"
+        }
+      ]
+    },
+    {
+      "test_id": "T18_REAL_DESKTOP_APP_HWND",
+      "objective": "P4-APP",
+      "matched_hwnd": 199540,
+      "pid": 27236,
+      "verification_level": "window_visible"
+    },
+    {
+      "test_id": "T19_REAL_DESKTOP_OPEN_FILE_TITLE",
+      "objective": "P4-DOC",
+      "matched_hwnd": 199528,
+      "pid": 13508,
+      "matched_window_title": "stage4_1_desktop_probe.txt - Notepad",
+      "verification_level": "outcome_confirmed"
+    }
+  ]
+}

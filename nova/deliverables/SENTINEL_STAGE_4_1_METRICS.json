@@ -1,0 +1,612 @@
+{
+  "summary": {
+    "suite": "SENTINEL_STAGE_4_1_AUTONOMY_INTEGRITY",
+    "timestamp": "2026-11-26T22:07:40.079Z",
+    "model": "qwen3.5:4b",
+    "endpoint": "http://127.0.0.1:11434",
+    "total_tests": 22,
+    "passed": 22,
+    "failed": 0,
+    "pass_rate_percent": 100,
+    "prod_db_sha256_before": "4018871d0a62bb7ff0be9c857f69517a3b406187365227e35697c47f1d84afc0",
+    "prod_db_sha256_after": "4018871d0a62bb7ff0be9c857f69517a3b406187365227e35697c47f1d84afc0",
+    "prod_db_preserved": true
+  },
+  "hardware": {
+    "totalRamGB": 15.72,
+    "freeRamGB": 0.04,
+    "logicalCpus": 12,
+    "hasNvidiaGpu": false,
+    "gpus": [],
+    "totalVramMB": 0,
+    "freeVramMB": 0,
+    "recommendedCtx": 4096,
+    "numThreads": 8,
+    "maxLoadedModels": 1,
+    "keepAlive": "5m",
+    "inferenceTimeoutMs": 300000
+  },
+  "usage": [
+    {
+      "provider": "ollama",
+      "total_requests": 25,
+      "successful_requests": 22,
+      "total_prompt_tokens": 27350,
+      "total_completion_tokens": 10714,
+      "total_tokens": 38064,
+      "avg_latency_ms": 104488
+    }
+  ],
+  "results": [
+    {
+      "id": "T01_OBJ04_NORMAL_CORPUS_SUMMARY",
+      "category": "P3.1 Normal Operation",
+      "objective_id": "OBJ-04",
+      "name": "OBJ-04 document corpus summary executes, verifies deliverables + contract -> COMPLETED",
+      "status": "PASS",
+      "duration_ms": 171979,
+      "free_ram_mb_before": 2734.1,
+      "free_ram_mb_after": 2524.8,
+      "metrics": {
+        "status": "COMPLETED",
+        "bytes": 675
+      },
+      "evidence": {
+        "sha256": "05d260ad2cd94f1b9734fc16561281f003ff8610e5733bbe83fb70e45c1e015e",
+        "citesAll": true,
+        "hasFacts": true,
+        "contractPassed": true
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T02_OBJ05_NORMAL_ARCH_ANALYSIS",
+      "category": "P3.1 Normal Operation",
+      "objective_id": "OBJ-05",
+      "name": "OBJ-05 architecture analysis inspects actual codebase -> COMPLETED",
+      "status": "PASS",
+      "duration_ms": 195092,
+      "free_ram_mb_before": 2524.7,
+      "free_ram_mb_after": 2237.5,
+      "metrics": {
+        "status": "COMPLETED",
+        "bytes": 2775
+      },
+      "evidence": {
+        "sha256": "af5b855c7c5896adceb01edbdea168c600829c4f2b91d42d861ef862b9000f25",
+        "hasSymbols": true,
+        "noCanned": true
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T03_OBJ06_NORMAL_BUG_REPORT",
+      "category": "P3.1 Normal Operation",
+      "objective_id": "OBJ-06",
+      "name": "OBJ-06 reproducible bug discovery -> COMPLETED",
+      "status": "PASS",
+      "duration_ms": 205697,
+      "free_ram_mb_before": 2237.5,
+      "free_ram_mb_after": 2142.6,
+      "metrics": {
+        "status": "COMPLETED",
+        "bytes": 2004
+      },
+      "evidence": {
+        "sha256": "d6cbdf4ebac587deeb39f6bda6e35b2d2926f52265284b6c2385e211c9f59159",
+        "identifiedBug": true
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T04_OBJ14_NORMAL_WASI_DOCKER",
+      "category": "P3.1 Normal Operation",
+      "objective_id": "OBJ-14",
+      "name": "OBJ-14 WASI vs Docker comparison uses external search + preserves uncertainty -> COMPLETED",
+      "status": "PASS",
+      "duration_ms": 223069,
+      "free_ram_mb_before": 2142.6,
+      "free_ram_mb_after": 1750.2,
+      "metrics": {
+        "status": "COMPLETED",
+        "bytes": 3734
+      },
+      "evidence": {
+        "sha256": "9fa043fdc8fe9df10792f52224c748bc91dba29aa28b54d76b8f731e9cebe5f3",
+        "hasUrls": true,
+        "preservesUncertainty": true
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T05_OBJ15_NORMAL_FIDO2_REPORT",
+      "category": "P3.1 Normal Operation",
+      "objective_id": "OBJ-15",
+      "name": "OBJ-15 FIDO2 WebAuthn research report cites traceable URLs -> COMPLETED",
+      "status": "PASS",
+      "duration_ms": 235727,
+      "free_ram_mb_before": 1750.2,
+      "free_ram_mb_after": 1553.2,
+      "metrics": {
+        "status": "COMPLETED",
+        "urlCount": 4
+      },
+      "evidence": {
+        "sha256": "5323e5f19da38292a6535111e8c0052e29e34a091b378e68d34aba362c877879",
+        "sampleUrls": [
+          "https://en.wikipedia.org/wiki/FIDO_Alliance",
+          "https://en.wikipedia.org/wiki/Authenticator",
+          "https://en.wikipedia.org/wiki/Passwordless_authentication"
+        ]
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T06_OBJ17_NORMAL_QUIC_MULTISTEP",
+      "category": "P3.1 Normal Operation",
+      "objective_id": "OBJ-17",
+      "name": "OBJ-17 HTTP/3 QUIC multi-step research brief + memory -> COMPLETED",
+      "status": "PASS",
+      "duration_ms": 219563,
+      "free_ram_mb_before": 1553.2,
+      "free_ram_mb_after": 1371.8,
+      "metrics": {
+        "status": "COMPLETED",
+        "memoryCount": 1
+      },
+      "evidence": {
+        "sha256": "1ad475a534cbb3f0edb1773c0fd91a85328d4a377609b7d2356b9523905eaa8c",
+        "hasTopic": true
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T07_FAULT_MODEL_MISSING_OBJ04",
+      "category": "P3.2 Model Unavailable",
+      "objective_id": "OBJ-04",
+      "name": "Missing Ollama model blocks OBJ-04 as BLOCKED_LOCAL_MODEL_UNAVAILABLE with checkpoint (no heuristic)",
+      "status": "PASS",
+      "duration_ms": 102,
+      "free_ram_mb_before": 1371.8,
+      "free_ram_mb_after": 1371.1,
+      "metrics": {
+        "status": "BLOCKED_LOCAL_MODEL_UNAVAILABLE",
+        "failure_class": "PROVIDER_UNAVAILABLE"
+      },
+      "evidence": {
+        "checkpoint_state": {
+          "paused_at": "2026-11-26T21:54:22.709Z",
+          "reason": "Model 'qwen3.5:999b-missing-stage41' is not downloaded in Ollama at http://127.0.0.1:11434.",
+          "failure_class": "PROVIDER_UNAVAILABLE",
+          "completed_steps": []
+        }
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T08_FAULT_PROVIDER_DOWN_OBJ05",
+      "category": "P3.2 Provider Unavailable",
+      "objective_id": "OBJ-05",
+      "name": "Unreachable Ollama daemon blocks OBJ-05 as BLOCKED_PROVIDER_UNAVAILABLE with checkpoint",
+      "status": "PASS",
+      "duration_ms": 14,
+      "free_ram_mb_before": 1371.1,
+      "free_ram_mb_after": 1371.1,
+      "metrics": {
+        "status": "BLOCKED_PROVIDER_UNAVAILABLE",
+        "failure_class": "PROVIDER_UNAVAILABLE"
+      },
+      "evidence": {
+        "checkpoint_state": {
+          "paused_at": "2026-11-26T21:54:22.812Z",
+          "reason": "Ollama daemon unreachable at http://127.0.0.1:59997: connect ECONNREFUSED 127.0.0.1:59997",
+          "failure_class": "PROVIDER_UNAVAILABLE",
+          "completed_steps": []
+        }
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T09_FAULT_TIMEOUT_OBJ06",
+      "category": "P3.3 Ollama Timeout",
+      "objective_id": "OBJ-06",
+      "name": "Ollama inference timeout parks OBJ-06 in FAILED_RETRYABLE with checkpoint preserved (no false completion)",
+      "status": "PASS",
+      "duration_ms": 4569,
+      "free_ram_mb_before": 1371.1,
+      "free_ram_mb_after": 1369.2,
+      "metrics": {
+        "status": "FAILED_RETRYABLE",
+        "failure_class": "TIMEOUT"
+      },
+      "evidence": {
+        "error": "All AI providers in fallback chain failed: [ollama: NETWORK_TIMEOUT] Network connection failed or timed out | [ollama: NETWORK_TIMEOUT] Network connection failed or timed out | [ollama: NETWORK_TIMEOUT] Network connection failed or timed out",
+        "checkpoint_state": {
+          "paused_at": "2026-11-26T21:54:22.832Z",
+          "reason": "All AI providers in fallback chain failed: [ollama: NETWORK_TIMEOUT] Network connection failed or timed out | [ollama: NETWORK_TIMEOUT] Network connection failed or timed out | [ollama: NETWORK_TIMEOUT] Network connection failed or timed out",
+          "failure_class": "TIMEOUT",
+          "completed_steps": []
+        }
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T10_FAULT_RESOURCE_EXHAUSTION_OBJ14",
+      "category": "P3.4 Insufficient Resources",
+      "objective_id": "OBJ-14",
+      "name": "Insufficient RAM guard blocks OBJ-14 as BLOCKED_PROVIDER_UNAVAILABLE (RESOURCE_EXHAUSTED)",
+      "status": "PASS",
+      "duration_ms": 95,
+      "free_ram_mb_before": 1369.2,
+      "free_ram_mb_after": 1367.6,
+      "metrics": {
+        "status": "BLOCKED_PROVIDER_UNAVAILABLE",
+        "failure_class": "RESOURCE_EXHAUSTED"
+      },
+      "evidence": {
+        "error": "Insufficient free RAM (1.34 GB available < 999 GB required) for local inference."
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T11_FAULT_EMPTY_SEARCH_OBJ15",
+      "category": "P3.5 Empty Web Search",
+      "objective_id": "OBJ-15",
+      "name": "Empty web search results prevent OBJ-15 completion and produce zero fabricated sources",
+      "status": "PASS",
+      "duration_ms": 195316,
+      "free_ram_mb_before": 1367.6,
+      "free_ram_mb_after": 763.6,
+      "metrics": {
+        "status": "FAILED",
+        "fileCreated": false
+      },
+      "evidence": {
+        "error": "Step failed (SYSTEM_FAULT): Outcome verification failed: Postcondition check failed"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T12_FAULT_EMPTY_SEARCH_CONTRACT_OBJ17",
+      "category": "P3.5 Empty Web Search",
+      "objective_id": "OBJ-17",
+      "name": "OBJ-17 with memory saved but empty web search resolves to PARTIALLY_VERIFIED/FAILED, NEVER COMPLETED",
+      "status": "PASS",
+      "duration_ms": 8,
+      "free_ram_mb_before": 763.6,
+      "free_ram_mb_after": 763.6,
+      "metrics": {
+        "passed": false,
+        "finalStatus": "PARTIALLY_VERIFIED"
+      },
+      "evidence": {
+        "contract_version": "4.1",
+        "passed": false,
+        "finalStatus": "PARTIALLY_VERIFIED",
+        "totalChecks": 4,
+        "passedChecks": 1,
+        "failedCount": 3,
+        "hasPartialStep": false,
+        "checks": [
+          {
+            "id": "step-1",
+            "type": "step",
+            "tool": "search_web",
+            "passed": false,
+            "reason": "Step 1 (search_web) ended in status 'FAILED'."
+          },
+          {
+            "id": "step-2",
+            "type": "step",
+            "tool": "save_memory",
+            "passed": true,
+            "reason": "Step 2 (save_memory) independently verified."
+          },
+          {
+            "id": "web_research_sources",
+            "type": "precondition",
+            "passed": false,
+            "reason": "Required external web search returned 0 verified sources; ungrounded report cannot be marked COMPLETED."
+          },
+          {
+            "id": "deliv-step-2",
+            "type": "file_deliverable",
+            "target_path": "C:/Users/digvi/OneDrive/Desktop/Jarvis/nova/data/sentinel_disposable_test/stage4_1_workspace/reports/obj17_empty_contract.md",
+            "passed": false,
+            "reason": "Missing required deliverable file: C:/Users/digvi/OneDrive/Desktop/Jarvis/nova/data/sentinel_disposable_test/stage4_1_workspace/reports/obj17_empty_contract.md"
+          }
+        ],
+        "deliverableArtifacts": [],
+        "summary": "Contract verification incomplete (1/4 checks passed; finalStatus=PARTIALLY_VERIFIED). Failed: Step 1 (search_web) ended in status 'FAILED'. | Required external web search returned 0 verified sources; ungrounded report cannot be marked COMPLETED. | Missing required deliverable file: C:/Users/digvi/OneDrive/Desktop/Jarvis/nova/data/sentinel_disposable_test/stage4_1_workspace/reports/obj17_empty_contract.md"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T13_RECOVERY_AFTER_RESTORATION",
+      "category": "P3.6 Recovery After Restore",
+      "objective_id": "OBJ-04/05/06",
+      "name": "Restoring local Ollama resumes blocked & retryable checkpoints -> verified COMPLETED deliverables",
+      "status": "PASS",
+      "duration_ms": 591761,
+      "free_ram_mb_before": 763.6,
+      "free_ram_mb_after": 312,
+      "metrics": {
+        "resumedCount": 3,
+        "recoveredCount": 3
+      },
+      "evidence": {
+        "finalStates": [
+          {
+            "id": "mission-1795730062709-u79ez",
+            "status": "COMPLETED",
+            "outExists": true,
+            "sha256": "81e57c63bd597c7058881dd7b6b15296ebb1d1e36c7deb20ce27e1f6af4fbf03",
+            "contractPassed": true
+          },
+          {
+            "id": "mission-1795730062812-mcjim",
+            "status": "COMPLETED",
+            "outExists": true,
+            "sha256": "2a93b74eb71c2d0866aa2177236d079a09b5baa7345fe79a8a2f3a344c8e7f29",
+            "contractPassed": true
+          },
+          {
+            "id": "mission-1795730062832-6yuzl",
+            "status": "COMPLETED",
+            "outExists": true,
+            "sha256": "39b40602338290a63cd7777465c555452cb7007118c93d06981b32375c505af2",
+            "contractPassed": true
+          }
+        ]
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T14_HEURISTIC_FALLBACK_BANNED",
+      "category": "P0 Heuristic Ban",
+      "objective_id": "P0-HEURISTIC",
+      "name": "Legacy generateHeuristicMissionSteps & TaskPlanner heuristic fallback throw HEURISTIC_FALLBACK_DISABLED",
+      "status": "PASS",
+      "duration_ms": 1,
+      "free_ram_mb_before": 312,
+      "free_ram_mb_after": 312,
+      "metrics": {
+        "mcThrew": true,
+        "tpThrew": true
+      },
+      "evidence": {},
+      "failure_reason": null
+    },
+    {
+      "id": "T15_CONTRACT_REJECTS_MISSING_DELIVERABLE",
+      "category": "P2 Acceptance Contract",
+      "objective_id": "P2-CONTRACT",
+      "name": "Mission with steps VERIFIED but missing deliverable file is rejected -> PARTIALLY_VERIFIED",
+      "status": "PASS",
+      "duration_ms": 14,
+      "free_ram_mb_before": 312,
+      "free_ram_mb_after": 311.8,
+      "metrics": {
+        "passed": false,
+        "finalStatus": "PARTIALLY_VERIFIED"
+      },
+      "evidence": {
+        "contract_version": "4.1",
+        "passed": false,
+        "finalStatus": "PARTIALLY_VERIFIED",
+        "totalChecks": 2,
+        "passedChecks": 1,
+        "failedCount": 1,
+        "hasPartialStep": false,
+        "checks": [
+          {
+            "id": "step-1",
+            "type": "step",
+            "tool": "write_file",
+            "passed": true,
+            "reason": "Step 1 (write_file) independently verified."
+          },
+          {
+            "id": "deliv-step-1",
+            "type": "file_deliverable",
+            "target_path": "C:/Users/digvi/OneDrive/Desktop/Jarvis/nova/data/sentinel_disposable_test/stage4_1_workspace/reports/never_created_deliverable.md",
+            "passed": false,
+            "reason": "Missing required deliverable file: C:/Users/digvi/OneDrive/Desktop/Jarvis/nova/data/sentinel_disposable_test/stage4_1_workspace/reports/never_created_deliverable.md"
+          }
+        ],
+        "deliverableArtifacts": [],
+        "summary": "Contract verification incomplete (1/2 checks passed; finalStatus=PARTIALLY_VERIFIED). Failed: Missing required deliverable file: C:/Users/digvi/OneDrive/Desktop/Jarvis/nova/data/sentinel_disposable_test/stage4_1_workspace/reports/never_created_deliverable.md"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T16_CONTRACT_REJECTS_PLACEHOLDER_AND_PARTIAL",
+      "category": "P0 False-Completion Guard",
+      "objective_id": "P0-PARTIAL",
+      "name": "Unresolved template placeholder + PARTIALLY_VERIFIED step cannot complete as COMPLETED",
+      "status": "PASS",
+      "duration_ms": 17,
+      "free_ram_mb_before": 311.8,
+      "free_ram_mb_after": 312.1,
+      "metrics": {
+        "finalStatus": "PARTIALLY_VERIFIED"
+      },
+      "evidence": {
+        "contract_version": "4.1",
+        "passed": false,
+        "finalStatus": "PARTIALLY_VERIFIED",
+        "totalChecks": 2,
+        "passedChecks": 0,
+        "failedCount": 2,
+        "hasPartialStep": true,
+        "checks": [
+          {
+            "id": "step-1",
+            "type": "step",
+            "tool": "write_file",
+            "passed": false,
+            "partial": true,
+            "reason": "Step 1 (write_file) only partially verified."
+          },
+          {
+            "id": "deliv-step-1",
+            "type": "file_deliverable",
+            "target_path": "C:/Users/digvi/OneDrive/Desktop/Jarvis/nova/data/sentinel_disposable_test/stage4_1_workspace/reports/unresolved_template.md",
+            "bytes": 48,
+            "sha256": "daef46a1967553aa39d4ad55f8a976d2eccdb3e6b57855010ef973386f8ce6a8",
+            "passed": false,
+            "reason": "Deliverable file still contains unresolved template placeholder."
+          }
+        ],
+        "deliverableArtifacts": [],
+        "summary": "Contract verification incomplete (0/2 checks passed; finalStatus=PARTIALLY_VERIFIED). Failed: Step 1 (write_file) only partially verified. | Deliverable file still contains unresolved template placeholder."
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T17_APPROVAL_GATE_PRESERVED",
+      "category": "P0 Approval Gate",
+      "objective_id": "P0-APPROVAL",
+      "name": "Sensitive delete_memory pauses at WAITING_FOR_APPROVAL until operator approves, then completes",
+      "status": "PASS",
+      "duration_ms": 792,
+      "free_ram_mb_before": 312.1,
+      "free_ram_mb_after": 291.3,
+      "metrics": {
+        "pausedStatus": "WAITING_FOR_APPROVAL",
+        "finalStatus": "COMPLETED",
+        "removedAfterApproval": true
+      },
+      "evidence": {},
+      "failure_reason": null
+    },
+    {
+      "id": "T18_REAL_DESKTOP_APP_HWND",
+      "category": "P4 Desktop Verification",
+      "objective_id": "P4-APP",
+      "name": "Real Notepad launch verifies process_created + visible HWND window",
+      "status": "PASS",
+      "duration_ms": 3701,
+      "free_ram_mb_before": 291.3,
+      "free_ram_mb_after": 133.9,
+      "metrics": {
+        "verified": true,
+        "status": "VERIFIED",
+        "matched_hwnd": 199540,
+        "verification_level": "window_visible"
+      },
+      "evidence": {
+        "raw": {
+          "success": true,
+          "application": "notepad",
+          "executable": "shell:AppsFolder\\Microsoft.WindowsNotepad_8wekyb3d8bbwe!App",
+          "pid": 27236,
+          "process_created": true,
+          "window_visible": true,
+          "matched_hwnd": 199540,
+          "matched_window_title": "Notepad",
+          "verification_level": "outcome_confirmed",
+          "message": "Confirmed visible window 'Notepad' for notepad."
+        },
+        "desktopVerification": {
+          "process_created": true,
+          "window_visible": true,
+          "matched_hwnd": 199540,
+          "matched_window_title": "Notepad",
+          "verification_level": "window_visible"
+        }
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T19_REAL_DESKTOP_OPEN_FILE_TITLE",
+      "category": "P4 Desktop Verification",
+      "objective_id": "P4-DOC",
+      "name": "Opening unique .txt file verifies visible window + opened document title (outcome_confirmed)",
+      "status": "PASS",
+      "duration_ms": 455,
+      "free_ram_mb_before": 133.9,
+      "free_ram_mb_after": 15.9,
+      "metrics": {
+        "status": "VERIFIED",
+        "level": "outcome_confirmed",
+        "title": "stage4_1_desktop_probe.txt - Notepad"
+      },
+      "evidence": {
+        "raw": {
+          "success": true,
+          "path": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\data\\sentinel_disposable_test\\stage4_1_workspace\\reports\\stage4_1_desktop_probe.txt",
+          "filename": "stage4_1_desktop_probe.txt",
+          "pid": 13508,
+          "process_created": true,
+          "window_visible": true,
+          "document_title_matched": true,
+          "matched_hwnd": 199528,
+          "matched_window_title": "stage4_1_desktop_probe.txt - Notepad",
+          "verification_level": "outcome_confirmed",
+          "message": "Opened 'stage4_1_desktop_probe.txt' and confirmed window 'stage4_1_desktop_probe.txt - Notepad'."
+        },
+        "desktopVerification": {
+          "file_exists": true,
+          "process_created": true,
+          "window_visible": true,
+          "document_title_matched": true,
+          "matched_hwnd": 199528,
+          "matched_window_title": "stage4_1_desktop_probe.txt - Notepad",
+          "verification_level": "outcome_confirmed"
+        }
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T20_ANTI_FALSE_GUI_PROCESS_ONLY_REJECTED",
+      "category": "P4 Desktop Integrity",
+      "objective_id": "P4-NOFAKEGUI",
+      "name": "Process-only or hidden/missing GUI window is NEVER falsely verified as VERIFIED/COMPLETED",
+      "status": "PASS",
+      "duration_ms": 419,
+      "free_ram_mb_before": 15.9,
+      "free_ram_mb_after": 8.1,
+      "metrics": {
+        "appGhostStatus": "PARTIALLY_VERIFIED",
+        "docNoWinStatus": "PARTIALLY_VERIFIED"
+      },
+      "evidence": {},
+      "failure_reason": null
+    },
+    {
+      "id": "T21_SIMULATED_TELEMETRY_REJECTED",
+      "category": "P0 Telemetry Truthfulness",
+      "objective_id": "P0-TELEMETRY",
+      "name": "Simulated offline telemetry fallback is rejected by TruthfulVerificationService",
+      "status": "PASS",
+      "duration_ms": 1,
+      "free_ram_mb_before": 8,
+      "free_ram_mb_after": 7.7,
+      "metrics": {
+        "verified": false,
+        "status": "FAILED"
+      },
+      "evidence": {},
+      "failure_reason": null
+    },
+    {
+      "id": "T22_ZERO_CLOUD_AND_PROD_DB_INTACT",
+      "category": "Security & Isolation",
+      "objective_id": "P1-ZERO-CLOUD",
+      "name": "Zero external cloud LLM egress across all tests + production nova.sqlite byte-for-byte untouched",
+      "status": "PASS",
+      "duration_ms": 105,
+      "free_ram_mb_before": 7.7,
+      "free_ram_mb_after": 42.1,
+      "metrics": {
+        "total_network_requests_observed": 287,
+        "cloud_llm_requests": 0,
+        "prod_db_unchanged": true,
+        "prod_db_sha256": "4018871d0a62bb7ff0be9c857f69517a3b406187365227e35697c47f1d84afc0"
+      },
+      "evidence": {},
+      "failure_reason": null
+    }
+  ]
+}

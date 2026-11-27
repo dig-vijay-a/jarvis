@@ -1,0 +1,281 @@
+{
+  "test_run": "phase8-adversarial-1795464633681",
+  "timestamp": "2026-11-23T20:10:33.681Z",
+  "total_scenarios": 20,
+  "passed_scenarios": 20,
+  "failed_scenarios": 0,
+  "pass_rate": "100.0%",
+  "results": [
+    {
+      "scenario_id": 1,
+      "title": "Unfamiliar multi-app objective",
+      "passed": true,
+      "details": "Mission status: COMPLETED, steps completed: 3",
+      "evidence": {
+        "missionId": "mission-1795464621971",
+        "status": "COMPLETED"
+      },
+      "timestamp": "2026-11-23T20:10:23.164Z"
+    },
+    {
+      "scenario_id": 2,
+      "title": "Continue after frontend closure",
+      "passed": true,
+      "details": "Backend autonomous loop executed independently (COMPLETED)",
+      "evidence": {
+        "missionId": "mission-1795464623164",
+        "status": "COMPLETED"
+      },
+      "timestamp": "2026-11-23T20:10:25.459Z"
+    },
+    {
+      "scenario_id": 3,
+      "title": "Recover after backend restart",
+      "passed": true,
+      "details": "Mission mission-restart-test-1795464625459 discovered from DB and resumed (status: COMPLETED)",
+      "evidence": {
+        "missionId": "mission-restart-test-1795464625459",
+        "status": "COMPLETED"
+      },
+      "timestamp": "2026-11-23T20:10:27.039Z"
+    },
+    {
+      "scenario_id": 4,
+      "title": "Recover after computer restart (checkpoints + pre-state inspection)",
+      "passed": true,
+      "details": "Pre-inspection confirmed physical file (53 bytes). Redundant execution avoided.",
+      "evidence": {
+        "file_path": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\test_env_watch\\computer_restart_proof_1795464627039.txt",
+        "size": 53,
+        "modified": "2026-11-23T20:10:27.043Z",
+        "reason": "Target file already exists with verified content match."
+      },
+      "timestamp": "2026-11-23T20:10:27.043Z"
+    },
+    {
+      "scenario_id": 5,
+      "title": "Detect file created externally",
+      "passed": true,
+      "details": "Perception engine caught filesystem event (total recent: 10)",
+      "evidence": {
+        "eventCount": 10,
+        "matched": false
+      },
+      "timestamp": "2026-11-23T20:10:27.678Z"
+    },
+    {
+      "scenario_id": 6,
+      "title": "Detect unexpected file deletion",
+      "passed": true,
+      "details": "Perception engine registered deletion event",
+      "evidence": {
+        "recordedEvents": 10
+      },
+      "timestamp": "2026-11-23T20:10:28.707Z"
+    },
+    {
+      "scenario_id": 7,
+      "title": "Ignore irrelevant filesystem events",
+      "passed": true,
+      "details": "Noise artifact filtered: \"Suppressed noise / temporary file artifact\"",
+      "evidence": {
+        "isRelevant": false,
+        "reason": "Suppressed noise / temporary file artifact"
+      },
+      "timestamp": "2026-11-23T20:10:28.724Z"
+    },
+    {
+      "scenario_id": 8,
+      "title": "Identify mission affected by environmental event",
+      "passed": true,
+      "details": "Correlated file modification to active mission \"mission-corr-1795464628725\"",
+      "evidence": {
+        "isRelevant": true,
+        "matchedType": "mission",
+        "matchedId": "mission-corr-1795464628725"
+      },
+      "timestamp": "2026-11-23T20:10:28.792Z"
+    },
+    {
+      "scenario_id": 9,
+      "title": "Recover from missing input file",
+      "passed": true,
+      "details": "Missing input file triggered replanning to search_files",
+      "evidence": {
+        "newTool": "search_files"
+      },
+      "timestamp": "2026-11-23T20:10:28.856Z"
+    },
+    {
+      "scenario_id": 10,
+      "title": "Recover from unavailable application",
+      "passed": true,
+      "details": "Outcome verified truthfully without hallucinated app launch",
+      "evidence": {
+        "verified": false,
+        "partiallyVerified": false,
+        "status": "FAILED",
+        "contractStatus": "FAILED",
+        "preState": null,
+        "postState": {
+          "timestamp": "2026-11-23T20:10:28.888Z",
+          "actionType": "open_application"
+        },
+        "details": "Execution failed: Request failed with status code 400",
+        "error": "Request failed with status code 400"
+      },
+      "timestamp": "2026-11-23T20:10:28.888Z"
+    },
+    {
+      "scenario_id": 11,
+      "title": "Recover from failed tool",
+      "passed": true,
+      "details": "Failed tool replanned to fallback \"search_web\" (replan_count: 1)",
+      "evidence": {
+        "stepAfter": {
+          "tool": "search_web",
+          "status": "PENDING"
+        },
+        "mAfter": {
+          "replan_count": 1,
+          "last_replan_reason": "conduct_deep_research API endpoint 503 Service Unavailable"
+        }
+      },
+      "timestamp": "2026-11-23T20:10:28.931Z"
+    },
+    {
+      "scenario_id": 12,
+      "title": "Generate new plan when original plan invalid",
+      "passed": true,
+      "details": "Invalid read_file plan regenerated as search_files",
+      "evidence": {
+        "newTool": "search_files"
+      },
+      "timestamp": "2026-11-23T20:10:28.981Z"
+    },
+    {
+      "scenario_id": 13,
+      "title": "Verify replacement plan achieves original objective",
+      "passed": true,
+      "details": "Replacement search verified (3 files found)",
+      "evidence": {
+        "verified": true,
+        "partiallyVerified": false,
+        "status": "VERIFIED",
+        "contractStatus": "COMPLETED",
+        "preState": null,
+        "postState": {
+          "timestamp": "2026-11-23T20:10:29.055Z",
+          "actionType": "search_files"
+        },
+        "details": "Found 3 matching file(s).",
+        "error": null
+      },
+      "timestamp": "2026-11-23T20:10:29.056Z"
+    },
+    {
+      "scenario_id": 14,
+      "title": "Prevent duplicate actions after restart",
+      "passed": true,
+      "details": "Idempotency hash matched verified database record. Duplicate action skipped.",
+      "evidence": {
+        "id": "step-mission-idemp-1795464629056-1",
+        "result": "{\"success\":true}"
+      },
+      "timestamp": "2026-11-23T20:10:29.078Z"
+    },
+    {
+      "scenario_id": 15,
+      "title": "Respect approval requirement",
+      "passed": true,
+      "details": "Sensitive rename_file strictly halted at WAITING_FOR_APPROVAL",
+      "evidence": {
+        "missionStatus": "WAITING_FOR_APPROVAL",
+        "stepStatus": "WAITING_FOR_APPROVAL"
+      },
+      "timestamp": "2026-11-23T20:10:29.519Z"
+    },
+    {
+      "scenario_id": 16,
+      "title": "Stop safely when operation cannot be recovered",
+      "passed": true,
+      "details": "Mission halted safely with status: FAILED",
+      "evidence": {
+        "missionStatus": "FAILED",
+        "error": "Step failed (SYSTEM_FAULT): Tool 'execute_script' is not recognized in the NOVA tool registry."
+      },
+      "timestamp": "2026-11-23T20:10:32.815Z"
+    },
+    {
+      "scenario_id": 17,
+      "title": "Resume multi-stage mission with completed steps preserved",
+      "passed": true,
+      "details": "Step 1 remained VERIFIED without re-execution; Step 2 executed (VERIFIED)",
+      "evidence": {
+        "step1Status": "VERIFIED",
+        "step2Status": "VERIFIED"
+      },
+      "timestamp": "2026-11-23T20:10:33.467Z"
+    },
+    {
+      "scenario_id": 18,
+      "title": "Detect stalled mission",
+      "passed": true,
+      "details": "Stall detector identified mission mission-stalled-1795464633467 (stall_status: STALLED)",
+      "evidence": {
+        "stalledItems": 5,
+        "match": true
+      },
+      "timestamp": "2026-11-23T20:10:33.640Z"
+    },
+    {
+      "scenario_id": 19,
+      "title": "Reject false completion when postconditions unsatisfied",
+      "passed": true,
+      "details": "Truthful verification rejected failed raw result: status=FAILED, contractStatus=FAILED",
+      "evidence": {
+        "verified": false,
+        "partiallyVerified": false,
+        "status": "FAILED",
+        "contractStatus": "FAILED",
+        "preState": null,
+        "postState": {
+          "timestamp": "2026-11-23T20:10:33.640Z",
+          "actionType": "open_application"
+        },
+        "details": "Execution failed: Target device refused connection",
+        "error": "Target device refused connection"
+      },
+      "timestamp": "2026-11-23T20:10:33.640Z"
+    },
+    {
+      "scenario_id": 20,
+      "title": "Complete mission, independently verify deliverables, output report",
+      "passed": true,
+      "details": "Physical file created and verified (77 bytes)",
+      "evidence": {
+        "file": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\test_env_watch\\final_deliverable_1795464633640.txt",
+        "verifyRes": {
+          "verified": true,
+          "partiallyVerified": false,
+          "status": "VERIFIED",
+          "contractStatus": "COMPLETED",
+          "preState": null,
+          "postState": {
+            "timestamp": "2026-11-23T20:10:33.678Z",
+            "actionType": "write_file",
+            "file": {
+              "path": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\test_env_watch\\final_deliverable_1795464633640.txt",
+              "exists": true,
+              "size": 77,
+              "modified": "2026-11-23T20:10:33.660Z"
+            }
+          },
+          "details": "File written to C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\test_env_watch\\final_deliverable_1795464633640.txt (77 bytes, content verified).",
+          "error": null
+        }
+      },
+      "timestamp": "2026-11-23T20:10:33.680Z"
+    }
+  ]
+}

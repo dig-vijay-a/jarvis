@@ -1,0 +1,38 @@
+{
+  "captured_at": "2026-11-24T05:15:27.247Z",
+  "telemetry": {
+    "success": true,
+    "os": "Windows 11 (AMD64)",
+    "hostname": "Vijay",
+    "uptime_seconds": 113602,
+    "boot_time": "2026-11-23 03:12:04",
+    "cpu": {
+      "percent": 41,
+      "cores": 12,
+      "freq_mhz": 1700
+    },
+    "memory": {
+      "percent": 85.2,
+      "used_gb": 13.39,
+      "total_gb": 15.72,
+      "available_gb": 2.32
+    },
+    "swap": {
+      "percent": 4.1,
+      "used_gb": 0.35
+    },
+    "disk": {
+      "total_gb": 601.5,
+      "used_gb": 448.9,
+      "free_gb": 152.6,
+      "percent": 74.6
+    },
+    "battery": {
+      "percent": 11,
+      "power_plugged": false,
+      "secsleft": 4294967295
+    },
+    "timestamp": "2026-11-24T10:45:27.232958"
+  },
+  "status": "VERIFIED_BASELINE"
+}

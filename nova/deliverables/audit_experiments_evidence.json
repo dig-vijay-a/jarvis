@@ -1,0 +1,102 @@
+{
+  "expA": {
+    "name": "Experiment A: Goal without Instructions",
+    "directive": "My desktop is cluttered with scattered notes and text documents. Help me organize them.",
+    "latencyMs": 387,
+    "contractStatus": "COMPLETED",
+    "validationResult": "UNKNOWN",
+    "toolsExecutedCount": 0,
+    "toolsExecuted": [],
+    "diskModificationsExecuted": 0,
+    "responsePreview": "",
+    "isAutonomousLoopExecuted": false,
+    "finding": "Returned conversational response or clarification request without executing autonomous multi-step organization loop."
+  },
+  "expB": {
+    "name": "Experiment B: Frontend Disconnection during Mission",
+    "missionId": "mission-1795446229795",
+    "finalMissionStatus": "COMPLETED",
+    "totalSteps": 3,
+    "completedStepsCount": 3,
+    "stepBreakdown": [
+      {
+        "step": 1,
+        "tool": "get_system_telemetry",
+        "status": "COMPLETED"
+      },
+      {
+        "step": 2,
+        "tool": "search_web",
+        "status": "COMPLETED"
+      },
+      {
+        "step": 3,
+        "tool": "save_memory",
+        "status": "COMPLETED"
+      }
+    ],
+    "persistedDeliverables": true,
+    "independentOfFrontend": true,
+    "finding": "Node.js background thread continued execution independently of frontend client. Completed 3/3 steps."
+  },
+  "expC": {
+    "name": "Experiment C: Backend Restart Recovery",
+    "missionId": "mission-crash-test-1795446235971",
+    "statusAfterRecoveryScan": "PAUSED",
+    "runningStepResetToPending": true,
+    "pausedSafelyForOperator": true,
+    "autonomouslyResumedWithoutHuman": false,
+    "finding": "Interrupted RUNNING mission was safely identified, running steps reset to PENDING, and mission status set to PAUSED to prevent corrupt execution on restart. However, it does NOT resume autonomously; it requires human operator interaction to resume."
+  },
+  "expD": {
+    "name": "Experiment D: Scheduled Task Execution without Chat",
+    "jobId": "sched-audit-1795446236131",
+    "finalJobStatus": "COMPLETED",
+    "lastRunAt": "2026-11-23T15:04:00.723Z",
+    "notificationRecorded": true,
+    "notificationDetails": "You currently have 25 pending task(s) registered in memory.",
+    "executedAutonomously": true,
+    "finding": "SchedulerService detected overdue job during background 5000ms tick, executed DAILY_TASK_SUMMARY, recorded notification \"You currently have 25 pending task(s) registered in memory.\", and marked job COMPLETED with zero frontend or chat interaction."
+  },
+  "expE": {
+    "name": "Experiment E: Obstacle & Adaptive Replanning",
+    "missionId": "mission-obstacle-1795446243189",
+    "initialTool": "read_file",
+    "toolAfterObstacle": "read_file",
+    "finalMissionStatus": "COMPLETED",
+    "replannedToAlternative": false,
+    "failureClassification": null,
+    "errorDetails": null,
+    "finding": "Mission failed with null: null. Dynamic LLM-driven replanning did not synthesize a new plan."
+  },
+  "expF": {
+    "name": "Experiment F: Environmental Change Detection",
+    "mutationType": "External filesystem file creation in application directory",
+    "detectedMutation": false,
+    "backgroundWatcherActive": false,
+    "finding": "JARVIS has no active filesystem watcher (chokidar/fs.watch) or Windows OS event hook (SetWinEventHook). Environmental state is ONLY inspected when an explicit tool call is executed. Unprompted changes in the desktop or disk remain completely undetected."
+  },
+  "expG": {
+    "name": "Experiment G: Multi-Application Independent Coordination",
+    "applicationsTargeted": [
+      "notepad",
+      "calc"
+    ],
+    "notepadResult": {
+      "success": true,
+      "application": "notepad",
+      "executable": "shell:AppsFolder\\Microsoft.WindowsNotepad_8wekyb3d8bbwe!App",
+      "message": "Successfully launched notepad (Windows 11 Notepad)"
+    },
+    "calculatorResult": {
+      "success": true,
+      "application": "calc",
+      "executable": "calc.exe",
+      "message": "Successfully launched calc (calc.exe)"
+    },
+    "telemetryAcquired": true,
+    "bothApplicationsLaunched": true,
+    "totalCoordinationTimeMs": 368,
+    "finding": "JARVIS successfully coordinated launches of Notepad and Calculator via Python desktop automation agent, followed by real-time hardware telemetry retrieval (368ms)."
+  }
+}

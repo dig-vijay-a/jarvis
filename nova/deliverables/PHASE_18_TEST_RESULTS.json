@@ -1,0 +1,499 @@
+{
+  "summary": {
+    "suite": "PHASE_18_AUTONOMOUS_WORKFLOW_ECOSYSTEM",
+    "timestamp": "2026-11-27T00:29:57.695Z",
+    "model": "qwen3.5:4b",
+    "endpoint": "http://127.0.0.1:11434",
+    "total_tests": 32,
+    "passed": 32,
+    "failed": 0,
+    "pass_rate_percent": 100,
+    "prod_db_preserved": true,
+    "prod_db_sha256": "4018871d0a62bb7ff0be9c857f69517a3b406187365227e35697c47f1d84afc0"
+  },
+  "results": [
+    {
+      "id": "T01_NL_TO_STRUCTURED_DAG_LOCAL_AI",
+      "category": "Workflow Engine",
+      "name": "Converts NL objective into structured DAG with local qwen3.5:4b",
+      "status": "PASS",
+      "duration_ms": 55651,
+      "evidence": {
+        "mission_id": "mission-1795739333642-yelkk",
+        "steps": [
+          {
+            "step": 1,
+            "agent": "files",
+            "tool": "hash_and_list_files"
+          }
+        ],
+        "dag": {
+          "parallel_layers": [
+            [
+              1
+            ]
+          ],
+          "critical_path_length": 1,
+          "max_parallelism": 1,
+          "edges": []
+        }
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T02_CIRCULAR_DEPENDENCY_DETECTION",
+      "category": "Workflow Engine",
+      "name": "Detects self & multi-node circular dependencies cleanly",
+      "status": "PASS",
+      "duration_ms": 0,
+      "evidence": {
+        "selfCycleError": "CIRCULAR_DEPENDENCY_DETECTED: Step 1 depends on itself.",
+        "threwOnCreate": true
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T03_INVALID_DEPENDENCY_REJECTION",
+      "category": "Workflow Engine",
+      "name": "Rejects missing prerequisite step reference in workflow DAG",
+      "status": "PASS",
+      "duration_ms": 0,
+      "evidence": {
+        "error": "INVALID_DEPENDENCY: Step 1 depends on missing step 99."
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T04_DEPENDENCY_ORDERING_EXECUTION",
+      "category": "Workflow Engine",
+      "name": "Executes multi-step fan-in DAG strictly respecting dependencies",
+      "status": "PASS",
+      "duration_ms": 249,
+      "evidence": {
+        "mission_id": "mission-1795739389293-7mr16",
+        "critical_path": 3,
+        "reportBytes": 318
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T05_PARALLELIZABLE_LAYER_CONCURRENCY",
+      "category": "Workflow Engine",
+      "name": "Runs independent root steps in parallel layer concurrently",
+      "status": "PASS",
+      "duration_ms": 2128,
+      "evidence": {
+        "parallel_layers": [
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        "parallelCount": 3
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T06_CHECKPOINT_PERSISTENCE",
+      "category": "Workflow Engine",
+      "name": "Persists incremental state checkpoints per completed step",
+      "status": "PASS",
+      "duration_ms": 5,
+      "evidence": {
+        "mission_id": "mission-1795739389548-pz9jy",
+        "checkpoints_count": 3
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T07_SIX_SPECIALIST_AGENTS_CONTRACTS",
+      "category": "Specialist Agents",
+      "name": "All 6 specialist agents expose explicit responsibilities, tools, I/O contracts & limits",
+      "status": "PASS",
+      "duration_ms": 0,
+      "evidence": {
+        "agentCount": 6,
+        "keys": [
+          "research",
+          "coding",
+          "productivity",
+          "files",
+          "content",
+          "system"
+        ]
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T08_LEAST_PRIVILEGE_TOOL_ENFORCEMENT",
+      "category": "Specialist Agents",
+      "name": "Blocks unauthorized tool invocation on specialist agents & records rejection log",
+      "status": "PASS",
+      "duration_ms": 3,
+      "evidence": {
+        "blockedErr": "PERMISSION_DENIED: Agent 'Research Agent' is not authorized to execute tool 'execute_script'."
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T09_EXECUTION_STEP_AGENT_PRIVILEGE_BLOCK",
+      "category": "Specialist Agents",
+      "name": "MissionControl step execution rejects least-privilege violation before tool call",
+      "status": "PASS",
+      "duration_ms": 222,
+      "evidence": {
+        "status": "FAILED",
+        "error": "Step failed (PERMISSION_DENIED): PERMISSION_DENIED: Agent 'Research Agent' (research) lacks least-privilege capability for tool 'delete_memory'."
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T10_INVALID_INPUT_CONTRACT_REJECTION",
+      "category": "Specialist Agents",
+      "name": "Rejects oversized or malformed argument payloads against resource limits",
+      "status": "PASS",
+      "duration_ms": 1,
+      "evidence": {
+        "oversizedError": "RESOURCE_LIMIT_EXCEEDED: Input payload (80011B) exceeds limit (65536B).",
+        "arrayError": "INVALID_INPUT_CONTRACT: Agent 'Coding Agent' expects an argument object."
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T11_INVALID_OUTPUT_CONTRACT_REJECTION",
+      "category": "Specialist Agents",
+      "name": "Rejects null outputs, failure flags & unresolved template markers",
+      "status": "PASS",
+      "duration_ms": 0,
+      "evidence": {
+        "nullErr": "INVALID_AGENT_OUTPUT: Agent 'Content Creation Agent' produced null/undefined output for 'write_file'.",
+        "markerErr": "INVALID_AGENT_OUTPUT: Output contains unresolved marker '{{SYNTHESIZE_FROM_DEPS}}'.",
+        "failFlagErr": "Write failed"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T12_EXECUTION_LOGS_PERSISTED",
+      "category": "Specialist Agents",
+      "name": "Persists agent execution logs with output SHA-256 hash & contract status",
+      "status": "PASS",
+      "duration_ms": 2,
+      "evidence": {
+        "total_logs": 8,
+        "sample_agent": "system",
+        "sample_hash_len": 64
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T13_CAPABILITY_BASED_DELEGATION",
+      "category": "Agent Coordination",
+      "name": "Coordinator delegates tools accurately based on agent capabilities",
+      "status": "PASS",
+      "duration_ms": 2,
+      "evidence": {
+        "coding": "coding",
+        "files": "files",
+        "productivity": "productivity",
+        "system": "system"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T14_STRUCTURED_RESULT_HANDOFF",
+      "category": "Agent Coordination",
+      "name": "Records structured upstream-to-downstream result handoffs in coordination events",
+      "status": "PASS",
+      "duration_ms": 0,
+      "evidence": {
+        "handoffs_count": 2,
+        "sample_target": "files#2"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T15_DUPLICATE_WORK_PREVENTION",
+      "category": "Agent Coordination",
+      "name": "Deduplicates identical mission keys & reuses identical step action hashes",
+      "status": "PASS",
+      "duration_ms": 209,
+      "evidence": {
+        "deduplicatedId": "mission-1795739391907-m976d",
+        "step2_status": "VERIFIED"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T16_CONFLICTING_OUTPUT_EVIDENCE_RESOLUTION",
+      "category": "Agent Coordination",
+      "name": "Resolves conflicting outputs deterministically via verification & citation evidence",
+      "status": "PASS",
+      "duration_ms": 9,
+      "evidence": {
+        "winner": "coding",
+        "margin": 4.2,
+        "rationale": "Selected 'coding' (score=4.8) over 'content' (score=0.6) based on stronger independent verification/citations."
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T17_UNRESOLVED_DISAGREEMENT_ESCALATION_AND_ADJUDICATION",
+      "category": "Agent Coordination",
+      "name": "Escalates equal-evidence agent disagreement & supports operator adjudication",
+      "status": "PASS",
+      "duration_ms": 11,
+      "evidence": {
+        "escalatedReason": "Unresolved agent disagreement between 'coding' (score=0.78) and 'research' (score=0.75); margin 0.03 < 0.75 tie-breaker threshold.",
+        "postAdjudicationStatus": "PENDING"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T18_CONCURRENT_WORKFLOW_POOL_PRIORITY",
+      "category": "Concurrency & Recovery",
+      "name": "Runs multiple concurrent workflows honoring maxConcurrentWorkers limit & queuing",
+      "status": "PASS",
+      "duration_ms": 381,
+      "evidence": {
+        "completedCount": 4,
+        "pool": {
+          "max_concurrent_workers": 2,
+          "active_workers": 0,
+          "queued_workers": 0,
+          "peak_active_workers": 2,
+          "peak_queue_depth": 2,
+          "dispatch_history": [
+            {
+              "missionId": "mission-1795739389293-7mr16",
+              "priority": 2,
+              "startedAt": 1795739389382
+            },
+            {
+              "missionId": "mission-1795739389548-pz9jy",
+              "priority": 2,
+              "startedAt": 1795739389603
+            },
+            {
+              "missionId": "mission-1795739391677-73hpa",
+              "priority": 2,
+              "startedAt": 1795739391742
+            },
+            {
+              "missionId": "mission-1795739391907-m976d",
+              "priority": 2,
+              "startedAt": 1795739391948
+            },
+            {
+              "missionId": "mission-1795739392140-aadis",
+              "priority": 1,
+              "startedAt": 1795739392209
+            },
+            {
+              "missionId": "mission-1795739392144-1an6z",
+              "priority": 1,
+              "startedAt": 1795739392226
+            },
+            {
+              "missionId": "mission-1795739392149-fzvui",
+              "priority": 10,
+              "startedAt": 1795739392340
+            },
+            {
+              "missionId": "mission-1795739392135-5ekx7",
+              "priority": 1,
+              "startedAt": 1795739392359
+            }
+          ]
+        }
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T19_WORKER_CRASH_AND_CHECKPOINT_RECOVERY",
+      "category": "Concurrency & Recovery",
+      "name": "Recovers cleanly from simulated worker crash without losing checkpoints",
+      "status": "PASS",
+      "duration_ms": 1298,
+      "evidence": {
+        "mission_id": "mission-1795739392518-qwoqr",
+        "checkpoint_step": 1,
+        "status": "COMPLETED"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T20_PAUSE_RESUME_CONTINUITY",
+      "category": "Concurrency & Recovery",
+      "name": "Supports workflow pause and resume with checkpoint continuity",
+      "status": "PASS",
+      "duration_ms": 196,
+      "evidence": {
+        "mission_id": "mission-1795739393814-1t6zd",
+        "finalStatus": "COMPLETED"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T21_CLEAR_CANCELLATION",
+      "category": "Concurrency & Recovery",
+      "name": "Cancels pending steps cleanly and prevents execution restart",
+      "status": "PASS",
+      "duration_ms": 9,
+      "evidence": {
+        "mission_id": "mission-1795739394011-8rs8t",
+        "blocked": "MISSION_CANCELLED"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T22_REPEATED_WORKFLOW_IDENTIFICATION",
+      "category": "Workflow Learning",
+      "name": "Identifies repeated multi-step verified workflows across completed missions",
+      "status": "PASS",
+      "duration_ms": 681,
+      "evidence": {
+        "candidatesCount": 1,
+        "signature": "hash_and_list_files -> get_system_telemetry",
+        "occurrences": 3,
+        "confidence": 0.667
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T23_SEQUENCE_TO_SKILL_CONVERSION",
+      "category": "Workflow Learning",
+      "name": "Converts validated workflow sequence into reusable draft skill safely",
+      "status": "PASS",
+      "duration_ms": 3,
+      "evidence": {
+        "skill_id": "eskill-67ca1843",
+        "skill_key": "wf_workspace_health_audit",
+        "permissions": [
+          "list_files",
+          "get_system_telemetry"
+        ]
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T24_SANDBOX_BENCHMARK_AND_VALIDATION",
+      "category": "Workflow Learning",
+      "name": "Benchmarks workflow skill in isolated sandbox & enforces validation before deployment",
+      "status": "PASS",
+      "duration_ms": 255,
+      "evidence": {
+        "benchmark_id": "wbench-c889e582",
+        "pass_rate": 1,
+        "latency_ms": 111,
+        "deployed_version": "1.0.0"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T25_SKILL_REGRESSION_REJECTION_AND_OUTDATED_DETECTION",
+      "category": "Workflow Learning",
+      "name": "Blocks deployment on regression/security fail & flags outdated skills",
+      "status": "PASS",
+      "duration_ms": 248,
+      "evidence": {
+        "regressedVerdict": "REJECTED",
+        "outdatedCount": 1,
+        "sampleReason": "Latest regression suite failed; Referenced tool(s) deprecated/missing: legacy_removed_tool"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T26_COMPLEX_INSPECT_FIX_AND_TEST_PROJECT",
+      "category": "Complex Projects",
+      "name": "Inspects buggy project, applies verified fix, runs tests & produces report",
+      "status": "PASS",
+      "duration_ms": 1140,
+      "evidence": {
+        "mission_id": "mission-1795739395688-qnspe",
+        "tests_passed": 1,
+        "reportBytes": 507
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T27_COMPLEX_ORGANIZE_AND_VERIFY_INVENTORY",
+      "category": "Complex Projects",
+      "name": "Organizes mixed files by extension with zero file loss & verified inventory report",
+      "status": "PASS",
+      "duration_ms": 201,
+      "evidence": {
+        "mission_id": "mission-1795739396350-1qybd",
+        "filesPreserved": 3,
+        "duplicateGroups": 1
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T28_INDEPENDENT_OBJECTIVE_VERIFICATION_GATE",
+      "category": "Complex Projects",
+      "name": "Refuses COMPLETED status when required deliverable is missing or contains placeholder",
+      "status": "PASS",
+      "duration_ms": 199,
+      "evidence": {
+        "status": "PARTIALLY_VERIFIED",
+        "failedCount": 2
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T29_GOVERNANCE_APPROVAL_ENFORCEMENT",
+      "category": "Human Governance",
+      "name": "Enforces explicit human approval before sensitive, publication, financial or destructive actions",
+      "status": "PASS",
+      "duration_ms": 598,
+      "evidence": {
+        "mission_id": "mission-1795739396748-caelb",
+        "finalStatus": "COMPLETED"
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T30_WORKFLOW_ROLLBACK_AND_PROVENANCE",
+      "category": "Human Governance",
+      "name": "Captures complete workflow provenance & safely rolls back newly created files",
+      "status": "PASS",
+      "duration_ms": 227,
+      "evidence": {
+        "checkpoints": 1,
+        "logs": 1,
+        "rolled_back_count": 1
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T31_HTTP_ROUTES_AND_DASHBOARD_SUMMARY",
+      "category": "Dashboard & API",
+      "name": "Workflow Intelligence dashboard & provenance REST endpoints return complete live state",
+      "status": "PASS",
+      "duration_ms": 77,
+      "evidence": {
+        "workflows": 22,
+        "recoveryEvents": 4,
+        "verifications": 17,
+        "benchmarks": 2,
+        "patterns": 1
+      },
+      "failure_reason": null
+    },
+    {
+      "id": "T32_ZERO_CLOUD_AND_PROD_DB_INTACT",
+      "category": "Security & Integrity",
+      "name": "Zero cloud LLM network hits & byte-for-byte intact production database",
+      "status": "PASS",
+      "duration_ms": 45,
+      "evidence": {
+        "totalHttpReqs": 24,
+        "cloudHits": 0,
+        "prodDbPreserved": true,
+        "prodDbSha256": "4018871d0a62bb7ff0be9c857f69517a3b406187365227e35697c47f1d84afc0"
+      },
+      "failure_reason": null
+    }
+  ]
+}

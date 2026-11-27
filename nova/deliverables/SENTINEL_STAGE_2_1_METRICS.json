@@ -1,0 +1,135 @@
+{
+  "audit_suite": "SENTINEL_STAGE_2_1_EVIDENCE_REMEDIATION",
+  "timestamp": "2026-11-24T20:08:11.811Z",
+  "overall_remediation_verdict": "PASS",
+  "ready_for_stage3_stress_testing": true,
+  "stage2_original_snapshot": {
+    "samples_in_telemetry_file": 1440,
+    "samples_in_metrics_json": 1440,
+    "telemetry_reconciled": true,
+    "python_agent_statuses_observed": {
+      "OFFLINE_FALLBACK": 1440
+    },
+    "metrics_recovery_events_count": 7,
+    "event_log_recovery_events_count": 8,
+    "recovery_reconciled_in_original_stage2": false,
+    "active_missions_observed": [
+      0
+    ],
+    "queued_missions_observed": [
+      60
+    ],
+    "notification_backlog_observed": [
+      16
+    ]
+  },
+  "findings": [
+    {
+      "id": "PYTHON_AGENT_AVAILABILITY",
+      "stage2_classification": "PARTIALLY_VERIFIED",
+      "stage2_1_classification": "PASS",
+      "summary": "Stage 2 ran without supervisor.js so port 8000 had no listener (1440/1440 OFFLINE_FALLBACK). Fixed supervisor/sentinel health URLs (/health instead of auth-gated /api/system/info or /cwd), measured real latency, and distinguished INTENTIONAL_OFFLINE vs UNEXPECTED_OFFLINE_FALLBACK across live connect/drop/reconnect.",
+      "evidence": {
+        "agent_started": true,
+        "health_endpoint_ok": true,
+        "auth_endpoint_rejected_without_token": true,
+        "intentional_offline_detected": true,
+        "online_latency_ms": 10,
+        "unexpected_disconnect_detected": true,
+        "reconnection_ok": true
+      }
+    },
+    {
+      "id": "RECOVERY_ACCOUNTING",
+      "stage2_classification": "FAIL",
+      "stage2_1_classification": "PASS",
+      "summary": "Stage 2 reported recovery_events_count=7 while logging 8 RECOVERY events (DUPLICATE_SUPPRESSED omitted recoveryEventsCount++). Unified all counting onto logEvent() canonical source + disk reconciliation check; verified 8/8 recovery events and metrics match.",
+      "evidence": {
+        "stage2_historical": {
+          "metrics_recovery_events_count": 7,
+          "event_stream_recovery_events": 8,
+          "discrepancy_cause": "DUPLICATE_PREVENTION logged RECOVERY event DUPLICATE_SUPPRESSED without incrementing recoveryEventsCount"
+        },
+        "stage2_1_remediated": {
+          "metrics_recovery_events_count": 8,
+          "event_stream_recovery_events": 8,
+          "unique_fault_scenarios_passed": 8,
+          "reconciled": true
+        }
+      }
+    },
+    {
+      "id": "REAL_BACKEND_RESTART",
+      "stage2_classification": "NOT_TESTED",
+      "stage2_1_classification": "PASS",
+      "summary": "Stage 2 BACKEND_RESTART_CHECKPOINT only performed in-process state serialization (NOT an actual restart). In Stage 2.1, supervisor.js spawned isolated backend PID 25236 (port 5055), killed it forcefully, respawned PID 10544 in 4963ms, restored mission from checkpoint to COMPLETED, verified scheduler & endurance timers active, and confirmed SQLite integrity=ok.",
+      "evidence": {
+        "isolated_port": 5055,
+        "isolated_db": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\data\\sentinel_disposable_test\\stage2_1_isolated\\stage2_1_restart.sqlite",
+        "old_pid": 25236,
+        "new_pid": 10544,
+        "recovery_latency_ms": 4963,
+        "mission_restored_and_completed": true,
+        "step0_preinspected_verified": true,
+        "step1_executed_post_restart": true,
+        "step1_memory_persisted_in_db": true,
+        "scheduler_active_post_restart": true,
+        "endurance_worker_resumed": true,
+        "db_integrity_post_restart": "ok",
+        "endurance_samples_post_restart": 1
+      }
+    },
+    {
+      "id": "QUEUE_OBSERVABILITY",
+      "stage2_classification": "PARTIALLY_VERIFIED",
+      "stage2_1_classification": "PASS",
+      "summary": "Confirmed Stage 2 values (queued=60, backlog=16) were real historical DB rows, while active_missions=0 suffered from querying IN_PROGRESS instead of RUNNING/PLANNING plus sub-5ms completion. Updated collectSample() and synthetic cycles to canonical statuses and verified live transitions.",
+      "evidence": {
+        "stage2_root_cause": {
+          "active_missions_always_zero": "Queried status=\"IN_PROGRESS\" while MissionControlService uses \"RUNNING\"/\"PLANNING\", plus synthetic workload updated IN_PROGRESS->COMPLETED synchronously in ~5ms between 10s samples.",
+          "queued_missions_static_60": "Genuine COUNT(*) of 60 pre-existing historical PENDING missions created before Stage 2; Stage 2 synthetic missions bypassed PENDING.",
+          "notification_backlog_static_16": "Genuine COUNT(*) of 16 pre-existing historical unread notifications created before Stage 2; Stage 2 synthetic notifications cleared is_read=1 in ~5ms."
+        },
+        "live_transition_test": {
+          "during_load": {
+            "active_missions": 1,
+            "queued_missions": 1,
+            "notification_backlog": 1
+          },
+          "after_completion": {
+            "active_missions": 0,
+            "queued_missions": 0,
+            "notification_backlog": 0,
+            "db_running_check": 0,
+            "db_pending_check": 0,
+            "db_unread_check": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "STAGE2_ARTIFACTS_PRESERVED",
+      "stage2_classification": "PASS",
+      "stage2_1_classification": "PASS",
+      "summary": "Verified SHA-256 hashes of all 6 original Stage 2 deliverables remain 100% identical before and after Stage 2.1 remediation.",
+      "evidence": {
+        "before": {
+          "SENTINEL_STAGE_2_METRICS.json": "cf26cec7f5a276cd2dfc0376c6627281aae0b11cf36bd9d31677394ecb2a89dd",
+          "SENTINEL_STAGE_2_EVENTS.jsonl": "d22017a8cfeae7e25615ef8a05fa3a6f32694d96595a3f58a53cf2be8e40389e",
+          "SENTINEL_STAGE_2_TELEMETRY.jsonl": "5e51cb0d809e2a457de5637a8193b21428a89d701e08f8e3bfc4681bfe770b31",
+          "SENTINEL_STAGE_2_REPORT.md": "6656862d0377f872b43b01017f4864e1224d42903a21c628bf1d38a8a4a3ef15",
+          "SENTINEL_STAGE_2_FAILURES.md": "97faa8e05e2115156d8eecc0951651922427fb546198f2ee2e3062f4060e08aa",
+          "sentinel_stage2_state.json": "545956e592b99af3d3087b9926843564932526c635d9c69160cc9b6ef014155b"
+        },
+        "after": {
+          "SENTINEL_STAGE_2_METRICS.json": "cf26cec7f5a276cd2dfc0376c6627281aae0b11cf36bd9d31677394ecb2a89dd",
+          "SENTINEL_STAGE_2_EVENTS.jsonl": "d22017a8cfeae7e25615ef8a05fa3a6f32694d96595a3f58a53cf2be8e40389e",
+          "SENTINEL_STAGE_2_TELEMETRY.jsonl": "5e51cb0d809e2a457de5637a8193b21428a89d701e08f8e3bfc4681bfe770b31",
+          "SENTINEL_STAGE_2_REPORT.md": "6656862d0377f872b43b01017f4864e1224d42903a21c628bf1d38a8a4a3ef15",
+          "SENTINEL_STAGE_2_FAILURES.md": "97faa8e05e2115156d8eecc0951651922427fb546198f2ee2e3062f4060e08aa",
+          "sentinel_stage2_state.json": "545956e592b99af3d3087b9926843564932526c635d9c69160cc9b6ef014155b"
+        }
+      }
+    }
+  ]
+}

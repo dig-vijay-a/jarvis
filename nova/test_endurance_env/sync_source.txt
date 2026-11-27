@@ -1,0 +1,1 @@
+Canonical synchronization payload with SHA256 integrity.

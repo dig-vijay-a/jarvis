@@ -1,0 +1,114 @@
+{
+  "timestamp": "2026-11-23T15:36:10.141Z",
+  "total": 15,
+  "passedCount": 15,
+  "failedCount": 0,
+  "passRate": "100.0%",
+  "scenarios": [
+    {
+      "id": "SCEN-01",
+      "name": "False Completion Attack (Tool Returning Failure)",
+      "passed": true,
+      "details": "Step status: RUNNING, Mission status: RUNNING. Tool failure properly rejected.",
+      "error": null
+    },
+    {
+      "id": "SCEN-02",
+      "name": "Premature Completion Attack on Mission Dispatch",
+      "passed": true,
+      "details": "contractStatus: \"RUNNING\", validationResult: \"AUTONOMOUS_MISSION_DISPATCHED\". No false completion claim on dispatch.",
+      "error": null
+    },
+    {
+      "id": "SCEN-03",
+      "name": "Dynamic Tool Failure Replanning",
+      "passed": true,
+      "details": "Replanned tool: \"search_files\", Replan count: 1, Status reset to PENDING.",
+      "error": null
+    },
+    {
+      "id": "SCEN-04",
+      "name": "Bounded Replanning Limit (Max 2 Attempts)",
+      "passed": true,
+      "details": "Replan returned false when replan_count >= 2. Infinite loop prevented.",
+      "error": null
+    },
+    {
+      "id": "SCEN-05",
+      "name": "Truthful Verification Postcondition Gating",
+      "passed": true,
+      "details": "Empty content verified status: false. Reason: \"undefined\".",
+      "error": null
+    },
+    {
+      "id": "SCEN-06",
+      "name": "Unified Planning Contract (TaskPlanner -> MissionControl Mapping)",
+      "passed": true,
+      "details": "Mapped task ID \"mission-1795448168129\" to canonical mission \"mission-1795448168129\". Both tables synchronized.",
+      "error": null
+    },
+    {
+      "id": "SCEN-07",
+      "name": "Active Environmental Perception: Filesystem Watcher",
+      "passed": true,
+      "details": "Detected event: \"FILE_MODIFIED\" on \"test_perception_1795448168299.txt\". Debounced metadata captured without reading private content.",
+      "error": null
+    },
+    {
+      "id": "SCEN-08",
+      "name": "Active Environmental Perception: Window Focus Transition",
+      "passed": true,
+      "details": "Event recorded in SQLite: \"ACTIVE_WINDOW_CHANGED\" for target \"Visual Studio Code - JARVIS Architecture\".",
+      "error": null
+    },
+    {
+      "id": "SCEN-09",
+      "name": "Autonomous Initiative Engine: Event Trigger & 60s Cooldown",
+      "passed": true,
+      "details": "Initial perception logged to activity_logs. Immediate duplicate suppressed by rate limit.",
+      "error": null
+    },
+    {
+      "id": "SCEN-10",
+      "name": "Autonomous Initiative: Sensitive Operation Safety Approval Gate",
+      "passed": true,
+      "details": "Step status: WAITING_FOR_APPROVAL, Mission status: WAITING_FOR_APPROVAL. Execution halted awaiting explicit operator approval.",
+      "error": null
+    },
+    {
+      "id": "SCEN-11",
+      "name": "Connected Intelligence: Digital Twin Context Extraction",
+      "passed": true,
+      "details": "Retrieved Digital Twin prompt markdown block with length 2602 chars.",
+      "error": null
+    },
+    {
+      "id": "SCEN-12",
+      "name": "Connected Intelligence: Knowledge Graph Entity Resolution",
+      "passed": true,
+      "details": "Found entity: \"Autonomous Mission DAG\" (architecture) with properties.",
+      "error": null
+    },
+    {
+      "id": "SCEN-13",
+      "name": "Connected Intelligence: Skills Exported into ToolRegistry & Callable",
+      "passed": true,
+      "details": "Skill present in ToolRegistry: true. Executed cleanly with output status \"verified\".",
+      "error": null
+    },
+    {
+      "id": "SCEN-14",
+      "name": "Connected Intelligence: Truthful Evaluation Engine Suite",
+      "passed": true,
+      "details": "Total tests: 6, Passed: 6, Completion rate: 100%. Real directives executed.",
+      "error": null
+    },
+    {
+      "id": "SCEN-15",
+      "name": "Crash Recovery & Safe State Resumption",
+      "passed": true,
+      "details": "Interrupted RUNNING step reset to PENDING. Mission checkpoint preserved for clean resumption.",
+      "error": null
+    }
+  ]
+}

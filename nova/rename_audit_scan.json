@@ -1,0 +1,2129 @@
+{
+  "frontend": [
+    {
+      "file": "frontend/package-lock.json",
+      "line": 2,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "\"name\": \"nova-frontend\","
+    },
+    {
+      "file": "frontend/package-lock.json",
+      "line": 8,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "\"name\": \"nova-frontend\","
+    },
+    {
+      "file": "frontend/package.json",
+      "line": 2,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "\"name\": \"nova-frontend\","
+    },
+    {
+      "file": "frontend/tailwind.config.js",
+      "line": 11,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "nova: {"
+    },
+    {
+      "file": "frontend/src/components/vision/ScreenIntelligenceModal.jsx",
+      "line": 93,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "NOVA SCREEN INTELLIGENCE & COMPUTER VISION"
+    },
+    {
+      "file": "frontend/src/components/vision/ScreenIntelligenceModal.jsx",
+      "line": 116,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "NOVA captures screen frames strictly upon your explicit command. Zero background surveillance."
+    },
+    {
+      "file": "frontend/src/hooks/useVoiceAssistant.js",
+      "line": 290,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "// Echo prevention: Ignore microphone input completely while NOVA is vocalizing through the speakers"
+    },
+    {
+      "file": "frontend/src/hooks/useVoiceAssistant.js",
+      "line": 299,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const sleepPhrases = ['go to sleep', 'stop listening', 'sleep jarvis', 'jarvis sleep', 'nova sleep', 'enter standby'];"
+    },
+    {
+      "file": "frontend/src/hooks/useVoiceAssistant.js",
+      "line": 324,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "'hey nova',"
+    },
+    {
+      "file": "frontend/src/hooks/useVoiceAssistant.js",
+      "line": 326,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "'nova',"
+    },
+    {
+      "file": "frontend/src/hooks/useVoiceAssistant.js",
+      "line": 328,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "'ok nova',"
+    },
+    {
+      "file": "frontend/src/hooks/useVoiceAssistant.js",
+      "line": 330,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "'hi nova',"
+    },
+    {
+      "file": "frontend/src/hooks/useVoiceAssistant.js",
+      "line": 332,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "'hello nova',"
+    },
+    {
+      "file": "frontend/src/hooks/useVoiceAssistant.js",
+      "line": 354,
+      "matches": [
+        "Nova"
+      ],
+      "snippet": "// Case 1: Spoke wake-word and directive together (\"Jarvis open VS Code\" or \"Hey Nova what's my schedule\")"
+    },
+    {
+      "file": "frontend/src/hooks/useVoiceAssistant.js",
+      "line": 375,
+      "matches": [
+        "Nova"
+      ],
+      "snippet": "// Case 2: Spoke JUST the wake-word (\"Jarvis\" or \"Hey Nova\") and paused!"
+    },
+    {
+      "file": "frontend/src/hooks/useVoiceAssistant.js",
+      "line": 432,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "// Automatically restart recognition unless the mic is physically muted or NOVA is actively speaking!"
+    },
+    {
+      "file": "frontend/src/hooks/useVoiceAssistant.js",
+      "line": 584,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "// Stop recognition while NOVA is vocalizing so speakers don't echo into mic"
+    },
+    {
+      "file": "frontend/src/pages/DashboardPage.jsx",
+      "line": 20,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "activeAgent = 'NOVA Core',"
+    },
+    {
+      "file": "frontend/src/pages/IntelligenceHubPage.jsx",
+      "line": 391,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "placeholder=\"Search entities (e.g. React, NOVA, Commander)...\""
+    },
+    {
+      "file": "frontend/src/pages/MemoryPage.jsx",
+      "line": 270,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "placeholder=\"Simulate prompt to see which memories NOVA would retrieve into context (e.g. 'What framework should we use "
+    },
+    {
+      "file": "frontend/src/pages/MemoryPage.jsx",
+      "line": 307,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "No memories match current filter. Use \"Record Memory\" or tell NOVA \"Remember that...\" in chat."
+    },
+    {
+      "file": "frontend/src/pages/MemoryPage.jsx",
+      "line": 405,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "placeholder=\"Enter detailed facts or preferences for NOVA to remember...\""
+    },
+    {
+      "file": "frontend/src/pages/MissionControlPage.jsx",
+      "line": 308,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "No active or archived missions. Enter an objective above to dispatch NOVA."
+    },
+    {
+      "file": "frontend/src/pages/SettingsPage.jsx",
+      "line": 31,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "python_agent_token: 'nova-local-agent-secure-token-2026',"
+    },
+    {
+      "file": "frontend/src/pages/SettingsPage.jsx",
+      "line": 280,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "onClick={() => onSpeakTest && onSpeakTest(\"Good day, Commander. NOVA voice modulation verified at peak fidelity.\")}"
+    },
+    {
+      "file": "frontend/src/pages/SettingsPage.jsx",
+      "line": 332,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "<p className=\"text-cyan-300 font-semibold\">NOVA DIRECTIVE PROTOCOL</p>"
+    },
+    {
+      "file": "frontend/src/pages/SettingsPage.jsx",
+      "line": 333,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "<p>NOVA addresses you as \"{settings.system_user_name}\" across vocal speech and visual logs.</p>"
+    }
+  ],
+  "backend": [
+    {
+      "file": "backend/package-lock.json",
+      "line": 2,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "\"name\": \"nova-backend\","
+    },
+    {
+      "file": "backend/package-lock.json",
+      "line": 8,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "\"name\": \"nova-backend\","
+    },
+    {
+      "file": "backend/package.json",
+      "line": 2,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "\"name\": \"nova-backend\","
+    },
+    {
+      "file": "backend/package.json",
+      "line": 4,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"description\": \"NOVA AI OS Backend - JARVIS Orchestrator and Services\","
+    },
+    {
+      "file": "backend/server.js",
+      "line": 90,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "console.log('[NOVA WebSocket] HUD Client linked.');"
+    },
+    {
+      "file": "backend/server.js",
+      "line": 109,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "console.warn('[NOVA WebSocket] Unhandled message format:', message.toString());"
+    },
+    {
+      "file": "backend/server.js",
+      "line": 114,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "console.log('[NOVA WebSocket] HUD Client unlinked.');"
+    },
+    {
+      "file": "backend/server.js",
+      "line": 146,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "system: 'NOVA Personal AI OS',"
+    },
+    {
+      "file": "backend/server.js",
+      "line": 155,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "console.log(`  NOVA PERSONAL AI OPERATING SYSTEM \u2014 JARVIS CORE      `);"
+    },
+    {
+      "file": "backend/supervisor.js",
+      "line": 11,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "console.log('  NOVA PROCESS SUPERVISOR \u2014 LIFECYCLE CONTROLLER       ');"
+    },
+    {
+      "file": "backend/supervisor.js",
+      "line": 31,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "args: ['nova/python-agent/agent.py'],"
+    },
+    {
+      "file": "backend/ai/conversationalContextService.js",
+      "line": 2,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "* NOVA Conversational Context Service"
+    },
+    {
+      "file": "backend/ai/conversationalContextService.js",
+      "line": 117,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "const draftContent = ctx.lastGeneratedDraft || 'NOVA System Notes & Operational Summary.\\nGenerated: ' + new Date().toIS"
+    },
+    {
+      "file": "backend/ai/orchestrator.js",
+      "line": 283,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "reason: 'Requested action is outside NOVA operational boundaries and safety directives.'"
+    },
+    {
+      "file": "backend/ai/orchestrator.js",
+      "line": 759,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "{ tool: 'read_file', args: { file_path: 'c:\\\\Users\\\\digvi\\\\OneDrive\\\\Desktop\\\\Jarvis\\\\nova\\\\frontend\\\\package.json' }, n"
+    },
+    {
+      "file": "backend/ai/orchestrator.js",
+      "line": 860,
+      "matches": [
+        "nova",
+        "nova"
+      ],
+      "snippet": "if (/(hello|hey nova|hi nova|good morning|good evening|greetings)/i.test(clean)) {"
+    },
+    {
+      "file": "backend/ai/orchestrator.js",
+      "line": 1492,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const deliverablePath = path.resolve('c:/Users/digvi/OneDrive/Desktop/Jarvis/nova/deliverables/Desktop_Organization_Plan"
+    },
+    {
+      "file": "backend/ai/orchestrator.js",
+      "line": 1543,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const deliverablePath = path.resolve('c:/Users/digvi/OneDrive/Desktop/Jarvis/nova/deliverables/Project_Architecture_Over"
+    },
+    {
+      "file": "backend/ai/orchestrator.js",
+      "line": 1607,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const deliverablePath = path.resolve('c:/Users/digvi/OneDrive/Desktop/Jarvis/nova/deliverables/Agentic_AI_Presentation.m"
+    },
+    {
+      "file": "backend/ai/orchestrator.js",
+      "line": 1666,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const deliverablePath = path.resolve('c:/Users/digvi/OneDrive/Desktop/Jarvis/nova/deliverables/React_Startup_Diagnostics"
+    },
+    {
+      "file": "backend/ai/orchestrator.js",
+      "line": 1695,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const deliverablePath = path.resolve('c:/Users/digvi/OneDrive/Desktop/Jarvis/nova/deliverables/Adapted_Presentation_Summ"
+    },
+    {
+      "file": "backend/ai/orchestrator.js",
+      "line": 1760,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const deliverablePath = path.resolve('c:/Users/digvi/OneDrive/Desktop/Jarvis/nova/deliverables/Storage_Audit_Report.md')"
+    },
+    {
+      "file": "backend/ai/orchestrator.js",
+      "line": 1995,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "'nova',"
+    },
+    {
+      "file": "backend/ai/orchestrator.js",
+      "line": 2016,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "sender: 'nova',"
+    },
+    {
+      "file": "backend/ai/prompts.js",
+      "line": 1,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "export const SYSTEM_PROMPT = `You are NOVA (Neural Operative Virtual Assistant), an advanced personal AI operating syste"
+    },
+    {
+      "file": "backend/ai/agents/CoordinatorAgent.js",
+      "line": 63,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "name: 'NOVA Core',"
+    },
+    {
+      "file": "backend/ai/agents/specializedAgents.js",
+      "line": 9,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "systemInstruction: 'You are NOVA Research Agent. Investigate web intelligence objectively, synthesize findings with bull"
+    },
+    {
+      "file": "backend/ai/agents/specializedAgents.js",
+      "line": 23,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "systemInstruction: 'You are NOVA Coding Agent. Provide clean, secure, and idiomatic technical solutions. Search project "
+    },
+    {
+      "file": "backend/ai/agents/specializedAgents.js",
+      "line": 37,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "systemInstruction: 'You are NOVA Productivity Agent. Help Commander organize priorities cleanly, establish deadlines, an"
+    },
+    {
+      "file": "backend/ai/agents/specializedAgents.js",
+      "line": 51,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "systemInstruction: 'You are NOVA File Management Agent. Respect sandbox path boundaries strictly. Never alter files outs"
+    },
+    {
+      "file": "backend/ai/agents/specializedAgents.js",
+      "line": 65,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "systemInstruction: 'You are NOVA Content Creation Agent. Structure screenplays with strong hooks, engaging pacing, conci"
+    },
+    {
+      "file": "backend/ai/agents/specializedAgents.js",
+      "line": 79,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "systemInstruction: 'You are NOVA System Assistant Agent. Report hardware diagnostics calmly and launch permitted desktop"
+    },
+    {
+      "file": "backend/database/db.js",
+      "line": 15,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const dbPath = path.join(dbDir, 'nova.sqlite');"
+    },
+    {
+      "file": "backend/database/db.js",
+      "line": 675,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "// PHASE 5: NOVA 1.0 PRODUCTIZATION"
+    },
+    {
+      "file": "backend/database/db.js",
+      "line": 758,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "{ key: 'python_agent_token', value: 'nova-local-agent-secure-token-2026' },"
+    },
+    {
+      "file": "backend/database/db.js",
+      "line": 762,
+      "matches": [
+        "Nova"
+      ],
+      "snippet": "{ key: 'wake_word_phrase', value: 'Hey Nova' },"
+    },
+    {
+      "file": "backend/database/db.js",
+      "line": 815,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "author: 'NOVA System Core'"
+    },
+    {
+      "file": "backend/database/db.js",
+      "line": 833,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "author: 'NOVA Research Agent'"
+    },
+    {
+      "file": "backend/database/db.js",
+      "line": 849,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "author: 'NOVA System Core'"
+    },
+    {
+      "file": "backend/database/db.js",
+      "line": 867,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "author: 'NOVA Content Agent'"
+    },
+    {
+      "file": "backend/database/db.js",
+      "line": 884,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "author: 'NOVA Productivity Agent'"
+    },
+    {
+      "file": "backend/database/db.js",
+      "line": 923,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "title: 'NOVA Personal AI OS (JARVIS)',"
+    },
+    {
+      "file": "backend/database/db.js",
+      "line": 1049,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "{ id: 'mem-2', key: 'Primary Assistant Role', value: 'NOVA - Personal AI Operating System and Command Center inspired by"
+    },
+    {
+      "file": "backend/database/db.js",
+      "line": 1066,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "{ id: 'task-1', title: 'Complete NOVA OS core deployment', description: 'Ensure full operational status for HUD, Voice, "
+    },
+    {
+      "file": "backend/database/db.js",
+      "line": 1129,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "'nova',"
+    },
+    {
+      "file": "backend/database/db.js",
+      "line": 1130,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "'Good day, Commander. NOVA system initialized and operating at peak capacity. All diagnostic subsystems, neural cores, m"
+    },
+    {
+      "file": "backend/database/db.js",
+      "line": 1139,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "'log-init', 'System Boot', 'SYSTEM', 'NOVA core online. SQLite memory and tools synchronized.', 'success', new Date().to"
+    },
+    {
+      "file": "backend/database/db.js",
+      "line": 1143,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "console.log('[NOVA Database] SQLite database initialized and synced at:', dbPath);"
+    },
+    {
+      "file": "backend/routes/automation.js",
+      "line": 99,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "deliverables.shortScript = `[HOOK]: What if your computer could operate itself like JARVIS?\\n[BODY]: Meet NOVA \u2014 a perso"
+    },
+    {
+      "file": "backend/routes/computer.js",
+      "line": 13,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "token: (tokenRow && tokenRow.value) ? tokenRow.value : 'nova-local-agent-secure-token-2026'"
+    },
+    {
+      "file": "backend/routes/integrations.js",
+      "line": 110,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const repo = req.query.repo || 'digvijay/nova-ai-os';"
+    },
+    {
+      "file": "backend/routes/mobile.js",
+      "line": 110,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const rawToken = generateSecureToken('nova-mob');"
+    },
+    {
+      "file": "backend/routes/mobile.js",
+      "line": 111,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const refreshToken = generateSecureToken('nova-refresh');"
+    },
+    {
+      "file": "backend/routes/mobile.js",
+      "line": 174,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const newRawToken = generateSecureToken('nova-mob');"
+    },
+    {
+      "file": "backend/routes/mobile.js",
+      "line": 175,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const newRefreshToken = generateSecureToken('nova-refresh');"
+    },
+    {
+      "file": "backend/routes/mobile.js",
+      "line": 298,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "[notifId, 'NOVA Mobile Companion', 'Test ping received: mobile channel telemetry active.', 'INFO', now]"
+    },
+    {
+      "file": "backend/security/cryptoUtils.js",
+      "line": 117,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "export function generateSecureToken(prefix = 'nova-sec') {"
+    },
+    {
+      "file": "backend/services/backupService.js",
+      "line": 25,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const filename = `nova-backup-${timestamp}.sqlite`;"
+    },
+    {
+      "file": "backend/services/entityResolutionService.js",
+      "line": 2,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "* NOVA Entity Resolution Service"
+    },
+    {
+      "file": "backend/services/healthMonitorService.js",
+      "line": 59,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const agentToken = tokenRow?.value || 'nova-local-agent-secure-token-2026';"
+    },
+    {
+      "file": "backend/services/integrationService.js",
+      "line": 82,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "{ id: 'msg-103', from: 'sarah.connor@stark-industries.com', subject: 'Project NOVA Architecture Review', snippet: 'Attac"
+    },
+    {
+      "file": "backend/services/integrationService.js",
+      "line": 132,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "{ id: 'evt-201', summary: 'NOVA OS Daily Briefing & Telemetry Sync', start: new Date(now.getTime() + 1800000).toISOStrin"
+    },
+    {
+      "file": "backend/services/integrationService.js",
+      "line": 191,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "static async githubCheckRepo(repo = 'digvijay/nova-ai-os') {"
+    },
+    {
+      "file": "backend/services/integrationService.js",
+      "line": 209,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "static async githubCreateIssue({ repo = 'digvijay/nova-ai-os', title, body, confirmed = false }) {"
+    },
+    {
+      "file": "backend/services/knowledgeEngineService.js",
+      "line": 117,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const agentToken = tokenRow?.value || 'nova-local-agent-secure-token-2026';"
+    },
+    {
+      "file": "backend/services/knowledgeGraphService.js",
+      "line": 310,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "{ regex: /\\b(NOVA|JARVIS|Project|Mission Control|Digital Twin|Knowledge Graph)\\b/gi, type: 'project' },"
+    },
+    {
+      "file": "backend/services/missionControlService.js",
+      "line": 210,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "const planningPrompt = `You are the NOVA Mission Control Engine inspired by JARVIS."
+    },
+    {
+      "file": "backend/services/proactiveIntelligenceService.js",
+      "line": 41,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "headers: { Authorization: `Bearer ${tokenRow?.value || 'nova-local-agent-secure-token-2026'}` },"
+    },
+    {
+      "file": "backend/services/skillRegistryService.js",
+      "line": 35,
+      "matches": [
+        "NOVA",
+        "nova"
+      ],
+      "snippet": "{ index: 1, title: 'NOVA System Intelligence Matrix 2026', url: 'https://nova.internal/docs/architecture' }"
+    },
+    {
+      "file": "backend/services/taskPlannerService.js",
+      "line": 54,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "const planningPrompt = `You are the NOVA Autonomous Task Planner."
+    },
+    {
+      "file": "backend/services/truthfulVerificationService.js",
+      "line": 2,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "* NOVA Truthful Verification Service"
+    },
+    {
+      "file": "backend/services/truthfulVerificationService.js",
+      "line": 15,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "token: (tokenRow && tokenRow.value) ? tokenRow.value : 'nova-local-agent-secure-token-2026'"
+    },
+    {
+      "file": "backend/services/truthfulVerificationService.js",
+      "line": 250,
+      "matches": [
+        "Nova"
+      ],
+      "snippet": "return `Entering standby mode. Just say \"Hey Nova\" or \"Jarvis\" whenever you need me.`;"
+    },
+    {
+      "file": "backend/services/visionService.js",
+      "line": 37,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "const systemPrompt = `You are NOVA Vision Core, the screen intelligence subsystem of Tony Stark's JARVIS."
+    },
+    {
+      "file": "backend/services/visionService.js",
+      "line": 68,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "analysis: `[NOVA Local Vision Diagnostic]: Screen capture received (${Math.round(imageBase64.length / 1024)} KB payload)"
+    },
+    {
+      "file": "backend/tests/run_all_tests.js",
+      "line": 11,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const AGENT_TOKEN = 'nova-local-agent-secure-token-2026';"
+    },
+    {
+      "file": "backend/tests/run_all_tests.js",
+      "line": 29,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "console.log(`   NOVA PHASE 2 \u2014 COMPREHENSIVE AUTOMATED TEST SUITE   `);"
+    },
+    {
+      "file": "backend/tests/run_nova1_laboratory_tests.js",
+      "line": 48,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "console.log('  NOVA OS 1.0 \u2014 AUTONOMOUS TESTING LABORATORY (50+ SCENARIOS)         ');"
+    },
+    {
+      "file": "backend/tests/run_nova1_laboratory_tests.js",
+      "line": 382,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "name: 'NOVA Mission Mode',"
+    },
+    {
+      "file": "backend/tests/run_phase3_tests.js",
+      "line": 13,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const AGENT_TOKEN = 'nova-local-agent-secure-token-2026';"
+    },
+    {
+      "file": "backend/tests/run_phase3_tests.js",
+      "line": 31,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "console.log(`   NOVA PHASE 3 \u2014 AUTONOMOUS AI OS VERIFICATION SUITE   `);"
+    },
+    {
+      "file": "backend/tests/run_phase3_tests.js",
+      "line": 128,
+      "matches": [
+        "Nova"
+      ],
+      "snippet": "text: 'Hey Nova, open Visual Studio Code'"
+    },
+    {
+      "file": "backend/tests/run_phase3_tests.js",
+      "line": 132,
+      "matches": [
+        "Nova"
+      ],
+      "snippet": "assert(wakeProc.data.detected === true, 'Wake-word \"Hey Nova\" detected in continuous audio stream.');"
+    },
+    {
+      "file": "backend/tests/run_phase3_tests.js",
+      "line": 148,
+      "matches": [
+        "Nova"
+      ],
+      "snippet": "text: 'Hey Nova, open Calculator'"
+    },
+    {
+      "file": "backend/tests/run_phase3_tests.js",
+      "line": 165,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "const testDocContent = `# NOVA Architecture Specification"
+    },
+    {
+      "file": "backend/tests/run_phase3_tests.js",
+      "line": 166,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "The NOVA Personal AI Operating System is structured with an 8-stage Neural Orchestrator pipeline."
+    },
+    {
+      "file": "backend/tests/run_phase4_tests.js",
+      "line": 27,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "console.log('   NOVA PHASE 4 \u2014 PRODUCTION-GRADE INTELLIGENCE QA TEST SUITE   ');"
+    },
+    {
+      "file": "backend/tests/run_phase4_tests.js",
+      "line": 50,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const initialToken = cryptoUtils.generateSecureToken('nova-mob');"
+    },
+    {
+      "file": "backend/tests/run_phase4_tests.js",
+      "line": 51,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const refreshToken = cryptoUtils.generateSecureToken('nova-refresh');"
+    },
+    {
+      "file": "backend/tests/run_phase4_tests.js",
+      "line": 68,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const newRawToken = cryptoUtils.generateSecureToken('nova-mob');"
+    },
+    {
+      "file": "backend/tests/run_phase4_tests.js",
+      "line": 69,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const newRefreshToken = cryptoUtils.generateSecureToken('nova-refresh');"
+    },
+    {
+      "file": "backend/tests/run_phase4_tests.js",
+      "line": 126,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "const rawText = 'Commander Digvijay designed the NOVA architecture using React, Node.js, and Python.';"
+    },
+    {
+      "file": "backend/tests/run_phase4_tests.js",
+      "line": 280,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "assert(backup && backup.filename.startsWith('nova-backup-'), `Hot backup generated: ${backup.filename}`);"
+    },
+    {
+      "file": "backend/tools/registry.js",
+      "line": 14,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "token: (tokenRow && tokenRow.value) ? tokenRow.value : 'nova-local-agent-secure-token-2026'"
+    },
+    {
+      "file": "backend/tools/registry.js",
+      "line": 124,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "description: 'Store an important fact, user preference, instruction, or project detail in NOVA long-term memory bank.',"
+    },
+    {
+      "file": "backend/tools/registry.js",
+      "line": 1036,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "throw new Error(`Tool '${name}' is not recognized in the NOVA tool registry.`);"
+    }
+  ],
+  "python_agent": [
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 7169,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"selected_agent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 7183,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"activeAgent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 7216,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"selected_agent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 7230,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"activeAgent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 7263,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"selected_agent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 7277,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"activeAgent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 7310,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"selected_agent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 7324,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"activeAgent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 7357,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"selected_agent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 7371,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"activeAgent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 7404,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"selected_agent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 7418,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"activeAgent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 7451,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"selected_agent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 7465,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"activeAgent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8163,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"responseSummary\": \"I am unable to execute that directive. Requested action is outside NOVA operational boundaries and s"
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8169,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"content\": \"I am unable to execute that directive. Requested action is outside NOVA operational boundaries and safety di"
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8178,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"selected_agent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8186,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"final_response\": \"I am unable to execute that directive. Requested action is outside NOVA operational boundaries and sa"
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8187,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"failure_reason\": \"Requested action is outside NOVA operational boundaries and safety directives.\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8192,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"activeAgent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8197,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"verificationEvidence\": \"Safety response: I am unable to execute that directive. Requested action is outside NOVA operat"
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8210,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"responseSummary\": \"I am unable to execute that directive. Requested action is outside NOVA operational boundaries and s"
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8216,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"content\": \"I am unable to execute that directive. Requested action is outside NOVA operational boundaries and safety di"
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8225,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"selected_agent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8233,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"final_response\": \"I am unable to execute that directive. Requested action is outside NOVA operational boundaries and sa"
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8234,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"failure_reason\": \"Requested action is outside NOVA operational boundaries and safety directives.\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8239,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"activeAgent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8244,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"verificationEvidence\": \"Safety response: I am unable to execute that directive. Requested action is outside NOVA operat"
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8257,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"responseSummary\": \"I am unable to execute that directive. Requested action is outside NOVA operational boundaries and s"
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8263,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"content\": \"I am unable to execute that directive. Requested action is outside NOVA operational boundaries and safety di"
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8272,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"selected_agent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8280,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"final_response\": \"I am unable to execute that directive. Requested action is outside NOVA operational boundaries and sa"
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8281,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"failure_reason\": \"Requested action is outside NOVA operational boundaries and safety directives.\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8286,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"activeAgent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8291,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"verificationEvidence\": \"Safety response: I am unable to execute that directive. Requested action is outside NOVA operat"
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8304,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"responseSummary\": \"I am unable to execute that directive. Requested action is outside NOVA operational boundaries and s"
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8310,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"content\": \"I am unable to execute that directive. Requested action is outside NOVA operational boundaries and safety di"
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8319,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"selected_agent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8327,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"final_response\": \"I am unable to execute that directive. Requested action is outside NOVA operational boundaries and sa"
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8328,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"failure_reason\": \"Requested action is outside NOVA operational boundaries and safety directives.\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8333,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"activeAgent\": \"NOVA Core\","
+    },
+    {
+      "file": "adversarial_validation_report.json",
+      "line": 8338,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"verificationEvidence\": \"Safety response: I am unable to execute that directive. Requested action is outside NOVA operat"
+    },
+    {
+      "file": "master_11_modules_audit_report.json",
+      "line": 46,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"details\": \"Intent: CONVERSATIONAL, Response: I'm NOVA, your personal AI operating system. I can launch and man...\""
+    },
+    {
+      "file": "master_11_modules_audit_report.json",
+      "line": 138,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"passed\": \"[NOVA Local Vision Diagnostic]: Screen capture received (8 KB payload).\\n1. Workspace Context: Active desktop"
+    },
+    {
+      "file": "master_11_modules_audit_report.json",
+      "line": 139,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"details\": \"Visual Analysis: [NOVA Local Vision Diagnostic]: Screen capture received (8 KB pay...\""
+    },
+    {
+      "file": "master_11_modules_audit_report.json",
+      "line": 176,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"details\": \"Engine: NOVA Local Wake-Word Engine (Zero External Audio Streaming), Status: Active\""
+    },
+    {
+      "file": "master_11_modules_audit_report.json",
+      "line": 179,
+      "matches": [
+        "Nova"
+      ],
+      "snippet": "\"testName\": \"6.2 Wake-word detection: \\\"Hey Nova\\\"\","
+    },
+    {
+      "file": "master_11_modules_audit_report.json",
+      "line": 181,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "\"details\": \"Matched phrase: \\\"hey nova\\\", Command: \\\"open calculator\\\"\""
+    },
+    {
+      "file": "phase6_verification_results.json",
+      "line": 24,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"name\": \"Assistant Responds as JARVIS (Not NOVA)\","
+    },
+    {
+      "file": "README.md",
+      "line": 1,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "# NOVA 1.0 \u2014 PERSONAL AI OPERATING SYSTEM (JARVIS)"
+    },
+    {
+      "file": "README.md",
+      "line": 3,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "NOVA (Neural Operative Virtual Assistant) is a dependable, production-grade personal AI operating system inspired by Ton"
+    },
+    {
+      "file": "README.md",
+      "line": 55,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "|                                      SQLite Database (nova.sqlite)                                      |"
+    },
+    {
+      "file": "README.md",
+      "line": 62,
+      "matches": [
+        "Nova"
+      ],
+      "snippet": "|  - Local offline wake-word detector (\"Hey Nova\")                                                        |"
+    },
+    {
+      "file": "README.md",
+      "line": 81,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "cd nova/backend"
+    },
+    {
+      "file": "README.md",
+      "line": 94,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "Copy `.env.example` in `nova/backend` to `.env`:"
+    },
+    {
+      "file": "README.md",
+      "line": 99,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "PYTHON_AGENT_TOKEN=nova-secure-token-change-in-production"
+    },
+    {
+      "file": "README.md",
+      "line": 105,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "### 3. Launching NOVA 1.0"
+    },
+    {
+      "file": "README.md",
+      "line": 108,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "NOVA includes an automated Node.js process supervisor that orchestrates both the backend and Python agent with automatic"
+    },
+    {
+      "file": "README.md",
+      "line": 111,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "cd nova/backend"
+    },
+    {
+      "file": "README.md",
+      "line": 116,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "Run the silent Windows script to launch NOVA in the background:"
+    },
+    {
+      "file": "README.md",
+      "line": 118,
+      "matches": [
+        "nova",
+        "nova"
+      ],
+      "snippet": "nova\\scripts\\start-nova-silent.vbs"
+    },
+    {
+      "file": "README.md",
+      "line": 124,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "cd nova/python-agent"
+    },
+    {
+      "file": "README.md",
+      "line": 128,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "cd nova/backend"
+    },
+    {
+      "file": "README.md",
+      "line": 132,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "cd nova/frontend"
+    },
+    {
+      "file": "README.md",
+      "line": 136,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "Visit `http://localhost:5173` to open the NOVA HUD."
+    },
+    {
+      "file": "README.md",
+      "line": 142,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "NOVA features an extensive automated test laboratory covering all system layers:"
+    },
+    {
+      "file": "README.md",
+      "line": 145,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "# Run NOVA 1.0 Autonomous Testing Laboratory (57 Scenarios)"
+    },
+    {
+      "file": "README.md",
+      "line": 146,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "node nova/backend/tests/run_nova1_laboratory_tests.js"
+    },
+    {
+      "file": "README.md",
+      "line": 149,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "node nova/backend/tests/run_all_tests.js"
+    },
+    {
+      "file": "README.md",
+      "line": 152,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "node nova/backend/tests/run_phase3_tests.js"
+    },
+    {
+      "file": "README.md",
+      "line": 155,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "node nova/backend/tests/run_phase4_tests.js"
+    },
+    {
+      "file": "README.md",
+      "line": 174,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "- [System Architecture](file:///c:/Users/digvi/OneDrive/Desktop/Jarvis/nova/docs/ARCHITECTURE.md)"
+    },
+    {
+      "file": "README.md",
+      "line": 175,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "- [API Reference Manual](file:///c:/Users/digvi/OneDrive/Desktop/Jarvis/nova/docs/API.md)"
+    },
+    {
+      "file": "README.md",
+      "line": 176,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "- [Deployment & Remote Access Guide](file:///c:/Users/digvi/OneDrive/Desktop/Jarvis/nova/docs/DEPLOYMENT.md)"
+    },
+    {
+      "file": "README.md",
+      "line": 177,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "- [Rollback & Disaster Recovery Runbook](file:///c:/Users/digvi/OneDrive/Desktop/Jarvis/nova/docs/ROLLBACK.md)"
+    },
+    {
+      "file": "README.md",
+      "line": 178,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "- [User Guide & Voice Controls](file:///c:/Users/digvi/OneDrive/Desktop/Jarvis/nova/docs/USER_GUIDE.md)"
+    },
+    {
+      "file": "test_adversarial_validation.js",
+      "line": 7,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const AGENT_TOKEN = 'nova-local-agent-secure-token-2026';"
+    },
+    {
+      "file": "test_adversarial_validation.js",
+      "line": 123,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "console.log('  NOVA \u2014 INDEPENDENT ADVERSARIAL INTELLIGENCE VALIDATION        ');"
+    },
+    {
+      "file": "test_level3_autonomous_challenges.js",
+      "line": 7,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const AGENT_TOKEN = 'nova-local-agent-secure-token-2026';"
+    },
+    {
+      "file": "test_level3_autonomous_challenges.js",
+      "line": 80,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "console.log('  NOVA \u2014 LEVEL 3: AUTONOMOUS REASONING CHALLENGE EVALUATION     ');"
+    },
+    {
+      "file": "test_master_11_modules.js",
+      "line": 7,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const AGENT_TOKEN = 'nova-local-agent-secure-token-2026';"
+    },
+    {
+      "file": "test_master_11_modules.js",
+      "line": 56,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "console.log('   NOVA \u2014 MASTER 11-MODULE OPERATIONAL VERIFICATION SUITE       ');"
+    },
+    {
+      "file": "test_master_11_modules.js",
+      "line": 312,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "const testVal = 'NOVA Autonomous AI Operating System';"
+    },
+    {
+      "file": "test_master_11_modules.js",
+      "line": 359,
+      "matches": [
+        "Nova"
+      ],
+      "snippet": "// 6.2 Wake-word detection: \"Hey Nova\""
+    },
+    {
+      "file": "test_master_11_modules.js",
+      "line": 361,
+      "matches": [
+        "Nova"
+      ],
+      "snippet": "text: 'Hey Nova open calculator'"
+    },
+    {
+      "file": "test_master_11_modules.js",
+      "line": 365,
+      "matches": [
+        "Nova"
+      ],
+      "snippet": "recordTest('Module 6: Voice', '6.2 Wake-word detection: \"Hey Nova\"',"
+    },
+    {
+      "file": "test_master_11_modules.js",
+      "line": 558,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "secChat.success && !secChat.content.includes(AGENT_TOKEN) && !secChat.content.includes('nova-local-agent'),"
+    },
+    {
+      "file": "test_master_11_modules.js",
+      "line": 644,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "telemRes.data.status === 'healthy' || telemRes.data.status === 'OPTIMAL' || telemRes.data.system?.includes('NOVA'),"
+    },
+    {
+      "file": "test_phase6_goal_execution.js",
+      "line": 7,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const AGENT_TOKEN = 'nova-local-agent-secure-token-2026';"
+    },
+    {
+      "file": "test_phase6_goal_execution.js",
+      "line": 71,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const deliverablesDir = path.resolve('c:/Users/digvi/OneDrive/Desktop/Jarvis/nova/deliverables');"
+    },
+    {
+      "file": "test_phase6_goal_execution.js",
+      "line": 96,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "const isJarvis = text.includes('JARVIS') && !text.includes('I AM NOVA');"
+    },
+    {
+      "file": "test_phase6_goal_execution.js",
+      "line": 97,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "recordTest('P6-02', 'System Identity', 'Assistant Responds as JARVIS (Not NOVA)', isJarvis, {"
+    },
+    {
+      "file": "test_phase6_goal_execution.js",
+      "line": 102,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "recordTest('P6-02', 'System Identity', 'Assistant Responds as JARVIS (Not NOVA)', false, { error: err.message });"
+    },
+    {
+      "file": "test_phase6_goal_execution.js",
+      "line": 338,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const arcReactorCode = fs.readFileSync('c:/Users/digvi/OneDrive/Desktop/Jarvis/nova/frontend/src/components/dashboard/Ar"
+    },
+    {
+      "file": "test_phase6_goal_execution.js",
+      "line": 368,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "path.resolve('c:/Users/digvi/OneDrive/Desktop/Jarvis/nova/phase6_verification_results.json'),"
+    },
+    {
+      "file": "test_round2_intelligence_regression.js",
+      "line": 5,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "const AGENT_TOKEN = 'nova-local-agent-secure-token-2026';"
+    },
+    {
+      "file": "test_round2_intelligence_regression.js",
+      "line": 31,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "console.log('   NOVA ROUND 2 \u2014 REAL-WORLD INTELLIGENCE REGRESSION SUITE      ');"
+    },
+    {
+      "file": "docs/API.md",
+      "line": 1,
+      "matches": [
+        "NOVA",
+        "NOVA"
+      ],
+      "snippet": "# NOVA System API Documentation \u2014 Phase 5: NOVA 1.0 Production-Grade OS"
+    },
+    {
+      "file": "docs/API.md",
+      "line": 3,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "The NOVA Backend operates on port `5000` with REST and WebSocket endpoints. The Python Local Agent operates on port `800"
+    },
+    {
+      "file": "docs/ARCHITECTURE.md",
+      "line": 1,
+      "matches": [
+        "NOVA",
+        "NOVA"
+      ],
+      "snippet": "# NOVA System Architecture \u2014 Phase 5: NOVA 1.0 Production-Grade OS"
+    },
+    {
+      "file": "docs/ARCHITECTURE.md",
+      "line": 3,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "NOVA (Neural Operative Virtual Assistant) is a full-stack, voice-driven personal AI operating system inspired by Tony St"
+    },
+    {
+      "file": "docs/ARCHITECTURE.md",
+      "line": 13,
+      "matches": [
+        "Nova"
+      ],
+      "snippet": "|  - Hardware Privacy Mute & Local Wake-Word Indicators (\"Hey Nova\" / \"\u0bb9\u0bc7 \u0ba8\u0bcb\u0bb5\u0bbe\")  |"
+    },
+    {
+      "file": "docs/ARCHITECTURE.md",
+      "line": 62,
+      "matches": [
+        "Nova"
+      ],
+      "snippet": "|   |   - Cursor Positioning & Click |   |   - \"Hey Nova\" & \"\u0bb9\u0bc7 \u0ba8\u0bcb\u0bb5\u0bbe\"      |   |   - Sandboxed Directory Paths   |   |"
+    },
+    {
+      "file": "docs/DEPLOYMENT.md",
+      "line": 1,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "# NOVA 1.0 \u2014 Secure Deployment & Operations Guide"
+    },
+    {
+      "file": "docs/DEPLOYMENT.md",
+      "line": 5,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "NOVA is a production-grade personal AI operating system inspired by JARVIS. It operates with a four-tier distributed loc"
+    },
+    {
+      "file": "docs/DEPLOYMENT.md",
+      "line": 10,
+      "matches": [
+        "NOVA",
+        "nova"
+      ],
+      "snippet": "4. **NOVA Process Supervisor:** Node.js supervisor (`nova/backend/supervisor.js`) that monitors, health-checks, and auto"
+    },
+    {
+      "file": "docs/DEPLOYMENT.md",
+      "line": 16,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "NOVA can be configured to start automatically on Windows boot."
+    },
+    {
+      "file": "docs/DEPLOYMENT.md",
+      "line": 19,
+      "matches": [
+        "nova",
+        "nova"
+      ],
+      "snippet": "Double-click `nova\\scripts\\start-nova.bat`. This verifies Node.js and Python environments, launches the supervisor, and "
+    },
+    {
+      "file": "docs/DEPLOYMENT.md",
+      "line": 22,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "To launch NOVA silently on user login without popup terminal windows:"
+    },
+    {
+      "file": "docs/DEPLOYMENT.md",
+      "line": 24,
+      "matches": [
+        "nova",
+        "nova"
+      ],
+      "snippet": "2. Create a shortcut to `nova\\scripts\\start-nova-silent.vbs` inside the Startup folder."
+    },
+    {
+      "file": "docs/DEPLOYMENT.md",
+      "line": 46,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "Create or update `.env` in `nova/backend/`:"
+    },
+    {
+      "file": "docs/DEPLOYMENT.md",
+      "line": 53,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "PYTHON_AGENT_TOKEN=nova-local-agent-secure-token-2026"
+    },
+    {
+      "file": "docs/DEPLOYMENT.md",
+      "line": 61,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "NOVA features automated non-blocking SQLite hot backups via `VACUUM INTO`:"
+    },
+    {
+      "file": "docs/DEPLOYMENT.md",
+      "line": 62,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "- Backups are generated in `nova/data/backups/`."
+    },
+    {
+      "file": "docs/DEPLOYMENT.md",
+      "line": 72,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "node nova\\backend\\supervisor.js"
+    },
+    {
+      "file": "docs/ROLLBACK.md",
+      "line": 1,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "# NOVA 1.0 \u2014 Rollback & Disaster Recovery Guide"
+    },
+    {
+      "file": "docs/ROLLBACK.md",
+      "line": 11,
+      "matches": [
+        "NOVA",
+        "nova"
+      ],
+      "snippet": "NOVA maintains atomic SQLite hot snapshots in `nova/data/backups/`."
+    },
+    {
+      "file": "docs/ROLLBACK.md",
+      "line": 14,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "1. **Stop all active NOVA services:**"
+    },
+    {
+      "file": "docs/ROLLBACK.md",
+      "line": 22,
+      "matches": [
+        "nova",
+        "nova"
+      ],
+      "snippet": "Navigate to `nova\\data\\backups` and select the most recent verified backup file (e.g. `nova-backup-2026-11-22T17-44-00-0"
+    },
+    {
+      "file": "docs/ROLLBACK.md",
+      "line": 27,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "sqlite3 nova\\data\\backups\\<selected_backup_filename> \"PRAGMA integrity_check;\""
+    },
+    {
+      "file": "docs/ROLLBACK.md",
+      "line": 34,
+      "matches": [
+        "nova",
+        "nova",
+        "nova",
+        "nova"
+      ],
+      "snippet": "Move-Item nova\\data\\nova.sqlite nova\\data\\nova.sqlite.corrupt-backup"
+    },
+    {
+      "file": "docs/ROLLBACK.md",
+      "line": 36,
+      "matches": [
+        "nova",
+        "nova",
+        "nova"
+      ],
+      "snippet": "Copy-Item nova\\data\\backups\\<selected_backup_filename> nova\\data\\nova.sqlite"
+    },
+    {
+      "file": "docs/ROLLBACK.md",
+      "line": 41,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "node nova\\backend\\supervisor.js"
+    },
+    {
+      "file": "docs/ROLLBACK.md",
+      "line": 59,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "cd nova\\backend && npm install"
+    },
+    {
+      "file": "docs/ROLLBACK.md",
+      "line": 70,
+      "matches": [
+        "nova",
+        "nova"
+      ],
+      "snippet": "sqlite3 nova\\data\\nova.sqlite \"UPDATE settings SET value = 'true' WHERE key = 'emergency_stop';\""
+    },
+    {
+      "file": "docs/ROLLBACK.md",
+      "line": 74,
+      "matches": [
+        "nova",
+        "nova"
+      ],
+      "snippet": "sqlite3 nova\\data\\nova.sqlite \"UPDATE agent_skills SET is_enabled = 0 WHERE skill_key = '<faulty_skill>';\""
+    },
+    {
+      "file": "docs/ROLLBACK.md",
+      "line": 76,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "3. Restart supervisor. NOVA will boot into strict Safe Mode with standard reflex tools only."
+    },
+    {
+      "file": "docs/USER_GUIDE.md",
+      "line": 1,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "# NOVA Operating System \u2014 User Guide"
+    },
+    {
+      "file": "docs/USER_GUIDE.md",
+      "line": 3,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "Welcome to NOVA, your personal AI command center inspired by Tony Stark's JARVIS."
+    },
+    {
+      "file": "docs/USER_GUIDE.md",
+      "line": 28,
+      "matches": [
+        "Nova"
+      ],
+      "snippet": "- *\"Hey Nova, open VS Code.\"* -> Launches Visual Studio Code."
+    },
+    {
+      "file": "python-agent/agent.py",
+      "line": 45,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "raise HTTPException(status_code=401, detail=\"Unauthorized: Invalid NOVA security token\")"
+    },
+    {
+      "file": "python-agent/agent.py",
+      "line": 234,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "d.text((40, 40), \"NOVA SCREEN INTELLIGENCE - DESKTOP SESSION DIAGNOSTIC\", fill=(0, 240, 255))"
+    },
+    {
+      "file": "python-agent/automation/wakeword.py",
+      "line": 9,
+      "matches": [
+        "Nova"
+      ],
+      "snippet": "self.phrase = \"Hey Nova\""
+    },
+    {
+      "file": "python-agent/automation/wakeword.py",
+      "line": 18,
+      "matches": [
+        "NOVA"
+      ],
+      "snippet": "\"engine\": \"NOVA Local Wake-Word Engine (Zero External Audio Streaming)\","
+    },
+    {
+      "file": "python-agent/automation/wakeword.py",
+      "line": 62,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "\"hey nova\","
+    },
+    {
+      "file": "python-agent/automation/wakeword.py",
+      "line": 63,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "\"nova\","
+    },
+    {
+      "file": "python-agent/automation/wakeword.py",
+      "line": 64,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "\"ok nova\","
+    },
+    {
+      "file": "python-agent/automation/wakeword.py",
+      "line": 65,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "\"hi nova\","
+    },
+    {
+      "file": "python-agent/automation/wakeword.py",
+      "line": 66,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "\"hello nova\""
+    },
+    {
+      "file": "python-agent/security/validator.py",
+      "line": 7,
+      "matches": [
+        "nova"
+      ],
+      "snippet": "AGENT_TOKEN = os.environ.get(\"NOVA_AGENT_TOKEN\", \"nova-local-agent-secure-token-2026\")"
+    }
+  ]
+}

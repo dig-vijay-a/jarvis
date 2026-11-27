@@ -1,0 +1,24 @@
+{
+  "services": [
+    {
+      "name": "Node Backend",
+      "port": 5000,
+      "status": "ONLINE",
+      "latencyMs": 2
+    },
+    {
+      "name": "Python Agent",
+      "port": 8000,
+      "status": "ONLINE",
+      "latencyMs": 4
+    },
+    {
+      "name": "Simulated Gateway",
+      "port": 9000,
+      "status": "DEGRADED",
+      "error": "HTTP 503 Service Unavailable"
+    }
+  ],
+  "overall_status": "DEGRADED_OPERATIONAL",
+  "timestamp": "2026-11-24T05:15:27.538Z"
+}

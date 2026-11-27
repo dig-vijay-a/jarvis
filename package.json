@@ -1,0 +1,11 @@
+{
+  "name": "nova-jarvis-system",
+  "version": "1.0.0",
+  "description": "NOVA — Personal AI Operating System (JARVIS)",
+  "scripts": {
+    "start:backend": "node nova/backend/server.js",
+    "start:frontend": "npm --prefix nova/frontend run dev",
+    "start:agent": "python nova/python-agent/agent.py",
+    "build:frontend": "npm --prefix nova/frontend run build"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "test_suite": "SENTINEL_STAGE_2_FOUR_HOUR_ENDURANCE",
+  "stage": "STAGE_2",
+  "status": "COMPLETED",
+  "start_time": "2026-11-24T15:29:46.975Z",
+  "target_duration_seconds": 14400,
+  "target_duration_minutes": 240,
+  "actual_duration_seconds": 14402.4,
+  "actual_duration_minutes": 240,
+  "samples_collected": 1440,
+  "total_scenarios_executed": 959,
+  "passed_count": 959,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "recovery_events_count": 7,
+  "error_count": 0,
+  "duplicate_attempts_count": 1,
+  "unhandled_exceptions_count": 0,
+  "resource_analysis": {
+    "initial_heap_mb": 20.66,
+    "current_heap_mb": 27.63,
+    "net_heap_growth_mb": 6.97,
+    "initial_rss_mb": 65.23,
+    "current_rss_mb": 58,
+    "net_rss_growth_mb": -7.23,
+    "peak_cpu_percent": 3.1,
+    "average_cpu_percent": 0.9,
+    "initial_db_size_bytes": 12570624,
+    "current_db_size_bytes": 12693504,
+    "db_growth_bytes": 122880,
+    "db_integrity": "ok",
+    "memory_leak_detected": false
+  },
+  "failure_scenarios": [
+    {
+      "id": "WS_DISCONNECT",
+      "name": "Temporary WebSocket Disconnection",
+      "executed": true,
+      "scheduledAtS": 300,
+      "result": {
+        "passed": true,
+        "recovery_time_ms": 1513,
+        "details": "WebSocket reconnection resilient, no state dropped."
+      }
+    },
+    {
+      "id": "PYTHON_OFFLINE",
+      "name": "Temporary Python Agent Unavailability",
+      "executed": true,
+      "scheduledAtS": 900,
+      "result": {
+        "passed": true,
+        "recovery_time_ms": 1205,
+        "details": "Autonomous fallback engaged, missions continue."
+      }
+    },
+    {
+      "id": "HTTP_503_RETRY",
+      "name": "Simulated HTTP 503 Provider Outage Backoff",
+      "executed": true,
+      "scheduledAtS": 1800,
+      "result": {
+        "passed": true,
+        "recovery_time_ms": 2008,
+        "details": "Retry backoff respected without false completion."
+      }
+    },
+    {
+      "id": "SQLITE_BUSY",
+      "name": "SQLite Busy & Lock Contention Resolution",
+      "executed": true,
+      "scheduledAtS": 3600,
+      "result": {
+        "passed": true,
+        "recovery_time_ms": 510,
+        "details": "SQLite WAL mode absorbed lock contention cleanly."
+      }
+    },
+    {
+      "id": "INTERRUPTED_MISSION",
+      "name": "Interrupted Test Mission Non-False-Completion",
+      "executed": true,
+      "scheduledAtS": 5400,
+      "result": {
+        "passed": true,
+        "recovery_time_ms": 4,
+        "details": "Mission marked FAILED_RECOVERABLE, truthful verification preserved."
+      }
+    },
+    {
+      "id": "BACKEND_RESTART_CHECKPOINT",
+      "name": "Mid-Test State Persistence & Restart Checkpoint",
+      "executed": true,
+      "scheduledAtS": 7200,
+      "result": {
+        "passed": true,
+        "recovery_time_ms": 6,
+        "details": "State checkpoint verified at sample #720 and 7203s elapsed."
+      }
+    },
+    {
+      "id": "WORKER_RECOVERY",
+      "name": "Worker Process Termination & Watchdog Respawn",
+      "executed": true,
+      "scheduledAtS": 9000,
+      "result": {
+        "passed": true,
+        "recovery_time_ms": 1278,
+        "details": "Worker PID 52672 cleanly terminated; Watchdog respawned replacement worker PID 42920."
+      }
+    },
+    {
+      "id": "DUPLICATE_PREVENTION",
+      "name": "Duplicate Execution Idempotency Barrier",
+      "executed": true,
+      "scheduledAtS": 10800,
+      "result": {
+        "passed": true,
+        "recovery_time_ms": 513,
+        "details": "Duplicate request suppressed via idempotency deduplication."
+      }
+    }
+  ],
+  "operational_verdict": "ENDURANCE_VERIFIED_PASS"
+}

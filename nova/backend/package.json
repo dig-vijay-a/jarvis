@@ -1,0 +1,21 @@
+{
+  "name": "nova-backend",
+  "version": "1.0.0",
+  "description": "NOVA AI OS Backend - JARVIS Orchestrator and Services",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "cors": "^2.8.5",
+    "ws": "^8.18.0",
+    "sqlite3": "^5.1.7",
+    "dotenv": "^16.4.7",
+    "axios": "^1.7.9",
+    "uuid": "^11.0.5",
+    "cheerio": "^1.0.0"
+  }
+}

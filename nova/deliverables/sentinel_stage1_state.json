@@ -1,0 +1,97 @@
+{
+  "status": "COMPLETED",
+  "startTime": 1795523373896,
+  "totalPausedDurationMs": 32,
+  "samplesCollected": 687,
+  "baselineMemory": {
+    "rss_mb": 72.12,
+    "heap_used_mb": 20.36,
+    "heap_total_mb": 23.71
+  },
+  "baselineDbSize": 12320768,
+  "peakCpuPercent": 13.9,
+  "passedCount": 432,
+  "failedCount": 2,
+  "recoveryEventsCount": 6,
+  "errorCount": 2,
+  "duplicateAttemptsCount": 1,
+  "failureScenarios": [
+    {
+      "id": "WS_DISCONNECT",
+      "name": "Temporary WebSocket Disconnection",
+      "executed": true,
+      "scheduledAtS": 120,
+      "result": {
+        "passed": true,
+        "recovery_time_ms": 1515,
+        "details": "WebSocket reconnection resilient, no state dropped."
+      }
+    },
+    {
+      "id": "PYTHON_OFFLINE",
+      "name": "Temporary Python Agent Unavailability",
+      "executed": true,
+      "scheduledAtS": 360,
+      "result": {
+        "passed": true,
+        "recovery_time_ms": 1207,
+        "details": "Autonomous fallback engaged, missions continue."
+      }
+    },
+    {
+      "id": "HTTP_503_RETRY",
+      "name": "Simulated HTTP 503 Provider Outage Backoff",
+      "executed": true,
+      "scheduledAtS": 720,
+      "result": {
+        "passed": true,
+        "recovery_time_ms": 2016,
+        "details": "Retry backoff respected without false completion."
+      }
+    },
+    {
+      "id": "SQLITE_BUSY",
+      "name": "SQLite Busy & Lock Contention Resolution",
+      "executed": true,
+      "scheduledAtS": 1200,
+      "result": {
+        "passed": true,
+        "recovery_time_ms": 523,
+        "details": "SQLite WAL mode absorbed lock contention cleanly."
+      }
+    },
+    {
+      "id": "INTERRUPTED_MISSION",
+      "name": "Interrupted Test Mission Non-False-Completion",
+      "executed": true,
+      "scheduledAtS": 1800,
+      "result": {
+        "passed": true,
+        "recovery_time_ms": 4,
+        "details": "Mission marked FAILED_RECOVERABLE, truthful verification preserved."
+      }
+    },
+    {
+      "id": "WORKER_RECOVERY",
+      "name": "Worker Recovery & Deadlock Clearance",
+      "executed": true,
+      "scheduledAtS": 2700,
+      "result": {
+        "passed": true,
+        "recovery_time_ms": 1016,
+        "details": "Watchdog heartbeat revived background worker."
+      }
+    },
+    {
+      "id": "DUPLICATE_PREVENTION",
+      "name": "Duplicate Execution Idempotency Barrier",
+      "executed": true,
+      "scheduledAtS": 3600,
+      "result": {
+        "passed": true,
+        "recovery_time_ms": 513,
+        "details": "Duplicate request suppressed via idempotency deduplication."
+      }
+    }
+  ]
+}

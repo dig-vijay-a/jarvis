@@ -43,6 +43,7 @@ import ambientRoutes from './routes/ambient.js';
 import evolutionRoutes from './routes/evolution.js';
 import strategicRoutes from './routes/strategic.js';
 import sentinelRoutes from './routes/sentinel.js';
+import aegisRoutes from './routes/aegis.js';
 import ObservabilityService from './services/observabilityService.js';
 import { getSentinelEnduranceService } from './services/sentinelEnduranceService.js';
 import ComputerControlService from './services/computerControlService.js';
@@ -175,6 +176,7 @@ app.use('/api/ambient', ambientRoutes);
 app.use('/api/evolution', evolutionRoutes);
 app.use('/api/strategic', strategicRoutes);
 app.use('/api/sentinel', sentinelRoutes);
+app.use('/api/aegis', aegisRoutes);
 
 // Environmental perception events endpoint
 app.get('/api/perception/events', async (req, res) => {

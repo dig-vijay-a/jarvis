@@ -1,0 +1,5 @@
+{"timestamp":"2026-11-27T07:09:25.126Z","gate":"gate-1","metric":"hardware_baseline","value":{"freeMemMb":1190,"totalMemMb":16095,"cpus":12}}
+{"timestamp":"2026-11-27T07:09:25.128Z","gate":"gate-2","metric":"concurrency_1","value":{"duration_ms":2,"free_ram_mb":1190}}
+{"timestamp":"2026-11-27T07:09:25.129Z","gate":"gate-2","metric":"concurrency_3","value":{"duration_ms":1,"free_ram_mb":1190}}
+{"timestamp":"2026-11-27T07:09:25.130Z","gate":"gate-2","metric":"concurrency_5","value":{"duration_ms":1,"free_ram_mb":1190}}
+{"timestamp":"2026-11-27T07:09:25.132Z","gate":"gate-2","metric":"concurrency_10","value":{"duration_ms":2,"free_ram_mb":1190}}

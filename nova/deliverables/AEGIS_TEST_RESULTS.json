@@ -1,0 +1,286 @@
+{
+  "programme": "JARVIS OS 2.0 — Phase 21: Project AEGIS",
+  "timestamp": "2026-11-27T07:09:30.841Z",
+  "production_db_sha256": "4018871d0a62bb7ff0be9c857f69517a3b406187365227e35697c47f1d84afc0",
+  "db_untouched": true,
+  "gates": {
+    "gate-0": {
+      "id": "gate-0",
+      "title": "Environment & Safety Preparation",
+      "verdict": "PASS",
+      "counts": {
+        "PASS": 3,
+        "FAIL": 0,
+        "PARTIALLY_VERIFIED": 0,
+        "NOT_TESTED": 0,
+        "BLOCKED": 0
+      },
+      "summary": "3 PASS, 0 FAIL, 0 PARTIAL, 0 NOT_TESTED",
+      "checks": [
+        {
+          "id": "G0-01",
+          "name": "Production DB backup & SHA-256 match",
+          "status": "PASS",
+          "details": "4018871d0a62bb7ff0be9c857f69517a3b406187365227e35697c47f1d84afc0"
+        },
+        {
+          "id": "G0-02",
+          "name": "Isolated DB & disposable workspace ready",
+          "status": "PASS"
+        },
+        {
+          "id": "G0-03",
+          "name": "Git repository & phase-21-aegis branch active",
+          "status": "PASS",
+          "details": "branch=phase-21-aegis"
+        }
+      ]
+    },
+    "gate-1": {
+      "id": "gate-1",
+      "title": "System Baseline",
+      "verdict": "PASS",
+      "counts": {
+        "PASS": 5,
+        "FAIL": 0,
+        "PARTIALLY_VERIFIED": 0,
+        "NOT_TESTED": 0,
+        "BLOCKED": 0
+      },
+      "summary": "5 PASS, 0 FAIL, 0 PARTIAL, 0 NOT_TESTED",
+      "checks": [
+        {
+          "id": "G1-01",
+          "name": "Ollama endpoint & qwen3.5:4b availability",
+          "status": "PASS"
+        },
+        {
+          "id": "G1-02",
+          "name": "Local Ollama qwen3.5:4b inference check",
+          "status": "PASS"
+        },
+        {
+          "id": "G1-03",
+          "name": "Python desktop automation agent health (127.0.0.1:8000)",
+          "status": "PASS"
+        },
+        {
+          "id": "G1-04",
+          "name": "Node backend AEGIS API & SQLite integrity",
+          "status": "PASS"
+        },
+        {
+          "id": "G1-05",
+          "name": "Hardware baseline telemetry recorded",
+          "status": "PASS",
+          "details": "1190/16095 MB RAM free"
+        }
+      ]
+    },
+    "gate-2": {
+      "id": "gate-2",
+      "title": "Resource Resilience",
+      "verdict": "PASS",
+      "counts": {
+        "PASS": 4,
+        "FAIL": 0,
+        "PARTIALLY_VERIFIED": 0,
+        "NOT_TESTED": 0,
+        "BLOCKED": 0
+      },
+      "summary": "4 PASS, 0 FAIL, 0 PARTIAL, 0 NOT_TESTED",
+      "checks": [
+        {
+          "id": "G2-C1",
+          "name": "Bounded 1-mission concurrency & checkpointing",
+          "status": "PASS",
+          "details": "2ms"
+        },
+        {
+          "id": "G2-C3",
+          "name": "Bounded 3-mission concurrency & checkpointing",
+          "status": "PASS",
+          "details": "1ms"
+        },
+        {
+          "id": "G2-C5",
+          "name": "Bounded 5-mission concurrency & checkpointing",
+          "status": "PASS",
+          "details": "1ms"
+        },
+        {
+          "id": "G2-C10",
+          "name": "Bounded 10-mission concurrency & checkpointing",
+          "status": "PASS",
+          "details": "2ms"
+        }
+      ]
+    },
+    "gate-3": {
+      "id": "gate-3",
+      "title": "Autonomous Computer Intelligence",
+      "verdict": "PARTIALLY_VERIFIED",
+      "counts": {
+        "PASS": 2,
+        "FAIL": 0,
+        "PARTIALLY_VERIFIED": 1,
+        "NOT_TESTED": 0,
+        "BLOCKED": 0
+      },
+      "summary": "2 PASS, 0 FAIL, 1 PARTIAL, 0 NOT_TESTED",
+      "checks": [
+        {
+          "id": "G3-01",
+          "name": "Disposable workspace test file created",
+          "status": "PASS"
+        },
+        {
+          "id": "G3-02",
+          "name": "Python desktop agent window/UI capability available",
+          "status": "PASS"
+        },
+        {
+          "id": "G3-03",
+          "name": "Live interactive Notepad/Calculator/OCR GUI sequence",
+          "status": "PARTIALLY_VERIFIED",
+          "details": "Agent online; full interactive GUI click sequence requires live desktop focus"
+        }
+      ]
+    },
+    "gate-4": {
+      "id": "gate-4",
+      "title": "Security & Self-Evolution",
+      "verdict": "PASS",
+      "counts": {
+        "PASS": 7,
+        "FAIL": 0,
+        "PARTIALLY_VERIFIED": 0,
+        "NOT_TESTED": 0,
+        "BLOCKED": 0
+      },
+      "summary": "7 PASS, 0 FAIL, 0 PARTIAL, 0 NOT_TESTED",
+      "checks": [
+        {
+          "id": "G4-01",
+          "name": "Prompt injection metadata rejected",
+          "status": "PASS",
+          "details": "REJECTED_SECURITY"
+        },
+        {
+          "id": "G4-02",
+          "name": "Sandbox escape require(child_process) blocked",
+          "status": "PASS",
+          "details": "REJECTED_SECURITY"
+        },
+        {
+          "id": "G4-03",
+          "name": "Credential process.env access blocked",
+          "status": "PASS",
+          "details": "REJECTED_SECURITY"
+        },
+        {
+          "id": "G4-04",
+          "name": "Network exfiltration fetch() blocked",
+          "status": "PASS",
+          "details": "REJECTED_SECURITY"
+        },
+        {
+          "id": "G4-05",
+          "name": "Privilege escalation permission blocked",
+          "status": "PASS",
+          "details": "REJECTED_SECURITY"
+        },
+        {
+          "id": "G4-06",
+          "name": "Security boundary tampering blocked",
+          "status": "PASS",
+          "details": "REJECTED_SECURITY"
+        },
+        {
+          "id": "G4-07",
+          "name": "Infinite loop terminated by VM timeout",
+          "status": "PASS",
+          "details": "FAILED_TIMEOUT"
+        }
+      ]
+    },
+    "gate-5": {
+      "id": "gate-5",
+      "title": "Android Device Pairing & Testing",
+      "verdict": "PARTIALLY_VERIFIED",
+      "counts": {
+        "PASS": 1,
+        "FAIL": 0,
+        "PARTIALLY_VERIFIED": 0,
+        "NOT_TESTED": 1,
+        "BLOCKED": 0
+      },
+      "summary": "1 PASS, 0 FAIL, 0 PARTIAL, 1 NOT_TESTED",
+      "checks": [
+        {
+          "id": "G5-01",
+          "name": "Android Platform Tools (ADB) installed",
+          "status": "PASS"
+        },
+        {
+          "id": "G5-02",
+          "name": "Physical Android device USB debugging & live hardware validation",
+          "status": "NOT_TESTED",
+          "details": "No physical Android phone attached via USB (adb devices empty); never simulated as physical pass"
+        }
+      ]
+    },
+    "gate-6": {
+      "id": "gate-6",
+      "title": "Unfamiliar Real-World Objectives",
+      "verdict": "PASS",
+      "counts": {
+        "PASS": 2,
+        "FAIL": 0,
+        "PARTIALLY_VERIFIED": 0,
+        "NOT_TESTED": 0,
+        "BLOCKED": 0
+      },
+      "summary": "2 PASS, 0 FAIL, 0 PARTIAL, 0 NOT_TESTED",
+      "checks": [
+        {
+          "id": "G6-01",
+          "name": "Unfamiliar workspace inventory objective & disk deliverable check",
+          "status": "PASS",
+          "details": "C:\\Users\\digvi\\OneDrive\\Desktop\\Jarvis\\nova\\data\\sentinel_disposable_test\\aegis_workspace\\project_inventory_report.json"
+        },
+        {
+          "id": "G6-02",
+          "name": "Duplicate file detection without deletion",
+          "status": "PASS"
+        }
+      ]
+    },
+    "gate-7": {
+      "id": "gate-7",
+      "title": "Independent Final Audit",
+      "verdict": "PASS",
+      "counts": {
+        "PASS": 2,
+        "FAIL": 0,
+        "PARTIALLY_VERIFIED": 0,
+        "NOT_TESTED": 0,
+        "BLOCKED": 0
+      },
+      "summary": "2 PASS, 0 FAIL, 0 PARTIAL, 0 NOT_TESTED",
+      "checks": [
+        {
+          "id": "G7-01",
+          "name": "Production DB SHA-256 untouched across all gates",
+          "status": "PASS",
+          "details": "4018871d0a62bb7ff0be9c857f69517a3b406187365227e35697c47f1d84afc0"
+        },
+        {
+          "id": "G7-02",
+          "name": "Truthful classification (NOT_TESTED preserved for absent hardware)",
+          "status": "PASS"
+        }
+      ]
+    }
+  }
+}

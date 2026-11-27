@@ -365,4 +365,10 @@ export const runPhase20Assessment = (data = {}) => api.post('/evolution/phase20/
 export const createEvolutionHypothesis = (data) => api.post('/evolution/phase20/hypotheses', data);
 export const runPhase20Experiment = (data) => api.post('/evolution/phase20/experiments/run', data);
 
+// Phase 21: Project AEGIS Testing Centre
+export const getAegisStatus = () => api.get('/aegis/status');
+export const runAegisReadinessCheck = (gateId) => api.post(`/aegis/gates/${gateId}/readiness`);
+export const approveAegisGate = (gateId, operator = 'Operator') => api.post(`/aegis/gates/${gateId}/approve`, { operator });
+export const toggleAegisChecklist = (itemId, checked) => api.post(`/aegis/checklist/${itemId}`, { checked });
+
 export default api;

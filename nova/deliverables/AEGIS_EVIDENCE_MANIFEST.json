@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-11-27T07:09:30.948Z",
+  "files": [
+    {
+      "file": "AEGIS_GATE_0_ENVIRONMENT_REPORT.md",
+      "sha256": "b3b9a6557fb3b642ea2251b7b5063a9eafb4e35de5209cef9f73ab8f08124431"
+    },
+    {
+      "file": "AEGIS_GATE_1_BASELINE_REPORT.md",
+      "sha256": "f659e10b192a50fe184991e7b4dd48a33d8b55b4bc340123477dda95850c79f3"
+    },
+    {
+      "file": "AEGIS_GATE_2_RESOURCE_REPORT.md",
+      "sha256": "842a0e433081c20b4152803637e231d447c3d9d0f2d6d0c1bb91a5b357ca75ec"
+    },
+    {
+      "file": "AEGIS_GATE_3_COMPUTER_INTELLIGENCE_REPORT.md",
+      "sha256": "30e005991a41b1386d43edcb2a6435e6975e68c889a5be1de8fee829afed0b25"
+    },
+    {
+      "file": "AEGIS_GATE_4_SECURITY_REPORT.md",
+      "sha256": "4574acb77509e133015046e34f9f6ad01171574d808ae0528ccfe667d8f9dd7b"
+    },
+    {
+      "file": "AEGIS_GATE_5_ANDROID_REPORT.md",
+      "sha256": "4e0f8860f43135f2a7fc5a5ec31eff0b27ab74f7b85c6fc1b3a810e672a4189c"
+    },
+    {
+      "file": "AEGIS_GATE_6_REAL_WORLD_REPORT.md",
+      "sha256": "ec315635dc3f61b72a0d4ad09688277202e7656fccaba15360decaf473f15faf"
+    },
+    {
+      "file": "AEGIS_FINAL_AUDIT_REPORT.md",
+      "sha256": "6237598f40d24410bb235ec5662c54bb2afefbc0569c3fb7dd10f3812bf5d025"
+    },
+    {
+      "file": "AEGIS_TEST_RESULTS.json",
+      "sha256": "b457857f249e6bc21c8e84a3b25f69fb926ef855eb843070d6207dd238a65f77"
+    },
+    {
+      "file": "AEGIS_TELEMETRY.jsonl",
+      "sha256": "b1492171c934eb542cbe9c132c976dbafca86ae0dee59f1bee588b59a400490e"
+    },
+    {
+      "file": "AEGIS_EVENTS.jsonl",
+      "sha256": "3155ef6cb0b314500b9d866ed04ae713afb66088e8b70bcb6c112a3658ccdfaf"
+    },
+    {
+      "file": "AEGIS_FAILURES.md",
+      "sha256": "b214a28cfba31f1eb547c2f4b5766afd40bb8652468153695327edc29c33a173"
+    }
+  ]
+}

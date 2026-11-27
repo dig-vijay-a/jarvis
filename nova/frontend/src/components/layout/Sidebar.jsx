@@ -21,6 +21,7 @@ export const Sidebar = ({ activeTab = 'dashboard', onSelectTab }) => {
     { id: 'missions', label: 'Mission Control', icon: Rocket, shortcut: '2' },
     { id: 'intelligence', label: 'Intelligence Hub', icon: Cpu, shortcut: '3' },
     { id: 'devices', label: 'Device Ecosystem', icon: Smartphone, shortcut: 'D' },
+    { id: 'aegis', label: 'AEGIS Testing', icon: ShieldCheck, shortcut: 'A' },
     { id: 'chat', label: 'Neural Chat', icon: MessageSquareCode, shortcut: '4' },
     { id: 'memory', label: 'Memory Banks', icon: BrainCircuit, shortcut: '5' },
     { id: 'automations', label: 'Workflows', icon: Workflow, shortcut: '6' },

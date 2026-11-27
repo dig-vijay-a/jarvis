@@ -17,6 +17,7 @@ import MissionControlPage from './pages/MissionControlPage';
 import IntelligenceHubPage from './pages/IntelligenceHubPage';
 import SentinelLivePage from './pages/SentinelLivePage';
 import DeviceDashboardPage from './pages/DeviceDashboardPage';
+import AegisTestingPage from './pages/AegisTestingPage';
 import { LayoutDashboard, Rocket, MessageSquareCode, BrainCircuit, SlidersHorizontal, Workflow } from 'lucide-react';
 
 import { useVoiceAssistant } from './hooks/useVoiceAssistant';
@@ -455,6 +456,8 @@ export function App() {
           {activeTab === 'research' && <ResearchPage />}
 
           {activeTab === 'devices' && <DeviceDashboardPage />}
+
+          {activeTab === 'aegis' && <AegisTestingPage />}
 
           {activeTab === 'settings' && (
             <SettingsPage onSpeakTest={(text) => speak(text)} />
